@@ -1,5 +1,7 @@
 import { Footer } from "@/ui/footer/Footer";
 
+import { DealOfDay } from "./components/dealofday/DealOfDay";
+import { LandingGallery } from "./components/gallery/Gallery";
 import { LandingSlider } from "./components/slider/Slider";
 
 export default function LandingPage() {
@@ -27,6 +29,13 @@ const Content = () => {
       ></welcome-offer-banner> */}
       <LandingContainer />
       <LandingSlider />
+      <LandingGallery />
+      <DealOfDay />
+      <div
+        style={{
+          marginBottom: "1400px",
+        }}
+      ></div>
     </>
   );
 };

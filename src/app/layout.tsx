@@ -10,6 +10,8 @@ import "./morecss.css";
 import "./slider.css";
 import './footer.css';
 import './gog-statics.css';
+import './custom-section.css';
+import './custom-section-flashdeal.css';
 
 
 export const metadata: Metadata = {
