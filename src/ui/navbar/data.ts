@@ -30,6 +30,25 @@ const dataMenu = [
   },
 ];
 
+const dataAboutItems = [
+  {
+    title: "GOG.com",
+    type: "submenu",
+  },
+  {
+    title: "GOG Galaxy",
+    type: "submenu",
+  },
+  {
+    title: "separator",
+    type: "submenu",
+  },
+  {
+    title: "Join the team",
+    type: "submenu",
+  },
+];
+
 const dataSubMenu = [
   "RPG",
   "Action",
@@ -47,5 +66,9 @@ export const dataAll = [
     title: "Store",
     items: dataMenu,
     subItems: dataSubMenu,
+  },
+  {
+    title: "About",
+    items: dataAboutItems,
   },
 ];

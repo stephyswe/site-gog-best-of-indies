@@ -44,23 +44,19 @@ const SubMenuItem = ({ title, isFeatured }: any) => {
   );
 };
 
-function MenuItem({ setIsGog, title, color }: any) {
-  const [isActive, setIsActive] = useState("");
+function MenuItem({ setMenuActive, isMenuActive, title, color }: any) {
   return (
     <div ng-repeat="customCategory in games.customCategories track by customCategory.name">
       {/**/}
       <div
         className={cn(
           "menu-submenu-item menu-submenu-item--custom",
-          isActive === title ? "is-active" : ""
+          isMenuActive === title ? "is-active" : ""
         )}
         ng-mouseover="games.selectCategory(customCategory.name)"
         ng-class="{'is-active': games.selectedCategory.name == customCategory.name}"
-        onMouseLeave={() => setIsActive("")}
-        onMouseOver={() => {
-          //setIsGog(true);
-          setIsActive(title);
-        }}
+        onMouseLeave={() => setMenuActive("")}
+        onMouseOver={() => setMenuActive(title)}
       >
         <a
           className="menu-submenu-link menu-custom-category-link menu-custom-category-link js-menu-category-link"

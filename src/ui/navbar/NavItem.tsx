@@ -1,8 +1,8 @@
 import { cn } from "@/lib/utils";
 import useMenuState from "@/store/useMenuState";
 
-import { MenuItem, MenuSeparator, SubMenuItem } from "./NavPartials";
-import { SectionClassical } from "./section-classical";
+import { MenuList } from "./MenuList";
+import { SubMenuItem } from "./NavPartials";
 
 export const NavItem = ({ title, items, subItems }: any) => {
   const store = useMenuState();
@@ -18,7 +18,7 @@ export const NavItem = ({ title, items, subItems }: any) => {
       ng-mouseenter="menu.showWithDelay($event, 'store')"
       ng-mouseleave="menu.hide($event, 'store')"
       hook-test="menuStore"
-      onMouseEnter={() => store.onOpen("Store")}
+      onMouseEnter={() => store.onOpen(title)}
       onMouseLeave={() => store.onClose("")}
     >
       <a
@@ -27,7 +27,7 @@ export const NavItem = ({ title, items, subItems }: any) => {
         ng-touchstart="$event.preventDefault(); menu.toggle($event, 'store')"
         hook-test="menuStoreButton"
       >
-        Store
+        {title}
         <svg viewBox="0 0 32 32" className="menu-link__dropdown-icon">
           <use xlinkHref="#icon-arrow-down2" />
         </svg>
@@ -41,17 +41,12 @@ export const NavItem = ({ title, items, subItems }: any) => {
         ng-mouseenter="menu.cancelTimeout('store')"
         ng-class="{ 'menu-store__submenu--category-expanded': games.isLayerExpanded }"
       >
-        {isActive ? <SectionClassical /> : null}
         {/**/}
-        {items.map((item: any, index: number) => {
-          if (item.title === "separator") return <MenuSeparator key={index} />;
-          if (item.type === "submenu")
-            return <SubMenuItem key={item.title} {...item} />;
-          return <MenuItem key={item.title} {...item} />;
-        })}
-        {subItems.map((item: any, index: number) => {
-          return <SubMenuItem key={index} title={item} />;
-        })}
+        <MenuList items={items} subItems={subItems} />
+        {subItems &&
+          subItems.map((item: any, index: number) => {
+            return <SubMenuItem key={index} title={item} />;
+          })}
         {/**/}
         <div className="menu-submenu-separator" />
         <div
