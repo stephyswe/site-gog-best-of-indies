@@ -7,6 +7,8 @@ import { Navbar } from "@/ui/navbar/Navbar";
 import "./globals.css";
 import "./gog.css";
 import "./menu.css";
+import "./morecss.css";
+import "./slider.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,7 +35,12 @@ export default function RootLayout({
       lang="en"
       data-theme="light"
     >
-      <body className={inter.className}>
+      <body
+        ng-init="userModel = {isUser: false, isAnonymous: false, bodyClass:false}; bodyModel = {bodyClass: ''}"
+        ng-class="{'is-user':userModel.isUser, 'is-anonymous':userModel.isAnonymous}"
+        className=" "
+        gog-string-format=""
+      >
         {/* <!-- force end any comment tags before the partial --> */}
         <RootSvg />
         <Navbar />
