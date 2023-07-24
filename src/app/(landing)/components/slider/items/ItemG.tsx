@@ -10,13 +10,13 @@ export const ItemG = () => (
     <a
       href="/en/game/weird_west"
       className="big-spot"
-      onclick="window.gogTools.sendPromotionClick(
+    /*   onclick="window.gogTools.sendPromotionClick(
 '\u007B\u0022id\u0022\u003A\u00221421555971\u0022,\u0022title\u0022\u003A\u0022Now\u0020on\u0020sale\u0022,\u0022image\u0022\u003A\u0022\\\/\\\/images\u002D3.gog\u002Dstatics.com\\\/f98a2ec44d282fa48e890bf58c4d0c079f9fda654fc658b9201fa16e4d40374a\u0022,\u0022price\u0022\u003A\u007B\u0022baseAmount\u0022\u003A\u0022430.00\u0022,\u0022finalAmount\u0022\u003A\u0022172.00\u0022,\u0022discountPercentage\u0022\u003A60,\u0022isFree\u0022\u003Afalse\u007D,\u0022supportedOperatingSystems\u0022\u003A\u005B\u0022windows\u0022\u005D,\u0022url\u0022\u003A\u0022\\\/en\\\/game\\\/weird_west\u0022,\u0022isComingSoon\u0022\u003Afalse,\u0022inDevelopment\u0022\u003Afalse,\u0022buyable\u0022\u003Atrue,\u0022isAvailableForSale\u0022\u003Atrue,\u0022isMovie\u0022\u003Afalse,\u0022isVisibleInCatalog\u0022\u003Atrue,\u0022isPreorder\u0022\u003Afalse,\u0022subtitle\u0022\u003A\u0022Weird\u0020West\u003A\u0020Definitive\u0020Edition\u0022,\u0022customButtonMessage\u0022\u003Anull,\u0022customDiscountMessage\u0022\u003Anull,\u0022customTargetUrl\u0022\u003Anull,\u0022mobileImage\u0022\u003A\u0022\\\/\\\/images\u002D3.gog\u002Dstatics.com\\\/50c957bddbc88a539d3b362ced5620b3f6b82f7e498b7d3c9068324d063a892d\u0022,\u0022logo\u0022\u003A\u0022\\\/\\\/images\u002D4.gog\u002Dstatics.com\\\/44f745a720f20f5ef8fdebb4123a7b84e263548ab6e93e9ab476ca29633685fc\u0022,\u0022logoForMobile\u0022\u003Anull,\u0022targetUrl\u0022\u003A\u0022\\\/en\\\/game\\\/weird_west\u0022,\u0022colour\u0022\u003A\u0022rgba\u0028155,99,38,1.00\u0029\u0022,\u0022colourMobile\u0022\u003A\u0022rgba\u0028155,99,38,1.00\u0029\u0022,\u0022visibleTo\u0022\u003A\u00222023\u002D07\u002D25T15\u003A59\u003A59\u002B03\u003A00\u0022,\u0022spotId\u0022\u003A\u0022afce244a\u002D2a21\u002D11ee\u002D89cf\u002Dfa163ec3f57d\u0022,\u0022darkTheme\u0022\u003Afalse\u007D',
 {
 idKey: 'spotId',
 creative: 'big_spot',
 position: '5'
-});"
+});" */
       gog-track-event='[{"eventCategory":"bigSpot","eventAction":"click","eventLabel":5},{"eventCategory":"bigSpot","eventAction":"click","eventLabel":"\/en\/game\/weird_west"}]'
     >
       <picture className="lazy big-spot__background-wrapper">

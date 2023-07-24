@@ -10,13 +10,13 @@ export const ItemD = () => (
     <a
       href="/en/game/baldurs_gate_iii"
       className="big-spot"
-      onclick="window.gogTools.sendPromotionClick(
+     /*  onclick="window.gogTools.sendPromotionClick(
 '\u007B\u0022id\u0022\u003A\u00221456460669\u0022,\u0022title\u0022\u003A\u0022Pre\u002DOrder\u0022,\u0022image\u0022\u003A\u0022\\\/\\\/images\u002D4.gog\u002Dstatics.com\\\/6142569dc721f23b35277e83ac93173e472e36215f8c7b71dc005b132bda3319\u0022,\u0022price\u0022\u003A\u007B\u0022baseAmount\u0022\u003A\u0022678.00\u0022,\u0022finalAmount\u0022\u003A\u0022678.00\u0022,\u0022discountPercentage\u0022\u003A0,\u0022isFree\u0022\u003Afalse\u007D,\u0022supportedOperatingSystems\u0022\u003A\u005B\u0022mac\u0022,\u0022windows\u0022\u005D,\u0022url\u0022\u003A\u0022\\\/en\\\/game\\\/baldurs_gate_iii\u0022,\u0022isComingSoon\u0022\u003Afalse,\u0022inDevelopment\u0022\u003Atrue,\u0022buyable\u0022\u003Atrue,\u0022isAvailableForSale\u0022\u003Atrue,\u0022isMovie\u0022\u003Afalse,\u0022isVisibleInCatalog\u0022\u003Atrue,\u0022isPreorder\u0022\u003Afalse,\u0022subtitle\u0022\u003A\u0022Baldur\u0027s\u0020Gate\u00203\u0022,\u0022customButtonMessage\u0022\u003Anull,\u0022customDiscountMessage\u0022\u003Anull,\u0022customTargetUrl\u0022\u003Anull,\u0022mobileImage\u0022\u003A\u0022\\\/\\\/images\u002D1.gog\u002Dstatics.com\\\/2d1ed8857b8d9ef7f0de60443a715abe70e71b195add4c6b5e4e0af344fc078a\u0022,\u0022logo\u0022\u003A\u0022\\\/\\\/images\u002D4.gog\u002Dstatics.com\\\/ef2b52a72fa3c85ff741144da29ec0106b8e092003d4469c54c725a26520ce76\u0022,\u0022logoForMobile\u0022\u003Anull,\u0022targetUrl\u0022\u003A\u0022\\\/en\\\/game\\\/baldurs_gate_iii\u0022,\u0022colour\u0022\u003A\u0022rgba\u002842,71,99,1.00\u0029\u0022,\u0022colourMobile\u0022\u003A\u0022rgba\u002842,71,99,1.00\u0029\u0022,\u0022visibleTo\u0022\u003A\u00222023\u002D07\u002D25T15\u003A59\u003A59\u002B03\u003A00\u0022,\u0022spotId\u0022\u003A\u0022bbaf4124\u002D27c7\u002D11ee\u002D9454\u002Dfa163eebc216\u0022,\u0022darkTheme\u0022\u003Afalse\u007D',
 {
 idKey: 'spotId',
 creative: 'big_spot',
 position: '2'
-});"
+});" */
       gog-track-event='[{"eventCategory":"bigSpot","eventAction":"click","eventLabel":2},{"eventCategory":"bigSpot","eventAction":"click","eventLabel":"\/en\/game\/baldurs_gate_iii"}]'
     >
       <picture>
@@ -129,7 +129,7 @@ product-tile__platforms--windows
                 </div>
                 <div className="big-spot__super-title-text">Pre-Order</div>
               </div>
-              <div className="big-spot__title">Baldur's Gate 3</div>
+              <div className="big-spot__title">Baldurs Gate 3</div>
             </div>
             <div className="big-spot__action">
               <div className="big-spot__action-left-side">

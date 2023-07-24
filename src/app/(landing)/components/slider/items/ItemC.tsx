@@ -7,13 +7,13 @@ export const ItemC = () => (
     <a
       href="https://www.gog.com/promo/2023_summer_classics_sale"
       className="big-spot"
-      onclick="window.gogTools.sendPromotionClick(
+      /* onclick="window.gogTools.sendPromotionClick(
 '\u007B\u0022subtitle\u0022\u003A\u0022Deals\u0020ending\u0020in\u003A\u0020\u0025countdown\u0025\u0022,\u0022title\u0022\u003A\u0022Discover\u0020the\u0020timeless\u0020magic\u0020of\u0020gaming\u0020up\u0020to\u0020\u002D89\u0025\u0022,\u0022customButtonMessage\u0022\u003A\u0022Browse\u0022,\u0022customDiscountMessage\u0022\u003Anull,\u0022customTargetUrl\u0022\u003A\u0022https\u003A\\\/\\\/www.gog.com\\\/promo\\\/2023_summer_classics_sale\u0022,\u0022image\u0022\u003A\u0022\\\/\\\/images\u002D1.gog\u002Dstatics.com\\\/b42f35531e9daf1db73b039fbbf9f5dd707c31bc296fa57be4405739eedbe7bd\u0022,\u0022mobileImage\u0022\u003A\u0022\\\/\\\/images\u002D3.gog\u002Dstatics.com\\\/38699c5ad47c7e57cac811cb472dacf717a3322b5c86eabb42eff758fc16dd29\u0022,\u0022logo\u0022\u003A\u0022\\\/\\\/images\u002D3.gog\u002Dstatics.com\\\/e7d4ae15ae7b8ef6b4d96349c2c4b43de005b5fb8e79b327020dd9326bd4bf49\u0022,\u0022logoForMobile\u0022\u003Anull,\u0022targetUrl\u0022\u003A\u0022https\u003A\\\/\\\/www.gog.com\\\/promo\\\/2023_summer_classics_sale\u0022,\u0022colour\u0022\u003A\u0022rgba\u002836,41,64,1.00\u0029\u0022,\u0022colourMobile\u0022\u003A\u0022rgba\u002836,41,64,1.00\u0029\u0022,\u0022visibleTo\u0022\u003A\u00222023\u002D07\u002D24T23\u003A59\u003A59\u002B03\u003A00\u0022,\u0022spotId\u0022\u003A\u002201b47702\u002D24a3\u002D11ee\u002Dbb25\u002Dfa163eebc216\u0022,\u0022darkTheme\u0022\u003Afalse\u007D',
 {
 idKey: 'spotId',
 creative: 'big_spot',
 position: '1'
-});"
+});" */
       gog-track-event='[{"eventCategory":"bigSpot","eventAction":"click","eventLabel":1},{"eventCategory":"bigSpot","eventAction":"click","eventLabel":"https:\/\/www.gog.com\/promo\/2023_summer_classics_sale"}]'
     >
       <picture>
@@ -86,11 +86,10 @@ position: '1'
                 Discover the timeless magic of gaming up to -89%
               </div>
               <div className="big-spot__title">
-                <gog-countdown-timer
+                {/* <gog-countdown-timer
                   end-date="2023-07-24T23:59:59+03:00"
                   current-date={1690230980000}
                 >
-                  {/**/}
                   <div ng-if="gogCountdownTimer.timeLeft > 0">
                     Deals ending in: <span>00 : 21 : 38</span>
                     <span
@@ -100,8 +99,7 @@ position: '1'
                       00:00:00
                     </span>
                   </div>
-                  {/**/}
-                </gog-countdown-timer>
+                </gog-countdown-timer> */}
               </div>
             </div>
             <div className="big-spot__action">

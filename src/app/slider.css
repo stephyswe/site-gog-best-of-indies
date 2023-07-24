@@ -274,7 +274,7 @@
 }
 
 @media (hover) {
-  .big-spots-wrapper: hover .glide__bullet--active:after {
+  .big-spots-wrapper:hover .glide__bullet--active:after {
     transform: scaleX(0);
     transition: none;
   }

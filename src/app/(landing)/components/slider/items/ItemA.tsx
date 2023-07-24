@@ -10,13 +10,13 @@ export const ItemA = () => (
     <a
       href="/en/game/axe_cop"
       className="big-spot"
-      onclick="window.gogTools.sendPromotionClick(
+      /* onClick="window.gogTools.sendPromotionClick(
 '\u007B\u0022id\u0022\u003A\u00221508621918\u0022,\u0022title\u0022\u003A\u0022Now\u0020available\u0022,\u0022image\u0022\u003A\u0022\\\/\\\/images\u002D3.gog\u002Dstatics.com\\\/90952560004c4fe978ec2aebc1c82be21686def768a69ddab24d34850ef7377d\u0022,\u0022price\u0022\u003A\u007B\u0022baseAmount\u0022\u003A\u002295.00\u0022,\u0022finalAmount\u0022\u003A\u002295.00\u0022,\u0022discountPercentage\u0022\u003A0,\u0022isFree\u0022\u003Afalse\u007D,\u0022supportedOperatingSystems\u0022\u003A\u005B\u0022windows\u0022\u005D,\u0022url\u0022\u003A\u0022\\\/en\\\/game\\\/axe_cop\u0022,\u0022isComingSoon\u0022\u003Afalse,\u0022inDevelopment\u0022\u003Afalse,\u0022buyable\u0022\u003Atrue,\u0022isAvailableForSale\u0022\u003Atrue,\u0022isMovie\u0022\u003Afalse,\u0022isVisibleInCatalog\u0022\u003Atrue,\u0022isPreorder\u0022\u003Afalse,\u0022subtitle\u0022\u003A\u0022Axe\u0020Cop\u0022,\u0022customButtonMessage\u0022\u003Anull,\u0022customDiscountMessage\u0022\u003Anull,\u0022customTargetUrl\u0022\u003Anull,\u0022mobileImage\u0022\u003A\u0022\\\/\\\/images\u002D1.gog\u002Dstatics.com\\\/bfb697b552379213be73bb46e3314651a716f842b47d090f1f53c23d95d68f20\u0022,\u0022logo\u0022\u003A\u0022\\\/\\\/images\u002D3.gog\u002Dstatics.com\\\/3f18c639442966ad074c39e92a54f2afa134e01da7eed04af31b7de3b7a29172\u0022,\u0022logoForMobile\u0022\u003Anull,\u0022targetUrl\u0022\u003A\u0022\\\/en\\\/game\\\/axe_cop\u0022,\u0022colour\u0022\u003A\u0022rgba\u002890,74,32,1.00\u0029\u0022,\u0022colourMobile\u0022\u003A\u0022rgba\u002890,74,32,1.00\u0029\u0022,\u0022visibleTo\u0022\u003A\u00222023\u002D07\u002D25T15\u003A59\u003A59\u002B03\u003A00\u0022,\u0022spotId\u0022\u003A\u002247a45340\u002D2a16\u002D11ee\u002D9947\u002Dfa163ec3f57d\u0022,\u0022darkTheme\u0022\u003Afalse\u007D',
 {
 idKey: 'spotId',
 creative: 'big_spot',
 position: '12'
-});"
+});" */
       gog-track-event='[{"eventCategory":"bigSpot","eventAction":"click","eventLabel":12},{"eventCategory":"bigSpot","eventAction":"click","eventLabel":"\/en\/game\/axe_cop"}]'
     >
       <picture className="lazy big-spot__background-wrapper">

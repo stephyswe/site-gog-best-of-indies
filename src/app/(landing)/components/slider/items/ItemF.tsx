@@ -10,13 +10,13 @@ export const ItemF = () => (
     <a
       href="/en/game/dv_rings_of_saturn"
       className="big-spot"
-      onclick="window.gogTools.sendPromotionClick(
+     /*  onclick="window.gogTools.sendPromotionClick(
         '\u007B\u0022id\u0022\u003A\u00221168832459\u0022,\u0022title\u0022\u003A\u0022Out\u0020of\u0020Early\u0020Access\u0021\u0022,\u0022image\u0022\u003A\u0022\\\/\\\/images\u002D1.gog\u002Dstatics.com\\\/06dea00b9e6ca3f584fc0504b8321aad4111297e78c827f9a7d832c12d8a0667\u0022,\u0022price\u0022\u003A\u007B\u0022baseAmount\u0022\u003A\u002286.00\u0022,\u0022finalAmount\u0022\u003A\u002264.40\u0022,\u0022discountPercentage\u0022\u003A25,\u0022isFree\u0022\u003Afalse\u007D,\u0022supportedOperatingSystems\u0022\u003A\u005B\u0022windows\u0022\u005D,\u0022url\u0022\u003A\u0022\\\/en\\\/game\\\/dv_rings_of_saturn\u0022,\u0022isComingSoon\u0022\u003Afalse,\u0022inDevelopment\u0022\u003Afalse,\u0022buyable\u0022\u003Atrue,\u0022isAvailableForSale\u0022\u003Atrue,\u0022isMovie\u0022\u003Afalse,\u0022isVisibleInCatalog\u0022\u003Atrue,\u0022isPreorder\u0022\u003Afalse,\u0022subtitle\u0022\u003A\u0022\\u0394V\u003A\u0020Rings\u0020of\u0020Saturn\u0022,\u0022customButtonMessage\u0022\u003Anull,\u0022customDiscountMessage\u0022\u003Anull,\u0022customTargetUrl\u0022\u003Anull,\u0022mobileImage\u0022\u003A\u0022\\\/\\\/images\u002D1.gog\u002Dstatics.com\\\/2ac903de81e7061cf774243891c23866338b984026d13aac6a229af3ebb73281\u0022,\u0022logo\u0022\u003A\u0022\\\/\\\/images\u002D2.gog\u002Dstatics.com\\\/1de156e78244ccec7e90efe2bef2e1eb2835b5f7a2468787b9704e96db5198e3\u0022,\u0022logoForMobile\u0022\u003Anull,\u0022targetUrl\u0022\u003A\u0022\\\/en\\\/game\\\/dv_rings_of_saturn\u0022,\u0022colour\u0022\u003A\u0022rgba\u0028109,88,67,1.00\u0029\u0022,\u0022colourMobile\u0022\u003A\u0022rgba\u0028109,88,67,1.00\u0029\u0022,\u0022visibleTo\u0022\u003A\u00222023\u002D07\u002D25T15\u003A59\u003A59\u002B03\u003A00\u0022,\u0022spotId\u0022\u003A\u00229e934e04\u002D2a16\u002D11ee\u002D9fd7\u002Dfa163eebc216\u0022,\u0022darkTheme\u0022\u003Afalse\u007D',
         {
             idKey: 'spotId',
             creative: 'big_spot',
             position: '4'
-        });"
+        });" */
       gog-track-event='[{"eventCategory":"bigSpot","eventAction":"click","eventLabel":4},{"eventCategory":"bigSpot","eventAction":"click","eventLabel":"\/en\/game\/dv_rings_of_saturn"}]'
     >
       <picture className="lazy big-spot__background-wrapper">

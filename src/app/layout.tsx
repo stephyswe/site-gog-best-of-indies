@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 
 import { RootSvg } from "@/app/layout-svg";
 import { Navbar } from "@/ui/navbar/Navbar";
@@ -9,8 +8,9 @@ import "./gog.css";
 import "./menu.css";
 import "./morecss.css";
 import "./slider.css";
+import './footer.css';
+import './gog-statics.css';
 
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",

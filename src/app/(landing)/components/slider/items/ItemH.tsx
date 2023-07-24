@@ -7,13 +7,13 @@ export const ItemH = () => (
     <a
       href="https://www.gog.com/promo/202307_nsfw"
       className="big-spot"
-      onclick="window.gogTools.sendPromotionClick(
+    /*   onclick="window.gogTools.sendPromotionClick(
         '\u007B\u0022subtitle\u0022\u003A\u0022\u002B200\u0020NSFW\u0020games\u0020with\u0020discounts\u0020up\u0020to\u0020\u002D90\u0025\u0021\u0022,\u0022title\u0022\u003A\u0022Hot\u0020games\u0020\u002D\u0020hot\u0020deals\u0021\u0022,\u0022customButtonMessage\u0022\u003A\u0022Browse\u0022,\u0022customDiscountMessage\u0022\u003Anull,\u0022customTargetUrl\u0022\u003A\u0022https\u003A\\\/\\\/www.gog.com\\\/promo\\\/202307_nsfw\u0022,\u0022image\u0022\u003A\u0022\\\/\\\/images\u002D4.gog\u002Dstatics.com\\\/94555ee29899d747a95514d692aa7fe6ea9c10cbeeacb2364a6110f339c31c24\u0022,\u0022mobileImage\u0022\u003A\u0022\\\/\\\/images\u002D1.gog\u002Dstatics.com\\\/57b11f78b23b4d96f2aa45caba7d94bad9bec7c82ac8862857eeb585c69cc952\u0022,\u0022logo\u0022\u003A\u0022\\\/\\\/images\u002D1.gog\u002Dstatics.com\\\/a4e2893a2ce5146560cd7909e7708a1748ab8a29452cb87e8a05ae8e96f353a4\u0022,\u0022logoForMobile\u0022\u003Anull,\u0022targetUrl\u0022\u003A\u0022https\u003A\\\/\\\/www.gog.com\\\/promo\\\/202307_nsfw\u0022,\u0022colour\u0022\u003A\u0022rgba\u0028156,94,123,1.00\u0029\u0022,\u0022colourMobile\u0022\u003A\u0022rgba\u0028156,94,123,1.00\u0029\u0022,\u0022visibleTo\u0022\u003A\u00222023\u002D07\u002D25T15\u003A59\u003A59\u002B03\u003A00\u0022,\u0022spotId\u0022\u003A\u00223e5f27fe\u002D26fd\u002D11ee\u002D89db\u002Dfa163eebc216\u0022,\u0022darkTheme\u0022\u003Afalse\u007D',
         {
             idKey: 'spotId',
             creative: 'big_spot',
             position: '6'
-        });"
+        });" */
       gog-track-event='[{"eventCategory":"bigSpot","eventAction":"click","eventLabel":6},{"eventCategory":"bigSpot","eventAction":"click","eventLabel":"https:\/\/www.gog.com\/promo\/202307_nsfw"}]'
     >
       <picture className="lazy big-spot__background-wrapper">

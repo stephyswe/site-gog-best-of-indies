@@ -10,13 +10,13 @@ export const ItemB = () => (
     <a
       href="/en/game/jagged_alliance_2"
       className="big-spot"
-      onclick="window.gogTools.sendPromotionClick(
+      /* onclick="window.gogTools.sendPromotionClick(
         '\u007B\u0022id\u0022\u003A\u00221207658696\u0022,\u0022title\u0022\u003A\u0022Now\u0020on\u0020sale\u0022,\u0022image\u0022\u003A\u0022\\\/\\\/images\u002D2.gog\u002Dstatics.com\\\/631e2aa4aa1f662ae136d5aa1462a2fcdceebd7db982884c0407cbeaf0601104\u0022,\u0022price\u0022\u003A\u007B\u0022baseAmount\u0022\u003A\u002254.00\u0022,\u0022finalAmount\u0022\u003A\u002210.80\u0022,\u0022discountPercentage\u0022\u003A80,\u0022isFree\u0022\u003Afalse\u007D,\u0022supportedOperatingSystems\u0022\u003A\u005B\u0022windows\u0022\u005D,\u0022url\u0022\u003A\u0022\\\/en\\\/game\\\/jagged_alliance_2\u0022,\u0022isComingSoon\u0022\u003Afalse,\u0022inDevelopment\u0022\u003Afalse,\u0022buyable\u0022\u003Atrue,\u0022isAvailableForSale\u0022\u003Atrue,\u0022isMovie\u0022\u003Afalse,\u0022isVisibleInCatalog\u0022\u003Atrue,\u0022isPreorder\u0022\u003Afalse,\u0022subtitle\u0022\u003A\u0022Jagged\u0020Alliance\u00202\u0022,\u0022customButtonMessage\u0022\u003Anull,\u0022customDiscountMessage\u0022\u003Anull,\u0022customTargetUrl\u0022\u003Anull,\u0022mobileImage\u0022\u003A\u0022\\\/\\\/images\u002D1.gog\u002Dstatics.com\\\/6fa53012430f2ab8db9a4133e8f4b4351b19b1e8d13bff26fce39ef8bb3b5daa\u0022,\u0022logo\u0022\u003A\u0022\\\/\\\/images\u002D3.gog\u002Dstatics.com\\\/55b10ea6fbc874eb9cd54517ddeebbdc07340fc183b32d4cde20d9e0bcf5a58b\u0022,\u0022logoForMobile\u0022\u003Anull,\u0022targetUrl\u0022\u003A\u0022\\\/en\\\/game\\\/jagged_alliance_2\u0022,\u0022colour\u0022\u003A\u0022rgba\u002844,32,30,1.00\u0029\u0022,\u0022colourMobile\u0022\u003A\u0022rgba\u002844,32,30,1.00\u0029\u0022,\u0022visibleTo\u0022\u003A\u00222023\u002D07\u002D25T15\u003A59\u003A59\u002B03\u003A00\u0022,\u0022spotId\u0022\u003A\u00226d2520c4\u002D2956\u002D11ee\u002D81a7\u002Dfa163eebc216\u0022,\u0022darkTheme\u0022\u003Afalse\u007D',
         {
             idKey: 'spotId',
             creative: 'big_spot',
             position: '13'
-        });"
+        });" */
       gog-track-event='[{"eventCategory":"bigSpot","eventAction":"click","eventLabel":13},{"eventCategory":"bigSpot","eventAction":"click","eventLabel":"\/en\/game\/jagged_alliance_2"}]'
     >
       <picture>

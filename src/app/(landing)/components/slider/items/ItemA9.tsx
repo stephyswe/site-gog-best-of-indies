@@ -10,13 +10,13 @@ export const ItemA9 = () => (
     <a
       href="/en/game/super_catboy"
       className="big-spot"
-      onclick="window.gogTools.sendPromotionClick(
+      /* onclick="window.gogTools.sendPromotionClick(
         '\u007B\u0022id\u0022\u003A\u00221789205383\u0022,\u0022title\u0022\u003A\u0022Now\u0020available\u0022,\u0022image\u0022\u003A\u0022\\\/\\\/images\u002D2.gog\u002Dstatics.com\\\/c70b6cc354c583d009655b1c01d75eb897ce9901ccb48e42d66dedcf586593bc\u0022,\u0022price\u0022\u003A\u007B\u0022baseAmount\u0022\u003A\u0022114.00\u0022,\u0022finalAmount\u0022\u003A\u002291.10\u0022,\u0022discountPercentage\u0022\u003A20,\u0022isFree\u0022\u003Afalse\u007D,\u0022supportedOperatingSystems\u0022\u003A\u005B\u0022windows\u0022\u005D,\u0022url\u0022\u003A\u0022\\\/en\\\/game\\\/super_catboy\u0022,\u0022isComingSoon\u0022\u003Afalse,\u0022inDevelopment\u0022\u003Afalse,\u0022buyable\u0022\u003Atrue,\u0022isAvailableForSale\u0022\u003Atrue,\u0022isMovie\u0022\u003Afalse,\u0022isVisibleInCatalog\u0022\u003Atrue,\u0022isPreorder\u0022\u003Afalse,\u0022subtitle\u0022\u003A\u0022Super\u0020Catboy\u0022,\u0022customButtonMessage\u0022\u003Anull,\u0022customDiscountMessage\u0022\u003Anull,\u0022customTargetUrl\u0022\u003Anull,\u0022mobileImage\u0022\u003A\u0022\\\/\\\/images\u002D1.gog\u002Dstatics.com\\\/4b720b37858448ae15b504c78f94b778735a050df46ef820ed96ddf7e2d13017\u0022,\u0022logo\u0022\u003A\u0022\\\/\\\/images\u002D3.gog\u002Dstatics.com\\\/5dcd310f83a2f5257bdbfcb086213f4e7787415c32f9eb6d06d45ccdbb75aca0\u0022,\u0022logoForMobile\u0022\u003Anull,\u0022targetUrl\u0022\u003A\u0022\\\/en\\\/game\\\/super_catboy\u0022,\u0022colour\u0022\u003A\u0022rgba\u0028123,96,36,1.00\u0029\u0022,\u0022colourMobile\u0022\u003A\u0022rgba\u0028123,96,36,1.00\u0029\u0022,\u0022visibleTo\u0022\u003A\u00222023\u002D07\u002D25T15\u003A59\u003A59\u002B03\u003A00\u0022,\u0022spotId\u0022\u003A\u00227739b95a\u002D2a17\u002D11ee\u002Da37d\u002Dfa163eebc216\u0022,\u0022darkTheme\u0022\u003Afalse\u007D',
         {
             idKey: 'spotId',
             creative: 'big_spot',
             position: '11'
-        });"
+        });" */
       gog-track-event='[{"eventCategory":"bigSpot","eventAction":"click","eventLabel":11},{"eventCategory":"bigSpot","eventAction":"click","eventLabel":"\/en\/game\/super_catboy"}]'
     >
       <picture className="lazy big-spot__background-wrapper">
