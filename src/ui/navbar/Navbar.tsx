@@ -1185,7 +1185,7 @@ export const Navbar = () => {
                       ng-show="!cart.isCartEmpty"
                     >
                       <span ng-bind="cart.cartCount">0</span>&nbsp;
-                      <ng-pluralize
+                      {/* <ng-pluralize
                         count="cart.cartCount"
                         when="{
                     'one' : 'Item in cart',
@@ -1195,14 +1195,14 @@ export const Navbar = () => {
                  }"
                       >
                         Items in cart
-                      </ng-pluralize>
+                      </ng-pluralize> */}
                     </span>
                     <span
                       className="menu-header__items hide-in-lite-mode ng-hide"
                       ng-show="!cart.isCartEmpty"
                     >
                       <span ng-bind="cart.cartCount">0</span>&nbsp;
-                      <ng-pluralize
+                      {/*  <ng-pluralize
                         count="cart.cartCount"
                         when="{
                     'one' : 'Item added',
@@ -1212,7 +1212,7 @@ export const Navbar = () => {
                  }"
                       >
                         Items added
-                      </ng-pluralize>
+                      </ng-pluralize> */}
                     </span>
                   </div>
                   <div

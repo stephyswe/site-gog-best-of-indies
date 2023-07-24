@@ -507,7 +507,7 @@ export const SectionClassical = () => (
                     className="menu-product__picture"
                   >
                     <span className="menu-product__loader-title">
-                      Baldur's Gate II: Enhanced Edition
+                      Baldurs Gate II: Enhanced Edition
                     </span>
                     <img
                       className="menu-product__image"
@@ -1485,7 +1485,7 @@ export const SectionClassical = () => (
                         className="menu-product__picture"
                       >
                         <span className="menu-product__loader-title">
-                          Baldur's Gate II: Enhanced Edition
+                          Baldurs Gate II: Enhanced Edition
                         </span>
                         <img
                           className="menu-product__image"
@@ -2438,7 +2438,7 @@ export const SectionClassical = () => (
                     className="menu-product__picture"
                   >
                     <span className="menu-product__loader-title">
-                      Baldur's Gate II: Enhanced Edition
+                      Baldurs Gate II: Enhanced Edition
                     </span>
                     <img
                       className="menu-product__image"
@@ -3427,7 +3427,7 @@ export const SectionClassical = () => (
                   className="menu-product__picture"
                 >
                   <span className="menu-product__loader-title">
-                    Baldur's Gate II: Enhanced Edition
+                    Baldurs Gate II: Enhanced Edition
                   </span>
                   <img
                     className="menu-product__image"
