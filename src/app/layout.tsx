@@ -12,6 +12,7 @@ import './footer.css';
 import './gog-statics.css';
 import './custom-section.css';
 import './custom-section-flashdeal.css';
+import './now-on-sale.css';
 
 
 export const metadata: Metadata = {

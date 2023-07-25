@@ -1,7 +1,9 @@
 import { Footer } from "@/ui/footer/Footer";
 
 import { DealOfDay } from "./components/dealofday/DealOfDay";
+import { SectionGalaxy } from "./components/galaxy/Galaxy";
 import { LandingGallery } from "./components/gallery/Gallery";
+import { LandingNowOnSale } from "./components/now-on-sale/NowOnSale";
 import { LandingSlider } from "./components/slider/Slider";
 
 export default function LandingPage() {
@@ -31,6 +33,8 @@ const Content = () => {
       <LandingSlider />
       <LandingGallery />
       <DealOfDay />
+      <SectionGalaxy />
+      <LandingNowOnSale />
       <div
         style={{
           marginBottom: "1400px",
