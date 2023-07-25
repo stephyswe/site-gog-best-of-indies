@@ -68,7 +68,7 @@ export const LandingNowOnSale = () => (
                 'tabs-not-ready': !tabbedSection.sectionReady
             }"
             >
-              Slayin' it Sale
+              Slayin it Sale
             </div>
             {/**/}
             {/**/}
@@ -158,7 +158,7 @@ export const LandingNowOnSale = () => (
                               <div className="big-thingy__discount">-90%</div>
                             </div>
                             <div className="big-thingy__bottom-wrapper">
-                              <gog-countdown-timer
+                              <div
                                 end-date={1690322399000}
                                 current-date={1690259707000}
                                 days-clock="true"
@@ -166,7 +166,7 @@ export const LandingNowOnSale = () => (
                                 <div className="big-thingy__time">
                                   {/**/} 16H 44M 16S left
                                 </div>
-                              </gog-countdown-timer>
+                              </div>
                               <button className="big-thingy__button">
                                 Browse Deals
                               </button>
@@ -217,7 +217,7 @@ export const LandingNowOnSale = () => (
                               <div className="big-thingy__discount">-90%</div>
                             </div>
                             <div className="big-thingy__bottom-wrapper">
-                              <gog-countdown-timer
+                             <div
                                 end-date={1690840799000}
                                 current-date={1690259707000}
                                 days-clock="true"
@@ -229,7 +229,7 @@ export const LandingNowOnSale = () => (
                                   </span>
                                   {/**/} 16H 44M 32S left
                                 </div>
-                              </gog-countdown-timer>
+                              </div>
                               <button className="big-thingy__button">
                                 Browse Deals
                               </button>
@@ -267,7 +267,7 @@ export const LandingNowOnSale = () => (
                                 className="big-thingy__text big-thingy__text--no-logo"
                                 ng-class="{ 'big-thingy__text--no-logo': ! bigThingy.logo }"
                               >
-                                Slayin' it Sale
+                                Slayin it Sale
                               </div>
                             </div>
                             <div className="big-thingy__discount-wrapper">
@@ -280,7 +280,7 @@ export const LandingNowOnSale = () => (
                               <div className="big-thingy__discount">-90%</div>
                             </div>
                             <div className="big-thingy__bottom-wrapper">
-                              <gog-countdown-timer
+                             <div
                                 end-date={1690840799000}
                                 current-date={1690259707000}
                                 days-clock="true"
@@ -292,7 +292,7 @@ export const LandingNowOnSale = () => (
                                   </span>
                                   {/**/} 16H 44M 44S left
                                 </div>
-                              </gog-countdown-timer>
+                              </div>
                               <button className="big-thingy__button">
                                 Browse Deals
                               </button>
@@ -1281,7 +1281,7 @@ export const LandingNowOnSale = () => (
                                   ng-bind="tile.data.title"
                                   className="product-tile__title"
                                 >
-                                  Loretta's Brand-New Job
+                                  Lorettas Brand-New Job
                                 </div>
                                 <div
                                   className="product-tile__cover              has-image"

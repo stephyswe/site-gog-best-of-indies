@@ -1666,7 +1666,7 @@ export const LandingSlider = () => {
                             Discover the timeless magic of gaming up to -89%
                           </div>
                           <div className="big-spot__title">
-                           {/*  <gog-countdown-timer
+                           {/* <div
                               end-date="2023-07-24T23:59:59+03:00"
                               current-date={1690230980000}
                             >
