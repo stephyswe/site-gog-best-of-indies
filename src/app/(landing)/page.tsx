@@ -5,6 +5,7 @@ import { SectionGalaxy } from "./components/galaxy/Galaxy";
 import { LandingGallery } from "./components/gallery/Gallery";
 import { LandingNowOnSale } from "./components/now-on-sale/NowOnSale";
 import { LandingSlider } from "./components/slider/Slider";
+import { LandingHotPicks } from "./components/hot-picks/HotPicks";
 
 export default function LandingPage() {
   return (
@@ -35,6 +36,7 @@ const Content = () => {
       <DealOfDay />
       <SectionGalaxy />
       <LandingNowOnSale />
+      <LandingHotPicks />
       <div
         style={{
           marginBottom: "1400px",
