@@ -1,11 +1,13 @@
 import { Footer } from "@/ui/footer/Footer";
 
 import { DealOfDay } from "./components/dealofday/DealOfDay";
+import { LandingDiscoverGames } from "./components/discover-games/DiscoverGames";
 import { SectionGalaxy } from "./components/galaxy/Galaxy";
 import { LandingGallery } from "./components/gallery/Gallery";
+import { LandingHotPicks } from "./components/hot-picks/HotPicks";
+import { LandingNews } from "./components/news/News";
 import { LandingNowOnSale } from "./components/now-on-sale/NowOnSale";
 import { LandingSlider } from "./components/slider/Slider";
-import { LandingHotPicks } from "./components/hot-picks/HotPicks";
 
 export default function LandingPage() {
   return (
@@ -37,9 +39,11 @@ const Content = () => {
       <SectionGalaxy />
       <LandingNowOnSale />
       <LandingHotPicks />
+      <LandingDiscoverGames />
+      <LandingNews />
       <div
         style={{
-          marginBottom: "1400px",
+          marginBottom: "244px",
         }}
       ></div>
     </>
