@@ -1,19 +1,23 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 
-import { RootSvg } from "@/app/layout-svg";
+import { GameOverhead, GameSvg, RootSvg } from "@/app/layout-svg";
 import { Navbar } from "@/ui/navbar/Navbar";
 
+import "./custom-section-flashdeal.css";
+import "./custom-section.css";
+import "./footer.css";
 import "./globals.css";
+import "./gog-statics.css";
 import "./gog.css";
 import "./menu.css";
 import "./morecss.css";
+import "./now-on-sale.css";
 import "./slider.css";
-import './footer.css';
-import './gog-statics.css';
-import './custom-section.css';
-import './custom-section-flashdeal.css';
-import './now-on-sale.css';
 
+// game page
+import './game-prince-of-persia.css';
+import './game-product.css';
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,8 +27,41 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: {
+  params: any;
   children: React.ReactNode;
 }) {
+  // handle body class based on route
+  const headersList = headers();
+  const activePath = headersList.get("x-invoke-path");
+  console.log(activePath);
+
+  function bodyClass() {
+    if (activePath === "/game") {
+      return "productcard _prices-in-sek _price-currency-symbol-before";
+    }
+  }
+
+  function innerBodyRender(children: any) {
+    if (activePath === "/game") {
+      return (
+        <div className="layout ng-scope" card-product="1207658747">
+          <GameSvg />
+          <Navbar />
+          <GameOverhead />
+          {children}
+        </div>
+      );
+    } else {
+      return (
+        <>
+          <RootSvg />
+          <Navbar />
+          {children}
+        </>
+      );
+    }
+  }
+
   return (
     <html
       className="
@@ -41,13 +78,11 @@ export default function RootLayout({
       <body
         ng-init="userModel = {isUser: false, isAnonymous: false, bodyClass:false}; bodyModel = {bodyClass: ''}"
         ng-class="{'is-user':userModel.isUser, 'is-anonymous':userModel.isAnonymous}"
-        className=" "
+        className={bodyClass()}
         gog-string-format=""
       >
         {/* <!-- force end any comment tags before the partial --> */}
-        <RootSvg />
-        <Navbar />
-        {children}
+        {innerBodyRender(children)}
       </body>
     </html>
   );

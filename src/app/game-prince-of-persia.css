@@ -1,0 +1,249 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+body {
+  background: #d9d9d9;
+  color: #212121;
+  font-family: Lato GOG, Lato GOG Latin, sans-serif;
+  font-weight: 400;
+  line-height: 1;
+}
+
+svg {
+  width: 0;
+  height: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.button--big,
+.product-actions-price,
+.show-on-small-screens {
+  display: none;
+}
+
+.productcard-player {
+  position: relative;
+  height: 655px;
+  background-color: #000;
+}
+
+.productcard-player__container {
+  height: 100%;
+  max-width: 1128px;
+}
+
+.layout-container {
+  position: relative;
+  box-sizing: content-box;
+  margin: auto;
+  padding: 0 16px;
+  max-width: 1096px;
+}
+
+.productcard-player__logo {
+  z-index: 1;
+  width: 480px;
+  height: 285px;
+}
+
+.productcard-basics {
+  margin-bottom: 38px;
+  padding-top: 35px;
+  line-height: 18px;
+}
+
+.productcard-basics__title {
+  margin-bottom: 13px;
+  width: 59.85401%;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 39px;
+}
+
+.productcard-basics__wrapper {
+  display: -ms-flexbox;
+  display: flex;
+  color: #545454;
+}
+
+.productcard-os-support__system {
+  width: 15px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.productcard-image {
+  background: #000;
+}
+
+.productcard-rating {
+  position: relative;
+  font-size: 16px;
+  color: #545454;
+}
+
+.productcard-rating,
+.productcard-rating__star-icon-wrapper {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.productcard-rating__star-icon-wrapper {
+  position: absolute;
+  top: 0;
+  height: 100%;
+}
+
+.productcard-rating__score {
+  position: relative;
+  padding-left: 14px;
+  height: 16px;
+  letter-spacing: 1px;
+}
+
+.productcard-basics__separator {
+  width: 1px;
+  height: 18px;
+  margin: 0 14px;
+  background: #545454;
+}
+
+.product-actions {
+  position: absolute;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  right: 16px;
+  bottom: 0;
+  z-index: 2;
+  width: 38.68613%;
+  min-width: 380px;
+  min-height: 161px;
+  background-color: #e9e9e9;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.25);
+}
+
+.productcard-thumbnails-slider {
+  height: 170px;
+}
+
+.productcard-player__logo,
+.productcard-player__main-art {
+  position: absolute;
+  left: 0;
+  bottom: 10px;
+}
+
+.content-summary-item {
+  border-bottom: 1px solid #bfbfbf;
+  padding-top: 23px;
+  padding-bottom: 18px;
+}
+
+.content-summary-item__title {
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.content-summary-item__description {
+  font-size: 14px;
+  line-height: 21px;
+  color: #545454;
+}
+
+.mobile-slider__items-wrapper {
+  overflow: hidden;
+  height: 56.24993vw;
+}
+
+.mobile-slider__slide {
+  float: left;
+  width: 100vw;
+}
+
+.mobile-slider__image {
+  width: 100%;
+}
+
+@media (max-width: 737px) {
+  .layout-container {
+    padding: 0 8px;
+  }
+
+  .hide-on-small-screens,
+  .productcard-player {
+    display: none;
+  }
+
+  .show-on-small-screens {
+    display: block;
+  }
+
+  .product-actions {
+    position: relative;
+    right: 0;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  .productcard-basics {
+    margin-bottom: 20px;
+    padding-top: 0;
+  }
+
+  .productcard-basics__title {
+    width: 100%;
+    font-size: 24px;
+  }
+}
+
+.ng-cloak,
+.ng-hide:not(.ng-hide-animate),
+[ng-cloak] {
+  display: none !important;
+}
+
+.productcard-image {
+  background-color: #000;
+  background-image: url(https://images.gog-statics.com/8245f0754d29a5ab52f735050b15973941219f4e157ab71e4d496a965c6380b1_bg_crop_480x655.jpg);
+}
+
+@media (min-width: 481px) {
+  .productcard-image {
+    background-image: url(https://images.gog-statics.com/8245f0754d29a5ab52f735050b15973941219f4e157ab71e4d496a965c6380b1_bg_crop_800x655.jpg);
+  }
+}
+
+@media (min-width: 801px) {
+  .productcard-image {
+    background-image: url(https://images.gog-statics.com/8245f0754d29a5ab52f735050b15973941219f4e157ab71e4d496a965c6380b1_bg_crop_1366x655.jpg);
+  }
+}
+
+@media (min-width: 1367px) {
+  .productcard-image {
+    background-image: url(https://images.gog-statics.com/8245f0754d29a5ab52f735050b15973941219f4e157ab71e4d496a965c6380b1_bg_crop_1680x655.jpg);
+  }
+}
+
+@media (min-width: 1681px) {
+  .productcard-image {
+    background-image: url(https://images.gog-statics.com/8245f0754d29a5ab52f735050b15973941219f4e157ab71e4d496a965c6380b1_bg_crop_1920x655.jpg);
+  }
+}
+
+@media (min-width: 1921px) {
+  .productcard-image {
+    background-image: url(https://images.gog-statics.com/8245f0754d29a5ab52f735050b15973941219f4e157ab71e4d496a965c6380b1.jpg);
+  }
+}
