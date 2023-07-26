@@ -53,7 +53,9 @@ export default function RootLayout({
           dir: "ltr",
         };
       default:
-        return {};
+        return {
+          activePath: activePath,
+        };
     }
   }
 
