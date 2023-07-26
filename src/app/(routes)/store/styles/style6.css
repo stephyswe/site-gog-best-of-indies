@@ -1,0 +1,42 @@
+@keyframes moveRight {
+  50% {
+    transform: translate(10px);
+  }
+}
+@keyframes moveLeft {
+  50% {
+    transform: translate(-10px);
+  }
+}
+@keyframes rotateSpinnerCommon {
+  0% {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+.filters {
+  padding-right: 12px;
+}
+.filters__item {
+  display: block;
+}
+.filters__item--single {
+  overflow: hidden;
+  margin-bottom: 16px;
+  border: none;
+  padding-left: 8px;
+}
+.checkbox__label-placeholder {
+  display: none;
+}
+@media (min-width: 600px) {
+  .wrapper .checkbox__label-placeholder {
+    display: block;
+    height: 37px;
+  }
+  .wrapper .filters {
+    padding-right: 0;
+  }
+}

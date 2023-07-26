@@ -2622,3 +2622,9 @@ app-root {
 input::-ms-clear {
   display: none;
 }
+
+/* extra */
+
+.app-root {
+  flex-grow: 1;
+}

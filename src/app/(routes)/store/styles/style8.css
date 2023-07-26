@@ -1,0 +1,51 @@
+@keyframes _ngcontent-gogcom-store-c53_moveRight {
+  50% {
+    transform: translate(10px);
+  }
+}
+@keyframes _ngcontent-gogcom-store-c53_moveLeft {
+  50% {
+    transform: translate(-10px);
+  }
+}
+@keyframes _ngcontent-gogcom-store-c53_rotateSpinnerCommon {
+  0% {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+.catalog__header[_ngcontent-gogcom-store-c53] {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--c-ui-tertiary);
+  padding: 0 0 16px;
+}
+.catalog__page-header[_ngcontent-gogcom-store-c53] {
+  flex-shrink: 0;
+}
+.catalog__search[_ngcontent-gogcom-store-c53] {
+  margin-bottom: 16px;
+  width: 100%;
+}
+@media (min-width: 600px) {
+  .catalog__header[_ngcontent-gogcom-store-c53] {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+  }
+  .catalog__page-header[_ngcontent-gogcom-store-c53] {
+    order: -1;
+    margin-right: 24px;
+  }
+  .catalog__search[_ngcontent-gogcom-store-c53] {
+    margin-bottom: 0;
+    max-width: 536px;
+  }
+}

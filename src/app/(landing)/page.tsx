@@ -6,6 +6,7 @@ import { LandingHotPicks } from "./components/hot-picks/HotPicks";
 import { LandingNews } from "./components/news/News";
 import { LandingNowOnSale } from "./components/now-on-sale/NowOnSale";
 import { LandingSlider } from "./components/slider/Slider";
+import "./gog.css";
 
 export default function LandingPage() {
   return (

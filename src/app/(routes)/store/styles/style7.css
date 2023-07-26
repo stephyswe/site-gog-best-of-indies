@@ -1,0 +1,65 @@
+@keyframes moveRight {
+  50% {
+    transform: translate(10px);
+  }
+}
+@keyframes moveLeft {
+  50% {
+    transform: translate(-10px);
+  }
+}
+@keyframes rotateSpinnerCommon {
+  0% {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+.collapsible-section__header {
+  display: flex;
+  align-items: flex-start;
+  cursor: pointer;
+}
+.filters .collapsible-section__header {
+  margin: 0 4px 0 1px;
+}
+.collapsible-section__header.is-not-collapsible {
+  pointer-events: none;
+}
+.collapsible-section__icon {
+  height: 8px;
+  width: 6px;
+  background-color: var(--c-ui-minor-50);
+}
+.section-open .collapsible-section__icon {
+  transform: rotate(90deg);
+  transform-origin: center center;
+}
+.animate .collapsible-section__icon {
+  transition: 0.25s ease-in-out transform;
+}
+.filters .collapsible-section__icon {
+  background-color: var(--c-text-secondary);
+}
+.collapsible-section__icon-wrapper {
+  display: flex;
+  align-content: flex-start;
+  align-self: center;
+  justify-content: center;
+  margin-top: 4px;
+  margin-right: 8px;
+  width: 16px;
+}
+.is-not-collapsible .collapsible-section__icon-wrapper {
+  display: none;
+}
+:not(.is-not-collapsible) ~ .collapsible-section__body {
+  overflow: hidden;
+  padding-left: 8px;
+}
+@media (min-width: 600px) {
+  .wrapper .filters .collapsible-section__header {
+    margin: 0 4px 0 5px;
+  }
+}
