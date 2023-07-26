@@ -30,6 +30,14 @@ export default function RootLayout({
   const headersList = headers();
   const activePath = headersList.get("x-invoke-path");
 
+  // new one
+  const domain = headersList.get("host") || "";
+  const fullUrl = headersList.get("referer") || "";
+  const [, pathname] =
+    fullUrl.match(new RegExp(`https?:\/\/${domain}(.*)`)) || [];
+
+  console.log(pathname);
+
   function getHtmlProps(pathname: any) {
     switch (pathname) {
       case "/":
@@ -124,7 +132,7 @@ export default function RootLayout({
   }
 
   return (
-    <html {...getHtmlProps(activePath)}>
+    <html {...getHtmlProps(activePath)} id={pathname}>
       <body {...getBodyProps(activePath)}>
         {/* <!-- force end any comment tags before the partial --> */}
         {innerBodyRender(children)}
