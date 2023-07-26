@@ -132,7 +132,7 @@ export default function RootLayout({
   }
 
   return (
-    <html {...getHtmlProps(activePath)} id={pathname}>
+    <html id={pathname}>
       <body {...getBodyProps(activePath)}>
         {/* <!-- force end any comment tags before the partial --> */}
         {innerBodyRender(children)}
