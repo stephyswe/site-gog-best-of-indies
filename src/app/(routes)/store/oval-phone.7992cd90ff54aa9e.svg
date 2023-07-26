@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="378px" height="188px" viewBox="0 0 378 188" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>BB056717-8461-48F8-90E0-B0866FF432CC@1.00x</title>
+    <defs>
+        <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="49.7255068%" gradientTransform="translate(0.500000,0.500000),scale(0.487936,1.000000),rotate(90.000000),scale(1.000000,2.697857),translate(-0.500000,-0.500000)" id="radialGradient-1">
+            <stop stop-color="#D800FF" offset="0%"></stop>
+            <stop stop-color="#6900D1" stop-opacity="0.159336757" offset="82.1183488%"></stop>
+            <stop stop-color="#6900D1" stop-opacity="0" offset="99.9234586%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="Scalling" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.293736049" stroke-dasharray="17" stroke-linecap="round" stroke-linejoin="round">
+        <g id="2.-460px" transform="translate(-30.000000, -626.000000)" fill="url(#radialGradient-1)" stroke="#F3B7FF" stroke-width="5">
+            <g id="---CONTENT---" transform="translate(16.000000, 48.000000)">
+                <g id="USP" transform="translate(0.000000, 377.000000)">
+                    <g id="section----USP-banner-v6">
+                        <g id="main-content-#2" transform="translate(16.000000, 52.000000)">
+                            <g id="content" transform="translate(0.000000, 136.000000)">
+                                <g id="GLX" transform="translate(0.000000, 16.000000)">
+                                    <path d="M187,182 C290.001106,182 373.5,141.257912 373.5,91 C373.5,40.7420878 290.001106,0 187,0 C83.9988942,0 0.5,40.7420878 0.5,91 C0.5,141.257912 83.9988942,182 187,182 Z" id="Oval"></path>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

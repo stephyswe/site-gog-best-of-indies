@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
 
-import { GameOverhead, GameSvg, RootSvg } from "@/app/layout-svg";
+import { GameOverhead, GameSvg, RootSvg, StoreSvg } from "@/app/layout-svg";
 import { Footer } from "@/ui/footer/Footer";
 import { Navbar } from "@/ui/navbar/Navbar";
 
@@ -47,6 +47,12 @@ export default function RootLayout({
           id: "pageTop",
           className: "ng-scope",
         };
+
+      case "/store":
+        return {
+          lang: "en",
+          dir: "ltr",
+        };
       default:
         return {};
     }
@@ -68,34 +74,50 @@ export default function RootLayout({
           className: "productcard _prices-in-sek _price-currency-symbol-before",
         };
 
+      case "/store":
+        return {
+          className: "light-theme",
+        };
+
       default:
         return {};
     }
   }
 
   function innerBodyRender(children: any) {
-    if (activePath === "/game") {
-      return (
-        <div className="layout ng-scope" card-product="1207658747">
-          <GameSvg />
-          <Navbar />
-          <GameOverhead />
-          {children}
-          <Footer />
-        </div>
-      );
-    } else {
-      return (
-        <>
-          <RootSvg />
-          <Navbar />
-          {/* <!--menugogcomisupandrunningwithoutaproblem--> */}
-          <div className="wrapper cf _prices-in-sek _price-currency-symbol-before">
-            <div className="content cf">{children}</div>
+    switch (activePath) {
+      case "/":
+        return (
+          <>
+            <RootSvg />
+            <Navbar />
+            {/* <!--menugogcomisupandrunningwithoutaproblem--> */}
+            <div className="wrapper cf _prices-in-sek _price-currency-symbol-before">
+              <div className="content cf">{children}</div>
+            </div>
+            <Footer />
+          </>
+        );
+      case "/game":
+        return (
+          <div className="layout ng-scope" card-product="1207658747">
+            <GameSvg />
+            <Navbar />
+            <GameOverhead />
+            {children}
+            <Footer />
           </div>
-          <Footer />
-        </>
-      );
+        );
+
+      default:
+        return (
+          <div ng-app="menuCompanion" className="ng-scope">
+            <StoreSvg />
+            <Navbar />
+            {children}
+            <Footer />
+          </div>
+        );
     }
   }
 

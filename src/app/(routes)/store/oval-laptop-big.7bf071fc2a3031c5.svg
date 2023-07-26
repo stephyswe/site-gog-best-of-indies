@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="497px" height="189px" viewBox="0 0 497 189" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>FE5268A7-67BB-4738-BBFE-5C3EF7398028@1.00x</title>
+    <defs>
+        <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="49.7255068%" gradientTransform="translate(0.500000,0.500000),scale(0.372709,1.000000),rotate(90.000000),scale(1.000000,2.697857),translate(-0.500000,-0.500000)" id="radialGradient-1">
+            <stop stop-color="#D800FF" offset="0%"></stop>
+            <stop stop-color="#6900D1" stop-opacity="0.159336757" offset="82.1183488%"></stop>
+            <stop stop-color="#6900D1" stop-opacity="0" offset="99.9234586%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="Scalling" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.293736049" stroke-dasharray="17" stroke-linecap="round" stroke-linejoin="round">
+        <g id="5.-1200px-↗️" transform="translate(-587.000000, -543.000000)" fill="url(#radialGradient-1)" stroke="#F3B7FF" stroke-width="5">
+            <g id="---CONTENT---" transform="translate(0.000000, 41.000000)">
+                <g id="USP" transform="translate(40.000000, 434.000000)">
+                    <g id="section----USP-banner-v7" transform="translate(0.000000, 32.000000)">
+                        <g id="main-content-#2" transform="translate(16.000000, 7.000000)">
+                            <g id="right-right" transform="translate(477.000000, 0.000000)">
+                                <g id="GLX" transform="translate(57.000000, 32.000000)">
+                                    <path d="M245.5,183 C381.085906,183 491,142.034055 491,91.5 C491,40.9659454 381.085906,0 245.5,0 C109.914094,0 0,40.9659454 0,91.5 C0,142.034055 109.914094,183 245.5,183 Z" id="Oval"></path>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

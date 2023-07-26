@@ -1,0 +1,69 @@
+<!DOCTYPE html><html lang="en" dir="ltr"><head>
+        <meta charset="utf-8">
+        <title>GOG.COM</title>
+        <base href="/en/">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <link rel="apple-touch-icon" sizes="57x57" href="https://store-static-modular.gog-statics.com/en/assets/favicons/apple-touch-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="https://store-static-modular.gog-statics.com/en/assets/favicons/apple-touch-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="https://store-static-modular.gog-statics.com/en/assets/favicons/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="https://store-static-modular.gog-statics.com/en/assets/favicons/apple-touch-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="https://store-static-modular.gog-statics.com/en/assets/favicons/apple-touch-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="https://store-static-modular.gog-statics.com/en/assets/favicons/apple-touch-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="https://store-static-modular.gog-statics.com/en/assets/favicons/apple-touch-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="https://store-static-modular.gog-statics.com/en/assets/favicons/apple-touch-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="https://store-static-modular.gog-statics.com/en/assets/favicons/apple-touch-icon-180x180.png">
+        <link rel="apple-touch-icon" href="https://store-static-modular.gog-statics.com/en/assets/favicons/apple-touch-icon.png">
+        <link rel="icon" href="https://store-static-modular.gog-statics.com/en/assets/favicons/favicon.ico">
+        
+            
+        
+    <link rel="stylesheet" href="https://store-static-modular.gog-statics.com/en/styles.8f5aff8fb1ba675c.css"><style ng-transition="gogcom-store">@keyframes moveRight{50%{transform:translate(10px)}}@keyframes moveLeft{50%{transform:translate(-10px)}}@keyframes rotateSpinnerCommon{0%{transform:rotate(0)}to{transform:rotate(1turn)}}.wrapper{position:relative}.blurred-background__wrapper{position:fixed;z-index:-1;top:0;left:0;bottom:0;right:0;visibility:hidden}.blurred-background__wrapper:not(.should-fade-in) .blurParallaxBg__image:not(.blurParallaxBg__image--force-visibility).fade-in,.blurred-background__wrapper:not(.should-fade-in) .blurParallaxBg__blur.fade-in{transition:none}.background-visible{visibility:visible}.app__container{margin:0 auto;padding:80px 16px 0;width:auto;max-width:1176px}@media (min-width: 600px){.wrapper .app__container{padding:88px 40px 0}}
+</style><style ng-transition="gogcom-store">span[_ngcontent-sc44]{display:none}</style></head>
+
+    <body class="light-theme">
+        
+            <div ng-app="menuCompanion">
+            
+        
+        <script>
+            if (typeof document !== "undefined" && "ontouchstart" in document.documentElement) {
+                document.body.classList.add("has-touch");
+            }
+            if (typeof window !== "undefined") {
+                const url = new URL(window.location.href);
+                const pageCategory = url.searchParams.has("genres") ? url.searchParams.get("genres") : "Games";
+                let pageSection = "Other";
+
+                if (url.pathname === "/games") {
+                    pageSection = "Games";
+                }
+
+                window.dataLayer = [
+                    {
+                        langDrop: "en-US",
+                        currDrop: "USD",
+                        pageType: url.pathname,
+                        pageCategory,
+                        pageSection
+                    }
+                ];
+            }
+        </script>
+
+        <app-root ng-version="15.1.2" ng-server-context="ssr"><div class="wrapper" selenium-id="appWrapper"><div class="app__container"><router-outlet></router-outlet><error><page-not-found></page-not-found><!----><!----><!----></error><!----></div><product-tile-extended-portal><!----></product-tile-extended-portal></div><page-titles _nghost-sc44=""><span _ngcontent-sc44="">Best Video games, DRM-free</span><span _ngcontent-sc44="">Discounted</span><span _ngcontent-sc44="">DLCs not included</span><span _ngcontent-sc44="">Free</span><span _ngcontent-sc44="">New arrivals</span><span _ngcontent-sc44="">Upcoming</span><span _ngcontent-sc44="">Early access</span><span _ngcontent-sc44="">GOG.COM</span></page-titles></app-root>
+
+        <script src="https://store-static-modular.gog-statics.com/en/event-bus.js"></script>
+        <script src="https://www.gog.com/accessTokenClient.js"></script>
+
+        
+            <script src="https://store-static-modular.gog-statics.com/en/menu.js"></script>
+            
+            
+            
+            </div>
+        
+
+        <noscript>Please enable JavaScript to continue using this application.</noscript>
+    <script src="https://store-static-modular.gog-statics.com/en/runtime.4c636aeebbdc487f.js" type="module"></script><script src="https://store-static-modular.gog-statics.com/en/polyfills.2fc71e36de42360d.js" type="module"></script><script src="https://store-static-modular.gog-statics.com/en/scripts.086721119c2f1b3a.js" defer=""></script><script src="https://store-static-modular.gog-statics.com/en/main.395b1a275f785766.js" type="module"></script>
+
+<script id="gogcom-store-state" type="application/json">{&q;pageMetadata&q;:{&q;locale&q;:&q;en-US&q;,&q;country&q;:&q;REST&q;,&q;currency&q;:&q;USD&q;},&q;consulConfig&q;:{&q;salesManagoTracking&q;:true}}</script></body></html>

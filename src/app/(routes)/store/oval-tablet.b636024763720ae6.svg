@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="474px" height="169px" viewBox="0 0 474 169" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>C254D738-EF19-4F97-94B2-023C544F25FD@1.00x</title>
+    <defs>
+        <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="49.7255068%" gradientTransform="translate(0.500000,0.500000),scale(0.346809,1.000000),rotate(90.000000),scale(1.000000,2.697857),translate(-0.500000,-0.500000)" id="radialGradient-1">
+            <stop stop-color="#D800FF" offset="0%"></stop>
+            <stop stop-color="#6900D1" stop-opacity="0.159336757" offset="82.1183488%"></stop>
+            <stop stop-color="#6900D1" stop-opacity="0" offset="99.9234586%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="Scalling" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.293736049" stroke-dasharray="17" stroke-linecap="round" stroke-linejoin="round">
+        <g id="3.-600px" transform="translate(-53.000000, -589.000000)" fill="url(#radialGradient-1)" stroke="#F3B7FF" stroke-width="5">
+            <g id="---CONTENT---" transform="translate(16.000000, 40.000000)">
+                <g id="USP" transform="translate(0.000000, 364.000000)">
+                    <g id="section----USP-banner-v6">
+                        <g id="main-content-#2" transform="translate(16.000000, 52.000000)">
+                            <g id="content" transform="translate(23.000000, 108.000000)">
+                                <g id="GLX" transform="translate(0.000000, 28.000000)">
+                                    <path d="M235.5,163 C365.286916,163 470.5,126.511207 470.5,81.5 C470.5,36.4887929 365.286916,0 235.5,0 C105.713084,0 0.5,36.4887929 0.5,81.5 C0.5,126.511207 105.713084,163 235.5,163 Z" id="Oval"></path>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
