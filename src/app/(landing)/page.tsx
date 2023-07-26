@@ -1,5 +1,3 @@
-import { Footer } from "@/ui/footer/Footer";
-
 import { DealOfDay } from "./components/dealofday/DealOfDay";
 import { LandingDiscoverGames } from "./components/discover-games/DiscoverGames";
 import { SectionGalaxy } from "./components/galaxy/Galaxy";
@@ -10,21 +8,6 @@ import { LandingNowOnSale } from "./components/now-on-sale/NowOnSale";
 import { LandingSlider } from "./components/slider/Slider";
 
 export default function LandingPage() {
-  return (
-    <>
-      {/* <!--menugogcomisupandrunningwithoutaproblem--> */}
-      <div className="wrapper cf _prices-in-sek _price-currency-symbol-before">
-        <div className="content cf">
-          <Content />
-        </div>
-        {/* <!-- force end any comment tags before the partial --> */}
-        <Footer />
-      </div>
-    </>
-  );
-}
-
-const Content = () => {
   return (
     <>
       <div className="nav-spacer menu-spacer"></div>
@@ -48,7 +31,7 @@ const Content = () => {
       ></div>
     </>
   );
-};
+}
 
 const LandingContainer = () => (
   <div className="container">

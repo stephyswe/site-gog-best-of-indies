@@ -2,13 +2,12 @@ import type { Metadata } from "next";
 import { headers } from "next/headers";
 
 import { GameOverhead, GameSvg, RootSvg } from "@/app/layout-svg";
+import { Footer } from "@/ui/footer/Footer";
 import { Navbar } from "@/ui/navbar/Navbar";
 
 import "./custom-section-flashdeal.css";
 import "./custom-section.css";
 import "./footer.css";
-
-
 import "./globals.css";
 import "./gog-statics.css";
 import "./gog.css";
@@ -31,18 +30,46 @@ export default function RootLayout({
   // handle body class based on route
   const headersList = headers();
   const activePath = headersList.get("x-invoke-path");
-  console.log(activePath);
 
-  function htmlClass() {
-    if (activePath === "/game") {
-      return "ng-scope";
+  function getHtmlProps(pathname: any) {
+    switch (pathname) {
+      case "/":
+        return {
+          className: "",
+          "ng-app": "gogFrontpage",
+          lang: "en-US",
+          "data-theme": "light",
+        };
+      case "/game":
+        return {
+          lang: "en",
+          "ng-app": "productcard",
+          id: "pageTop",
+          className: "ng-scope",
+        };
+      default:
+        return {};
     }
-    return "native-mode prices-in-sek lang--en-us curr-symbol-before country-se lato-20 has-new-menu";
   }
 
-  function bodyClass() {
-    if (activePath === "/game") {
-      return "productcard _prices-in-sek _price-currency-symbol-before";
+  function getBodyProps(pathname: any) {
+    switch (pathname) {
+      case "/":
+        return {
+          "ng-init":
+            "userModel = {isUser: false, isAnonymous: false, bodyClass:false}; bodyModel = {bodyClass: ''}",
+          "ng-class":
+            "{'is-user':userModel.isUser, 'is-anonymous':userModel.isAnonymous}",
+          className: "productcard _prices-in-sek _price-currency-symbol-before",
+          "gog-string-format": "",
+        };
+      case "/game":
+        return {
+          className: "productcard _prices-in-sek _price-currency-symbol-before",
+        };
+
+      default:
+        return {};
     }
   }
 
@@ -54,6 +81,7 @@ export default function RootLayout({
           <Navbar />
           <GameOverhead />
           {children}
+          <Footer />
         </div>
       );
     } else {
@@ -61,24 +89,19 @@ export default function RootLayout({
         <>
           <RootSvg />
           <Navbar />
-          {children}
+          {/* <!--menugogcomisupandrunningwithoutaproblem--> */}
+          <div className="wrapper cf _prices-in-sek _price-currency-symbol-before">
+            <div className="content cf">{children}</div>
+          </div>
+          <Footer />
         </>
       );
     }
   }
 
   return (
-    <html
-      className={htmlClass()}
-      lang="en"
-      data-theme="light"
-    >
-      <body
-        ng-init="userModel = {isUser: false, isAnonymous: false, bodyClass:false}; bodyModel = {bodyClass: ''}"
-        ng-class="{'is-user':userModel.isUser, 'is-anonymous':userModel.isAnonymous}"
-        className={bodyClass()}
-        gog-string-format=""
-      >
+    <html {...getHtmlProps(activePath)}>
+      <body {...getBodyProps(activePath)}>
         {/* <!-- force end any comment tags before the partial --> */}
         {innerBodyRender(children)}
       </body>
