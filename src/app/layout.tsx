@@ -31,7 +31,7 @@ export default function RootLayout({
 
   console.log("Current URL", currentUrl);
 
-  const activePath = "/";
+  const activePath = currentUrl;
 
   function getHtmlProps(pathname: any) {
     switch (pathname) {
