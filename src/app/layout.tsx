@@ -27,16 +27,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   // handle body class based on route
-  const headersList = headers();
-  const activePath = headersList.get("x-invoke-path");
+  const currentUrl = headers().get("next-url");
 
-  // new one
-  const domain = headersList.get("host") || "";
-  const fullUrl = headersList.get("referer") || "";
-  const [, pathname] =
-    fullUrl.match(new RegExp(`https?:\/\/${domain}(.*)`)) || [];
+  console.log("Current URL", currentUrl);
 
-  console.log(pathname);
+  const activePath = "/";
 
   function getHtmlProps(pathname: any) {
     switch (pathname) {
@@ -108,6 +103,7 @@ export default function RootLayout({
             <Footer />
           </>
         );
+
       case "/game":
         return (
           <div className="layout ng-scope" card-product="1207658747">
@@ -132,7 +128,7 @@ export default function RootLayout({
   }
 
   return (
-    <html id={pathname}>
+    <html id={currentUrl!}>
       <body {...getBodyProps(activePath)}>
         {/* <!-- force end any comment tags before the partial --> */}
         {innerBodyRender(children)}
