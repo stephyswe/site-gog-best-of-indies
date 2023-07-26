@@ -55,6 +55,7 @@ export default function RootLayout({
       default:
         return {
           activePath: activePath,
+          testing: "one",
         };
     }
   }
