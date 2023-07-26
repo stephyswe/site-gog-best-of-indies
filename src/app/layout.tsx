@@ -7,6 +7,8 @@ import { Navbar } from "@/ui/navbar/Navbar";
 import "./custom-section-flashdeal.css";
 import "./custom-section.css";
 import "./footer.css";
+
+
 import "./globals.css";
 import "./gog-statics.css";
 import "./gog.css";
@@ -14,10 +16,6 @@ import "./menu.css";
 import "./morecss.css";
 import "./now-on-sale.css";
 import "./slider.css";
-
-// game page
-import './game-prince-of-persia.css';
-import './game-product.css';
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -34,6 +32,13 @@ export default function RootLayout({
   const headersList = headers();
   const activePath = headersList.get("x-invoke-path");
   console.log(activePath);
+
+  function htmlClass() {
+    if (activePath === "/game") {
+      return "ng-scope";
+    }
+    return "native-mode prices-in-sek lang--en-us curr-symbol-before country-se lato-20 has-new-menu";
+  }
 
   function bodyClass() {
     if (activePath === "/game") {
@@ -64,14 +69,7 @@ export default function RootLayout({
 
   return (
     <html
-      className="
-        native-mode
-        prices-in-sek
-        lang--en-us
-        curr-symbol-before
-        country-se
-        lato-20
-        has-new-menu"
+      className={htmlClass()}
       lang="en"
       data-theme="light"
     >

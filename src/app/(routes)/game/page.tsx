@@ -1,3 +1,6 @@
+// game page
+import "./game-prince-of-persia.css";
+import "./game-product.css";
 import { ProductLayoutContainerSec } from "./layout-container-sec/LayoutContainerSec";
 import { ProductLayoutContainer } from "./layout-container/LayoutContainer";
 import { ProductLayoutSeries } from "./layout-series/LayoutSeries";
