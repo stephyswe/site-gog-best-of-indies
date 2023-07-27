@@ -49,9 +49,6 @@ const StoreProductGrid = () => (
       selenium-id="paginatedProductsGrid"
     >
       <ProductTile />
-      <ProductTile />
-      <ProductTile />
-      <ProductTile />
     </div>
   </div>
 );
