@@ -1,5 +1,5 @@
 export const Catalog = () => (
-  <div _nghost-gogcom-store-c79 className="ng-star-inserted">
+  <div _nghost-gogcom-store-c79="true" className="ng-star-inserted">
     <div
       _ngcontent-gogcom-store-c79=""
       custom-colors=""
@@ -45,10 +45,7 @@ export const CatalogHeader = () => (
           {/**/}
         </form>
       </search>
-      <div
-        _ngcontent-gogcom-store-c53=""
-        className="catalog__page-header"
-      >
+      <div _ngcontent-gogcom-store-c53="" className="catalog__page-header">
         <h1 className="page-header" selenium-id="pageHeader">
           {" "}
           Showing 8390 games{/**/} {/**/}

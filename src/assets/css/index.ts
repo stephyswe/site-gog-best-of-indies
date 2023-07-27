@@ -1,0 +1,10 @@
+import "./custom-section-flashdeal.css";
+import "./custom-section.css";
+import "./footer.css";
+import "./globals.css";
+import "./gog-statics.css";
+import "./menu.css";
+import "./morecss.css";
+import "./now-on-sale.css";
+import "./slider.css";
+import "./gog.css";
