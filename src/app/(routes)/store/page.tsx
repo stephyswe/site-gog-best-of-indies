@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 
 import { Catalog } from "./Catalog";
+import { ProductTileExpanded } from "./components/product-tile-expanded";
 
 export default function StorePage() {
   useEffect(() => {
@@ -14,6 +15,9 @@ export default function StorePage() {
     var body: any = document.querySelector("body");
     body.setAttribute("class", "light-theme");
   }, []);
+
+  // handle with useProductExpandState
+  
   return (
     <>
       <div ng-version="15.1.2" ng-server-context="ssr" className="app-root">
@@ -24,6 +28,7 @@ export default function StorePage() {
               <Catalog />
             </div>
           </div>
+          <ProductTileExpanded />
         </div>
       </div>
       <div style={{ marginBottom: "300px" }}></div>

@@ -28,3 +28,6 @@ import "./style27.css";
 import "./style28.css";
 import "./style29.css";
 import "./style30.css";
+import "./style31.css";
+import "./style32.css";
+import "./style33.css";
