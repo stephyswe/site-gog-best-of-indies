@@ -1,0 +1,44 @@
+@keyframes _ngcontent-gogcom-store-c41_moveRight {
+  50% {
+    transform: translate(10px);
+  }
+}
+@keyframes _ngcontent-gogcom-store-c41_moveLeft {
+  50% {
+    transform: translate(-10px);
+  }
+}
+@keyframes _ngcontent-gogcom-store-c41_rotateSpinnerCommon {
+  0% {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+[_nghost-gogcom-store-c41] {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--c-text-primary);
+  vertical-align: middle;
+}
+.small[_nghost-gogcom-store-c41] {
+  font-size: 14px;
+  margin-bottom: 0;
+}
+.title-label[_ngcontent-gogcom-store-c41] {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 14px;
+  text-transform: uppercase;
+  display: inline-block;
+  color: var(--c-ui-primary);
+  border-radius: 3px;
+  padding: 3px 4px;
+  background-color: var(--c-text-primary);
+}
+.title-label.small[_ngcontent-gogcom-store-c41] {
+  font-size: 12px;
+  line-height: 1;
+}

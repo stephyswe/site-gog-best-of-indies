@@ -1,0 +1,82 @@
+@keyframes _ngcontent-gogcom-store-c39_moveRight {
+  50% {
+    transform: translate(10px);
+  }
+}
+@keyframes _ngcontent-gogcom-store-c39_moveLeft {
+  50% {
+    transform: translate(-10px);
+  }
+}
+@keyframes _ngcontent-gogcom-store-c39_rotateSpinnerCommon {
+  0% {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+[_nghost-gogcom-store-c39] {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+[_nghost-gogcom-store-c39] > span[_ngcontent-gogcom-store-c39] {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 16px;
+  display: flex;
+  align-items: flex-end;
+  min-height: 30px;
+  color: var(--c-text-primary);
+}
+.show-add-to-cart-on-hover[_nghost-gogcom-store-c39]
+  add-to-cart-button[_ngcontent-gogcom-store-c39] {
+  display: none;
+}
+@media (min-width: 600px) {
+  product-tile:hover[_nghost-gogcom-store-c39]
+    add-to-cart-button[_ngcontent-gogcom-store-c39],
+  product-tile:hover
+    [_nghost-gogcom-store-c39]
+    add-to-cart-button[_ngcontent-gogcom-store-c39] {
+    display: initial;
+  }
+  product-tile:hover.show-add-to-cart-on-hover[_nghost-gogcom-store-c39]
+    price-discount[_ngcontent-gogcom-store-c39],
+  product-tile:hover
+    .show-add-to-cart-on-hover[_nghost-gogcom-store-c39]
+    price-discount[_ngcontent-gogcom-store-c39] {
+    display: none;
+  }
+}
+.is-large[_nghost-gogcom-store-c39] {
+  gap: 4px;
+}
+.is-large[_nghost-gogcom-store-c39]
+  add-to-cart-button[_ngcontent-gogcom-store-c39] {
+  margin-left: auto;
+}
+@media (min-width: 360px) {
+  .is-large[_nghost-gogcom-store-c39] {
+    gap: 8px;
+  }
+}
+@media (min-width: 768px) {
+  .is-large[_nghost-gogcom-store-c39]
+    add-to-cart-button[_ngcontent-gogcom-store-c39] {
+    margin-left: 0;
+  }
+  .is-large[_nghost-gogcom-store-c39] price-value[_ngcontent-gogcom-store-c39] {
+    margin-right: 16px;
+  }
+}
+@media (min-width: 1024px) {
+  .is-large[_nghost-gogcom-store-c39]
+    price-discount[_ngcontent-gogcom-store-c39] {
+    margin-right: 16px;
+  }
+  .is-large[_nghost-gogcom-store-c39] price-value[_ngcontent-gogcom-store-c39] {
+    margin-right: 32px;
+  }
+}

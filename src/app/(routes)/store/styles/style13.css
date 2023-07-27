@@ -1,0 +1,281 @@
+@keyframes moveRight {
+  50% {
+    transform: translate(10px);
+  }
+}
+@keyframes moveLeft {
+  50% {
+    transform: translate(-10px);
+  }
+}
+@keyframes rotateSpinnerCommon {
+  0% {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+.dropdown__wrapper {
+  position: relative;
+}
+.dropdown {
+  position: fixed;
+  z-index: 20;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  margin: 0;
+  border-radius: 5px 5px 0 0;
+  padding: 0 0 16px;
+  width: 100%;
+  max-height: calc(100vh - 100px);
+  transform: translateY(100%);
+  background-color: var(--c-ui-primary);
+  box-shadow: 0 -1px 4px var(--c-shadow-primary-15);
+  transition: transform 0.25s;
+}
+.dropdown.is-open {
+  transform: translateY(0);
+}
+.dropdown__mobile-backdrop {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  background: var(--c-shadow-primary-50);
+  transition: opacity 0.25s;
+}
+.dropdown__mobile-backdrop.is-open {
+  pointer-events: all;
+  opacity: 1;
+}
+@media (min-width: 600px) {
+  .wrapper .unused {
+    top: 0;
+    position: absolute;
+  }
+  .wrapper .unused .dropdown {
+    left: 100%;
+    top: auto;
+    bottom: 0;
+    margin-top: 20px;
+    margin-bottom: 6px;
+  }
+  .wrapper .unused .dropdown__triangle-container {
+    top: 100%;
+  }
+  .wrapper .unused .dropdown__triangle {
+    transform: scaleX(0.75) translate(-50%) rotate(180deg);
+  }
+  .wrapper .unused .unused {
+    top: auto;
+    left: 100%;
+    bottom: 50%;
+    margin-left: 1px;
+    margin-bottom: 0;
+    transform: translateY(50%);
+  }
+  .wrapper .dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 6px;
+    margin-bottom: 20px;
+    min-width: 170px;
+    max-width: 255px;
+    padding: 6px 0;
+    background-color: rgba(var(--c-appBackground), 1);
+    opacity: 0;
+    display: none;
+    transition: none;
+    color: rgba(var(--c-appActiveText), 1);
+    border-radius: 4px;
+  }
+  .wrapper .dropdown:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -2;
+    background: transparent;
+    box-shadow: 0 0 0 1px #0003, 0 0 5px #0000001a, 0 3px 15px #00000026;
+    border-radius: 4px;
+  }
+  .wrapper .dropdown:after {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(var(--c-appBackground), 1);
+    border-radius: 4px;
+  }
+  .wrapper .dropdown.is-open {
+    display: initial;
+    opacity: 1;
+    transition-property: visibility, opacity;
+    transition-duration: 0.125s;
+    transition-timing-function: ease-in;
+  }
+  .wrapper .dropdown__content {
+    overflow-y: auto;
+    margin-top: -6px;
+    margin-bottom: -6px;
+  }
+  .wrapper .dropdown__content .unused:first-child {
+    margin-top: 6px;
+  }
+  .wrapper .dropdown__content .unused:last-child {
+    margin-bottom: 6px;
+  }
+  .wrapper .unused {
+    display: block;
+    position: relative;
+    margin: 6px 0;
+    border: 0;
+    background-color: rgba(var(--c-appActiveText), 0.1);
+    width: 100%;
+    height: 1px;
+  }
+  .wrapper .unused {
+    display: flex;
+    align-items: center;
+    position: relative;
+    box-sizing: border-box;
+    margin: 0 6px;
+    padding: 6px;
+    width: calc(100% - 12px);
+    background-color: rgba(var(--c-appBackground), 1);
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16px;
+  }
+  .wrapper .unused {
+    background-color: rgba(var(--c-appBackgroundAccent), 1);
+  }
+  .wrapper .unused {
+    display: block;
+    padding-right: 10px;
+  }
+  .wrapper .unused {
+    display: block;
+    margin-left: auto;
+    padding-left: 10px;
+  }
+  .wrapper .unused:empty {
+    display: none;
+  }
+  .wrapper .unused {
+    display: block;
+    overflow: hidden;
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .wrapper .unused {
+    position: relative;
+  }
+  .wrapper .unused {
+    top: -6px;
+    left: 100%;
+    margin-top: 0;
+    margin-left: 1px;
+    transition: none;
+  }
+  .wrapper .unused:after {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -3;
+    top: 0;
+    right: 100%;
+    width: 1px;
+    height: 100%;
+    background: transparent;
+  }
+  .wrapper .dropdown__triangle-container {
+    pointer-events: none;
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 10px;
+  }
+  .wrapper .unused {
+    bottom: -6px;
+    transition: none;
+    visibility: hidden;
+    opacity: 0;
+  }
+  .wrapper .dropdown__triangle-container.is-open {
+    transition-property: visibility, opacity;
+    transition-duration: 0.125s;
+    transition-timing-function: ease-in;
+    visibility: visible;
+    opacity: 1;
+  }
+  .wrapper .dropdown__triangle {
+    position: absolute;
+    top: 0;
+    left: 8px;
+    width: 20px;
+    height: 10px;
+    transform: scaleX(0.75);
+  }
+  .wrapper .dropdown__triangle:before {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-bottom: -16px;
+    margin-left: -10px;
+    width: 20px;
+    height: 20px;
+    box-shadow: 0 0 0 1px #0003, 0 0 5px #0000001a, 0 3px 15px #00000026;
+    transform: rotate(45deg);
+    background: rgba(var(--c-appBackground), 1);
+  }
+  .wrapper .dropdown {
+    z-index: 10;
+    right: -18px;
+    bottom: auto;
+    left: unset;
+    overflow: visible;
+    padding: 14px 0 6px;
+    width: 100%;
+    min-width: 268px;
+    max-width: unset;
+    transition: none;
+  }
+  .wrapper .dropdown:after {
+    background-color: var(--c-ui-primary);
+  }
+  .wrapper .dropdown:before {
+    border-radius: 3px;
+    box-shadow: 0 1px 4px var(--c-shadow-primary-15);
+  }
+  .wrapper .dropdown__triangle:before {
+    background-color: var(--c-ui-primary);
+    box-shadow: 0 1px 4px var(--c-shadow-primary-15);
+  }
+  .wrapper .dropdown__triangle {
+    left: unset;
+    right: 13px;
+  }
+  .wrapper .dropdown__mobile-backdrop.is-open {
+    pointer-events: none;
+    opacity: 0;
+  }
+}

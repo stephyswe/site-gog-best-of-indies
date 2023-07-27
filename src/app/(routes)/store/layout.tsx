@@ -5,20 +5,13 @@ import { Footer } from "@/ui/footer/Footer";
 import { Navbar } from "@/ui/navbar/Navbar";
 
 // default css
-import "../../../assets/css";
+import "../../../assets/css/not-gog";
 // route specific css
 import "./catalog.css";
 import "./css/icon.css";
 import "./store.css";
-import "./styles/style1.css";
-import "./styles/style2.css";
-import "./styles/style3.css";
-import "./styles/style4.css";
-import "./styles/style5.css";
-import "./styles/style6.css";
-import "./styles/style7.css";
-import "./styles/style8.css";
-import "./styles/style9.css";
+// 30 styles css
+import "./styles";
 
 export const metadata: Metadata = {
   title: "Create Next App",

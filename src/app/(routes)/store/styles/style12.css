@@ -1,0 +1,89 @@
+@keyframes moveRight {
+  50% {
+    transform: translate(10px);
+  }
+}
+@keyframes moveLeft {
+  50% {
+    transform: translate(-10px);
+  }
+}
+@keyframes rotateSpinnerCommon {
+  0% {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+.display-switch__button {
+  pointer-events: all;
+  position: relative;
+  border: 0;
+  padding: 0;
+  width: 0;
+  height: 23px;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0);
+  line-height: 15px;
+}
+.display-switch__button:before,
+.display-switch__button:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 4px;
+  left: 0;
+  width: 1px;
+  height: 12px;
+  background-color: var(--c-accent-contrast);
+}
+.display-switch__button--active {
+  pointer-events: none;
+  display: none;
+  cursor: default;
+}
+.display-switch__icon {
+  display: none;
+  width: 15px;
+  height: 15px;
+}
+@media (min-width: 360px) {
+  .wrapper .display-switch__button {
+    padding: 0 16px;
+    width: 48px;
+  }
+  .wrapper .display-switch__button:after {
+    display: block;
+    left: auto;
+    right: 0;
+  }
+  .wrapper .display-switch__icon {
+    display: block;
+    background-color: var(--c-accent-contrast);
+  }
+}
+@media (min-width: 600px) {
+  .wrapper .display-switch__button {
+    padding: 8px;
+    width: 23px;
+  }
+  .wrapper .display-switch__button.display-switch__button--active {
+    display: inline-block;
+  }
+  .wrapper .display-switch__button:before,
+  .wrapper .display-switch__button:after {
+    display: none;
+  }
+  .wrapper .display-switch__icon {
+    background-color: currentColor;
+    color: var(--c-text-secondary);
+    transition: color 0.25s ease-out;
+  }
+  .wrapper .display-switch__icon:hover {
+    color: var(--c-ui-hover);
+  }
+  .wrapper .display-switch__button--active .display-switch__icon {
+    background-color: var(--c-accent);
+  }
+}

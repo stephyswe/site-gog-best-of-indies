@@ -1,0 +1,126 @@
+@keyframes _ngcontent-gogcom-store-c40_moveRight {
+  50% {
+    transform: translate(10px);
+  }
+}
+@keyframes _ngcontent-gogcom-store-c40_moveLeft {
+  50% {
+    transform: translate(-10px);
+  }
+}
+@keyframes _ngcontent-gogcom-store-c40_rotateSpinnerCommon {
+  0% {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+.product-label-wrapper[_ngcontent-gogcom-store-c40] {
+  display: flex;
+}
+.product-label-wrapper.product-label-wrapper--multiple[_ngcontent-gogcom-store-c40]
+  .product-label[_ngcontent-gogcom-store-c40]:not(.product-label--wishlisted) {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  border-right: 0;
+}
+.product-label-wrapper.product-label-wrapper--multiple[_ngcontent-gogcom-store-c40]
+  .product-label--wishlisted[_ngcontent-gogcom-store-c40] {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  border-left: 0;
+}
+.product-label-wrapper.product-label-wrapper--multiple[_ngcontent-gogcom-store-c40]
+  .product-label--wishlisted[_ngcontent-gogcom-store-c40]
+  .product-label__icon[_ngcontent-gogcom-store-c40] {
+  margin-right: 0;
+}
+.product-label[_ngcontent-gogcom-store-c40] {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--c-soon-border);
+  border-radius: 3px;
+  padding: 4px 5px 3px;
+  height: 20px;
+  background: var(--c-soon-body);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--c-soon-content);
+  text-align: center;
+  text-transform: uppercase;
+}
+.product-label.product-label--early-access[_ngcontent-gogcom-store-c40] {
+  border: 1px solid var(--c-earlyaccess-border);
+  background: var(--c-earlyaccess-body);
+  color: var(--c-earlyaccess-content);
+}
+.product-label.product-label--owned[_ngcontent-gogcom-store-c40] {
+  border: 1px solid var(--c-inlibrary-border);
+  background: var(--c-inlibrary-body);
+  color: var(--c-inlibrary-content);
+}
+.product-label.product-label--in-cart[_ngcontent-gogcom-store-c40] {
+  border: 1px solid var(--c-incart-border);
+  background: var(--c-incart-body);
+  color: var(--c-incart-content);
+}
+body.has-touch[_ngcontent-gogcom-store-c40]
+  .product-label__text[_ngcontent-gogcom-store-c40] {
+  margin-top: 2px;
+}
+@supports (-webkit-touch-callout: none) {
+  body.has-touch[_ngcontent-gogcom-store-c40]
+    .product-label__text[_ngcontent-gogcom-store-c40] {
+    margin-top: 0;
+  }
+}
+.product-label--wishlisted[_ngcontent-gogcom-store-c40] {
+  border: 1px solid var(--c-wishlisted-border);
+  background: var(--c-wishlisted-body);
+  color: var(--c-wishlisted-content);
+}
+.product-label__icon[_ngcontent-gogcom-store-c40] {
+  margin-right: 4px;
+  width: 9px;
+  height: 9px;
+  fill: var(--c-wishlisted-content);
+}
+.product-label-wrapper--big[_ngcontent-gogcom-store-c40] {
+  margin-right: 8px;
+}
+.product-label-wrapper--big[_ngcontent-gogcom-store-c40]
+  .product-label[_ngcontent-gogcom-store-c40] {
+  padding: 8px 8px 6px;
+  height: auto;
+  font-size: 12px;
+  line-height: 10px;
+}
+.product-label-wrapper--big[_ngcontent-gogcom-store-c40]
+  .product-label[_ngcontent-gogcom-store-c40]
+  .product-label__text[_ngcontent-gogcom-store-c40] {
+  margin-top: 0;
+}
+.product-label-wrapper--big[_ngcontent-gogcom-store-c40]
+  .product-label__icon[_ngcontent-gogcom-store-c40] {
+  width: 11px;
+  height: 10px;
+  transform: translateY(-1px);
+}
+@media (min-width: 768px) {
+  .product-label[_ngcontent-gogcom-store-c40] {
+    padding: 8px 8px 6px;
+    height: auto;
+    font-size: 12px;
+    line-height: 10px;
+  }
+  .product-label[_ngcontent-gogcom-store-c40]
+    .product-label__text[_ngcontent-gogcom-store-c40] {
+    margin-top: 0;
+  }
+  .product-label__icon[_ngcontent-gogcom-store-c40] {
+    width: 11px;
+    height: 10px;
+    transform: translateY(-1px);
+  }
+}

@@ -1,0 +1,28 @@
+@keyframes moveRight {
+  50% {
+    transform: translate(10px);
+  }
+}
+@keyframes moveLeft {
+  50% {
+    transform: translate(-10px);
+  }
+}
+@keyframes rotateSpinnerCommon {
+  0% {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+.release-date-filter__content {
+  margin: 0 -8px;
+  padding-right: 8px;
+}
+@media (min-width: 600px) {
+  .wrapper .release-date-filter__content {
+    margin: 0 -12px 0 -4px;
+    padding-right: 16px;
+  }
+}

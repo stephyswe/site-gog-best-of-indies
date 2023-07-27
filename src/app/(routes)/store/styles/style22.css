@@ -1,0 +1,65 @@
+@keyframes _ngcontent-gogcom-store-c30_moveRight {
+  50% {
+    transform: translate(10px);
+  }
+}
+@keyframes _ngcontent-gogcom-store-c30_moveLeft {
+  50% {
+    transform: translate(-10px);
+  }
+}
+@keyframes _ngcontent-gogcom-store-c30_rotateSpinnerCommon {
+  0% {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+picture[_ngcontent-gogcom-store-c30] img[_ngcontent-gogcom-store-c30] {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.takeover[_ngcontent-gogcom-store-c30] img[_ngcontent-gogcom-store-c30] {
+  width: auto;
+  max-width: 100%;
+}
+.bigspot-logo[_ngcontent-gogcom-store-c30] img[_ngcontent-gogcom-store-c30] {
+  height: 161px;
+}
+@media (min-width: 414px) {
+  .bigspot-logo[_ngcontent-gogcom-store-c30] img[_ngcontent-gogcom-store-c30] {
+    height: auto;
+  }
+}
+.base-slider[_ngcontent-gogcom-store-c30],
+.picture-slider--blur[_ngcontent-gogcom-store-c30]
+  img[_ngcontent-gogcom-store-c30],
+.picture-slider[_ngcontent-gogcom-store-c30] img[_ngcontent-gogcom-store-c30],
+.news-tile[_ngcontent-gogcom-store-c30] img[_ngcontent-gogcom-store-c30],
+.vertical-banner[_ngcontent-gogcom-store-c30] img[_ngcontent-gogcom-store-c30] {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.news-tile[_ngcontent-gogcom-store-c30] img[_ngcontent-gogcom-store-c30] {
+  z-index: -1;
+}
+.picture-slider[_ngcontent-gogcom-store-c30] img[_ngcontent-gogcom-store-c30] {
+  inset: 0;
+}
+.picture-slider--blur[_ngcontent-gogcom-store-c30]
+  img[_ngcontent-gogcom-store-c30] {
+  filter: blur(50px);
+  inset: 0;
+}
+.welcome-offer[_ngcontent-gogcom-store-c30] img[_ngcontent-gogcom-store-c30] {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  left: 0;
+  max-width: 100%;
+}

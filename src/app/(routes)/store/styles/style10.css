@@ -1,0 +1,27 @@
+@keyframes moveRight {
+  50% {
+    transform: translate(10px);
+  }
+}
+@keyframes moveLeft {
+  50% {
+    transform: translate(-10px);
+  }
+}
+@keyframes rotateSpinnerCommon {
+  0% {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+.page-header {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--c-text-primary);
+  line-height: 1.5;
+  margin: 0;
+  line-height: 24px;
+  white-space: nowrap;
+}
