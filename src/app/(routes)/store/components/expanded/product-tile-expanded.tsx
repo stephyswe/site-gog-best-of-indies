@@ -1,6 +1,6 @@
+import { updatedDataProductTiles } from "@/data/temp-data";
 import useProductExpandState from "@/store/useProductExpandState";
 
-import { dataProductTiles } from "../catalog/content/catalog-content";
 import { ProductItemFeatures } from "./partials/item-features";
 import { ProductItemLanguage } from "./partials/item-language";
 import { ProductItemOS } from "./partials/item-os";
@@ -13,7 +13,7 @@ export const ProductTileExpanded = () => {
   const productExpanded = useProductExpandState();
   if (!productExpanded.isOpen) return <div></div>;
   const id = productExpanded.idOpen;
-  const product = dataProductTiles.find((product) => product.id === id);
+  const product = updatedDataProductTiles.find((product) => product.id === id);
 
   const {
     title,

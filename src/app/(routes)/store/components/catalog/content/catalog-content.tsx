@@ -1,3 +1,4 @@
+import { updatedDataProductTiles } from "@/data/temp-data";
 import useProductExpandState from "@/store/useProductExpandState";
 
 import { ProductItemPrice } from "../../expanded/partials/item-price";
@@ -39,35 +40,6 @@ const CatalogDisplay = () => (
   </div>
 );
 
-export const dataProductTiles = [
-  {
-    id: "1",
-    href: "/the_witcher",
-    title: "The Witcher: Enhanced Edition",
-    thumbnail: "",
-    price: {
-      currency: "SEK",
-      before: "86.00",
-      current: "12.80",
-    },
-    expanded: {
-      os: ["windows", "osx"],
-      language: {
-        name: "English",
-        options: "(audio, text)",
-      },
-      rating: "4.6",
-      tags: [
-        "Fantasy, Story Rich, Atmospheric, Classic, Great Soundtrack, Choices Matter, Open World, Third Person, Nudity, Multiple Endings, Magic, Mature, Medieval",
-      ],
-      features: {
-        player: ["singleplayer"],
-        controller: ["cloud-saves"],
-      },
-    },
-  },
-];
-
 const StoreProductGrid = () => (
   <div
     _ngcontent-gogcom-store-c78=""
@@ -78,34 +50,34 @@ const StoreProductGrid = () => (
       className="paginated-products-grid grid"
       selenium-id="paginatedProductsGrid"
     >
-      {dataProductTiles.map((item) => (
+      {updatedDataProductTiles.map((item) => (
         <ProductTile key={item.title} {...item} />
       ))}
     </div>
   </div>
 );
 
-const ProductTitleImage = () => (
+const ProductTitleImage = ({ thumbnail }: any) => (
   <div className="product-tile__image-wrapper">
     <div _nghost-gogcom-store-c30="" className="ng-star-inserted">
       <picture _ngcontent-gogcom-store-c30="">
-        <source
+        {/*  <source
           _ngcontent-gogcom-store-c30=""
           srcSet="https://images.gog-statics.com/37d4a208d1f5bb0e163da540ac894ba46a7d566ede31aaaefc74bbcd46ebd190_product_tile_extended_432x243.webp, https://images.gog-statics.com/37d4a208d1f5bb0e163da540ac894ba46a7d566ede31aaaefc74bbcd46ebd190_product_tile_extended_432x243_2x.webp 2x"
           type="image/webp"
           media="(min-width:768px)"
           className="ng-star-inserted"
-        />
+        /> */}
         <source
           _ngcontent-gogcom-store-c30=""
-          srcSet="https://images.gog-statics.com/37d4a208d1f5bb0e163da540ac894ba46a7d566ede31aaaefc74bbcd46ebd190_product_tile_extended_432x243.jpg, https://images.gog-statics.com/37d4a208d1f5bb0e163da540ac894ba46a7d566ede31aaaefc74bbcd46ebd190_product_tile_extended_432x243_2x.jpg 2x"
+          srcSet={thumbnail}
           type="image/jpeg"
           media="(min-width:768px)"
           className="ng-star-inserted"
         />
         {/**/}
         {/**/}
-        <source
+        {/* <source
           _ngcontent-gogcom-store-c30=""
           srcSet="https://images.gog-statics.com/37d4a208d1f5bb0e163da540ac894ba46a7d566ede31aaaefc74bbcd46ebd190_product_tile_117h.webp, https://images.gog-statics.com/37d4a208d1f5bb0e163da540ac894ba46a7d566ede31aaaefc74bbcd46ebd190_product_tile_117h_2x.webp 2x"
           type="image/webp"
@@ -116,7 +88,7 @@ const ProductTitleImage = () => (
           srcSet="https://images.gog-statics.com/37d4a208d1f5bb0e163da540ac894ba46a7d566ede31aaaefc74bbcd46ebd190_product_tile_117h.jpg, https://images.gog-statics.com/37d4a208d1f5bb0e163da540ac894ba46a7d566ede31aaaefc74bbcd46ebd190_product_tile_117h_2x.jpg 2x"
           type="image/jpeg"
           className="ng-star-inserted"
-        />
+        /> */}
         {/**/}
         {/**/}
         {/**/}
@@ -171,12 +143,12 @@ const ProductTileReleaseLabel = () => (
   ></div>
 );
 
-const ProductTile = ({ title, price, href }: any) => {
+const ProductTile = ({ id, title, price, href, thumbnail }: any) => {
   const productExpand = useProductExpandState();
 
   const onMouseEnter = () => {
     // activate product expand
-    productExpand.onOpen("1");
+    productExpand.onOpen(id);
   };
 
   return (
@@ -196,7 +168,7 @@ const ProductTile = ({ title, price, href }: any) => {
         data-list-id="57add9e5-b0bf-4b32-9028-65820c9f1992"
         data-list-name="CATALOG_SECTION"
       >
-        <ProductTitleImage />
+        <ProductTitleImage thumbnail={thumbnail} />
         <div className="product-tile__info">
           <ProductTileTitle title={title} />
           <div className="product-tile__footer">
