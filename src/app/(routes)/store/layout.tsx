@@ -4,6 +4,8 @@ import { StoreSvg } from "@/app/layout-svg";
 import { Footer } from "@/ui/footer/Footer";
 import { Navbar } from "@/ui/navbar/Navbar";
 
+// default css
+import "../../../assets/css";
 // route specific css
 import "./catalog.css";
 import "./css/icon.css";
@@ -17,8 +19,6 @@ import "./styles/style6.css";
 import "./styles/style7.css";
 import "./styles/style8.css";
 import "./styles/style9.css";
-// default css
-import "../../../assets/css";
 
 export const metadata: Metadata = {
   title: "Create Next App",

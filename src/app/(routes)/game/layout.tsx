@@ -4,11 +4,12 @@ import { GameOverhead, GameSvg } from "@/app/layout-svg";
 import { Footer } from "@/ui/footer/Footer";
 import { Navbar } from "@/ui/navbar/Navbar";
 
+// default css
+import "../../../assets/css";
 // route specific css
 import "../../../assets/css/game/game-prince-of-persia.css";
 import "../../../assets/css/game/game-product.css";
-// default css
-import "../../../assets/css";
+
 
 
 export const metadata: Metadata = {

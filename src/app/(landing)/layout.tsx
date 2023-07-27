@@ -4,7 +4,7 @@ import { RootSvg } from "@/app/layout-svg";
 import { Footer } from "@/ui/footer/Footer";
 import { Navbar } from "@/ui/navbar/Navbar";
 
-import "../../assets/css";
+import "../../../assets/css";
 
 export const metadata: Metadata = {
   title: "Create Next App",

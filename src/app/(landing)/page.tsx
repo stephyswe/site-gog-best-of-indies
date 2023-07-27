@@ -18,6 +18,10 @@ export default function LandingPage() {
     html.setAttribute("data-theme", "light");
     html.setAttribute("lang", "en-US");
     html.setAttribute("ng-app", "gogFrontpage");
+    html.setAttribute(
+      "class",
+      "native-mode prices-in-sek lang--en-us curr-symbol-before country-se lato-20 has-new-menu"
+    );
 
     var body: any = document.querySelector("body");
     body.setAttribute(
