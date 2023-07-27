@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 
 import { Catalog } from "./Catalog";
-import { ProductTileExpanded } from "./components/product-tile-expanded";
+import { ProductTileExpanded } from "./components/expanded/product-tile-expanded";
 
 export default function StorePage() {
   useEffect(() => {
@@ -17,7 +17,7 @@ export default function StorePage() {
   }, []);
 
   // handle with useProductExpandState
-  
+
   return (
     <>
       <div ng-version="15.1.2" ng-server-context="ssr" className="app-root">

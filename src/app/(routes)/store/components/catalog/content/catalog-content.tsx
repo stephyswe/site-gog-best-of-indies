@@ -1,5 +1,6 @@
 import useProductExpandState from "@/store/useProductExpandState";
 
+import { ProductItemPrice } from "../../expanded/partials/item-price";
 import { FilterSimpleBar } from "./filter/filter";
 
 export const CatalogContent = () => (
@@ -38,6 +39,35 @@ const CatalogDisplay = () => (
   </div>
 );
 
+export const dataProductTiles = [
+  {
+    id: "1",
+    href: "/the_witcher",
+    title: "The Witcher: Enhanced Edition",
+    thumbnail: "",
+    price: {
+      currency: "SEK",
+      before: "86.00",
+      current: "12.80",
+    },
+    expanded: {
+      os: ["windows", "osx"],
+      language: {
+        name: "English",
+        options: "(audio, text)",
+      },
+      rating: "4.6",
+      tags: [
+        "Fantasy, Story Rich, Atmospheric, Classic, Great Soundtrack, Choices Matter, Open World, Third Person, Nudity, Multiple Endings, Magic, Mature, Medieval",
+      ],
+      features: {
+        player: ["singleplayer"],
+        controller: ["cloud-saves"],
+      },
+    },
+  },
+];
+
 const StoreProductGrid = () => (
   <div
     _ngcontent-gogcom-store-c78=""
@@ -48,17 +78,105 @@ const StoreProductGrid = () => (
       className="paginated-products-grid grid"
       selenium-id="paginatedProductsGrid"
     >
-      <ProductTile />
+      {dataProductTiles.map((item) => (
+        <ProductTile key={item.title} {...item} />
+      ))}
     </div>
   </div>
 );
 
-const ProductTile = () => {
+const ProductTitleImage = () => (
+  <div className="product-tile__image-wrapper">
+    <div _nghost-gogcom-store-c30="" className="ng-star-inserted">
+      <picture _ngcontent-gogcom-store-c30="">
+        <source
+          _ngcontent-gogcom-store-c30=""
+          srcSet="https://images.gog-statics.com/37d4a208d1f5bb0e163da540ac894ba46a7d566ede31aaaefc74bbcd46ebd190_product_tile_extended_432x243.webp, https://images.gog-statics.com/37d4a208d1f5bb0e163da540ac894ba46a7d566ede31aaaefc74bbcd46ebd190_product_tile_extended_432x243_2x.webp 2x"
+          type="image/webp"
+          media="(min-width:768px)"
+          className="ng-star-inserted"
+        />
+        <source
+          _ngcontent-gogcom-store-c30=""
+          srcSet="https://images.gog-statics.com/37d4a208d1f5bb0e163da540ac894ba46a7d566ede31aaaefc74bbcd46ebd190_product_tile_extended_432x243.jpg, https://images.gog-statics.com/37d4a208d1f5bb0e163da540ac894ba46a7d566ede31aaaefc74bbcd46ebd190_product_tile_extended_432x243_2x.jpg 2x"
+          type="image/jpeg"
+          media="(min-width:768px)"
+          className="ng-star-inserted"
+        />
+        {/**/}
+        {/**/}
+        <source
+          _ngcontent-gogcom-store-c30=""
+          srcSet="https://images.gog-statics.com/37d4a208d1f5bb0e163da540ac894ba46a7d566ede31aaaefc74bbcd46ebd190_product_tile_117h.webp, https://images.gog-statics.com/37d4a208d1f5bb0e163da540ac894ba46a7d566ede31aaaefc74bbcd46ebd190_product_tile_117h_2x.webp 2x"
+          type="image/webp"
+          className="ng-star-inserted"
+        />
+        <source
+          _ngcontent-gogcom-store-c30=""
+          srcSet="https://images.gog-statics.com/37d4a208d1f5bb0e163da540ac894ba46a7d566ede31aaaefc74bbcd46ebd190_product_tile_117h.jpg, https://images.gog-statics.com/37d4a208d1f5bb0e163da540ac894ba46a7d566ede31aaaefc74bbcd46ebd190_product_tile_117h_2x.jpg 2x"
+          type="image/jpeg"
+          className="ng-star-inserted"
+        />
+        {/**/}
+        {/**/}
+        {/**/}
+        {/**/}
+        {/**/}
+        {/**/}
+        {/**/}
+        <img
+          _ngcontent-gogcom-store-c30=""
+          selenium-id="productTileGameCover"
+          className="ng-star-inserted"
+        />
+        {/**/}
+      </picture>
+    </div>
+    {/**/}
+    {/**/}
+    <div
+      className="product-tile__release-label--grid"
+      _nghost-gogcom-store-c40=""
+      selenium-id="productTileReleaseLabel"
+    >
+      {/**/}
+      {/**/}
+      {/**/}
+    </div>
+  </div>
+);
+
+const ProductTileTitle = ({ title }: any) => (
+  <div
+    className="product-tile__title"
+    title={title}
+    selenium-id="productTileGameTitle"
+  >
+    <div
+      _nghost-gogcom-store-c41=""
+      selenium-id="productTitle"
+      className="small"
+    >
+      {/**/}
+      <span _ngcontent-gogcom-store-c41="">{title}</span>
+    </div>
+  </div>
+);
+
+const ProductTileReleaseLabel = () => (
+  <div
+    className="product-tile__release-label--list"
+    _nghost-gogcom-store-c40=""
+    selenium-id="productTileReleaseLabel"
+  ></div>
+);
+
+const ProductTile = ({ title, price, href }: any) => {
   const productExpand = useProductExpandState();
 
   const onMouseEnter = () => {
     // activate product expand
-    productExpand.onOpen("id");
+    productExpand.onOpen("1");
   };
 
   return (
@@ -71,136 +189,20 @@ const ProductTile = () => {
       <a
         //eventstrackeronviewportenter=""
         className="product-tile product-tile--grid"
-        href="https://www.gog.com/en/game/the_witcher"
+        href={href}
         selenium-id="productTile"
         data-product-id={1207658924}
         data-product-index={0}
         data-list-id="57add9e5-b0bf-4b32-9028-65820c9f1992"
         data-list-name="CATALOG_SECTION"
       >
-        <div className="product-tile__image-wrapper">
-          <div _nghost-gogcom-store-c30="" className="ng-star-inserted">
-            <picture _ngcontent-gogcom-store-c30="">
-              <source
-                _ngcontent-gogcom-store-c30=""
-                srcSet="https://images.gog-statics.com/37d4a208d1f5bb0e163da540ac894ba46a7d566ede31aaaefc74bbcd46ebd190_product_tile_extended_432x243.webp, https://images.gog-statics.com/37d4a208d1f5bb0e163da540ac894ba46a7d566ede31aaaefc74bbcd46ebd190_product_tile_extended_432x243_2x.webp 2x"
-                type="image/webp"
-                media="(min-width:768px)"
-                className="ng-star-inserted"
-              />
-              <source
-                _ngcontent-gogcom-store-c30=""
-                srcSet="https://images.gog-statics.com/37d4a208d1f5bb0e163da540ac894ba46a7d566ede31aaaefc74bbcd46ebd190_product_tile_extended_432x243.jpg, https://images.gog-statics.com/37d4a208d1f5bb0e163da540ac894ba46a7d566ede31aaaefc74bbcd46ebd190_product_tile_extended_432x243_2x.jpg 2x"
-                type="image/jpeg"
-                media="(min-width:768px)"
-                className="ng-star-inserted"
-              />
-              {/**/}
-              {/**/}
-              <source
-                _ngcontent-gogcom-store-c30=""
-                srcSet="https://images.gog-statics.com/37d4a208d1f5bb0e163da540ac894ba46a7d566ede31aaaefc74bbcd46ebd190_product_tile_117h.webp, https://images.gog-statics.com/37d4a208d1f5bb0e163da540ac894ba46a7d566ede31aaaefc74bbcd46ebd190_product_tile_117h_2x.webp 2x"
-                type="image/webp"
-                className="ng-star-inserted"
-              />
-              <source
-                _ngcontent-gogcom-store-c30=""
-                srcSet="https://images.gog-statics.com/37d4a208d1f5bb0e163da540ac894ba46a7d566ede31aaaefc74bbcd46ebd190_product_tile_117h.jpg, https://images.gog-statics.com/37d4a208d1f5bb0e163da540ac894ba46a7d566ede31aaaefc74bbcd46ebd190_product_tile_117h_2x.jpg 2x"
-                type="image/jpeg"
-                className="ng-star-inserted"
-              />
-              {/**/}
-              {/**/}
-              {/**/}
-              {/**/}
-              {/**/}
-              {/**/}
-              {/**/}
-              <img
-                _ngcontent-gogcom-store-c30=""
-                selenium-id="productTileGameCover"
-                className="ng-star-inserted"
-              />
-              {/**/}
-            </picture>
-          </div>
-          {/**/}
-          {/**/}
-          <div
-            className="product-tile__release-label--grid"
-            _nghost-gogcom-store-c40=""
-            selenium-id="productTileReleaseLabel"
-          >
-            {/**/}
-            {/**/}
-            {/**/}
-          </div>
-        </div>
+        <ProductTitleImage />
         <div className="product-tile__info">
-          <div
-            className="product-tile__title"
-            title="The Witcher: Enhanced Edition"
-            selenium-id="productTileGameTitle"
-          >
-            <div
-              _nghost-gogcom-store-c41=""
-              selenium-id="productTitle"
-              className="small"
-            >
-              {/**/}
-              <span _ngcontent-gogcom-store-c41="">
-                The Witcher: Enhanced Edition
-              </span>
-            </div>
-          </div>
+          <ProductTileTitle title={title} />
           <div className="product-tile__footer">
-            <div
-              className="product-tile__release-label--list"
-              _nghost-gogcom-store-c40=""
-              selenium-id="productTileReleaseLabel"
-            >
-              {/**/}
-              {/**/}
-              {/**/}
-            </div>
+            <ProductTileReleaseLabel />
             <div className="product-tile__price-info">
-              <div _nghost-gogcom-store-c39="" selenium-id="productPrice">
-                <div
-                  _ngcontent-gogcom-store-c39=""
-                  _nghost-gogcom-store-c37=""
-                  selenium-id="productPriceDiscount"
-                  className="ng-star-inserted"
-                >
-                  -85%
-                </div>
-                {/**/}
-                <div
-                  _ngcontent-gogcom-store-c39=""
-                  _nghost-gogcom-store-c38=""
-                  selenium-id="productPriceValue"
-                  className="ng-star-inserted"
-                >
-                  <span
-                    _ngcontent-gogcom-store-c38=""
-                    className="base-value ng-star-inserted"
-                  >
-                    SEK&nbsp;86.00
-                  </span>
-                  {/**/}
-                  <span _ngcontent-gogcom-store-c38="" className="final-value">
-                    SEK&nbsp;12.80
-                  </span>
-                </div>
-                {/**/}
-                {/**/}
-                {/**/}
-                {/**/}
-                {/**/}
-                {/**/}
-                {/**/}
-                {/**/}
-                {/**/}
-              </div>
+              <ProductItemPrice price={price} />
             </div>
           </div>
         </div>
