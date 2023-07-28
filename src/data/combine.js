@@ -36,8 +36,8 @@ fs.readdir(directory, (err, files) => {
             current = current === final ? null : current;
             price = {
               currency: jsonData.price_overview.currency,
-              current: current,
-              before: final,
+              current: final,
+              before: current,
             };
           }
 

@@ -49,26 +49,43 @@ const ProductPriceBefore = ({ price }: any) => {
   );
 };
 
-export const ProductItemPrice = ({ price, addToCart, className }: any) => (
-  <div
-    _ngcontent-gogcom-store-c47=""
-    className={className}
-    _nghost-gogcom-store-c39=""
-    selenium-id="productPrice"
-  >
-    <PriceDiscount price={price} />
+export const ProductItemPrice = ({ price, addToCart, className }: any) => {
+  // check if there's a free game
+  if (price.currency === "FREE")
+    return (
+      <div
+        _ngcontent-gogcom-store-c39=""
+        _nghost-gogcom-store-c37=""
+        selenium-id="productPriceDiscount"
+        className="ng-star-inserted"
+        style={{
+          background: "green",
+        }}
+      >
+        FREE
+      </div>
+    );
+  return (
     <div
-      _ngcontent-gogcom-store-c39=""
-      _nghost-gogcom-store-c38=""
-      selenium-id="productPriceValue"
-      className="ng-star-inserted"
-      style={{}}
+      _ngcontent-gogcom-store-c47=""
+      className={className}
+      _nghost-gogcom-store-c39=""
+      selenium-id="productPrice"
     >
-      <ProductPriceBefore price={price} />
-      <span _ngcontent-gogcom-store-c38="" className="final-value">
-        {price.currency}&nbsp;{price.current}
-      </span>
+      <PriceDiscount price={price} />
+      <div
+        _ngcontent-gogcom-store-c39=""
+        _nghost-gogcom-store-c38=""
+        selenium-id="productPriceValue"
+        className="ng-star-inserted"
+        style={{}}
+      >
+        <ProductPriceBefore price={price} />
+        <span _ngcontent-gogcom-store-c38="" className="final-value">
+          {price.currency}&nbsp;{price.current}
+        </span>
+      </div>
+      {addToCart ? <ProductItemAddToCart /> : null}
     </div>
-    {addToCart ? <ProductItemAddToCart /> : null}
-  </div>
-);
+  );
+};
