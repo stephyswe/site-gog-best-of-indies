@@ -6,6 +6,7 @@ import { useProductLengthState } from "@/store/useProductLengthState";
 
 import { ProductItemPrice } from "../../expanded/partials/item-price";
 import { FilterSimpleBar } from "./filter/filter";
+import { CatalogFilterList } from "../catalog-filter/catalog-filter";
 
 export const CatalogContent = () => (
   <div _ngcontent-gogcom-store-c79="" _nghost-gogcom-store-c78="" id="Catalog">
@@ -38,22 +39,30 @@ const CatalogDisplay = () => (
     className="catalog__display-wrapper catalog__grid-wrapper"
   >
     <StoreNavigation />
-    <StoreClearingList />
+    <CatalogFilterList />
     <StoreProductGrid />
   </div>
 );
 
 const StoreProductGrid = () => {
-  const [allGames, setAllGames] = useState(updatedDataProductTiles);
+  const [fullData] = useState(updatedDataProductTiles); // state to hold the full data
+  const [allGames, setAllGames] = useState(updatedDataProductTiles); // state to hold the filtered data
   const searchTerm = useProductLengthState((state) => state.searchTerm);
   const productLength = useProductLengthState();
 
   useEffect(() => {
-    const filteredData = updatedDataProductTiles.filter((game) =>
-      game.title.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setAllGames(filteredData);
-    productLength.setAllGamesLength(filteredData.length);
+    if (searchTerm) {
+      // if search term is not empty
+      const filteredData = fullData.filter((game) =>
+        game.title.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setAllGames(filteredData);
+      productLength.setAllGamesLength(filteredData.length);
+    } else {
+      // if search term is empty
+      setAllGames(fullData);
+      productLength.setAllGamesLength(fullData.length);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchTerm]);
 

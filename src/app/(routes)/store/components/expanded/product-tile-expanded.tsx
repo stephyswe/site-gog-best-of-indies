@@ -22,6 +22,8 @@ export const ProductTileExpanded = () => {
     expanded: { os, language, rating, tags, features },
   } = product!;
 
+  return null;
+
   return (
     <div>
       <div

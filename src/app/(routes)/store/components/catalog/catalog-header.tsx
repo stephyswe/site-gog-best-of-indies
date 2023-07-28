@@ -6,6 +6,7 @@ import { useProductLengthState } from "@/store/useProductLengthState";
 export const CatalogHeader = () => {
   const productLength = useProductLengthState();
   const setSearchTerm = useProductLengthState((state) => state.setSearchTerm);
+  const searchTerm = useProductLengthState((state) => state.searchTerm);
   const [inputValue, setInputValue] = useState("");
 
   const debouncedSearchTerm = debounce((value) => setSearchTerm(value), 300);
@@ -14,6 +15,12 @@ export const CatalogHeader = () => {
     debouncedSearchTerm(inputValue);
     return debouncedSearchTerm.cancel; // Clean up function to cancel any pending debounced function
   }, [inputValue, debouncedSearchTerm]);
+
+  useEffect(() => {
+    if (searchTerm === "") {
+      setInputValue("");
+    }
+  }, [searchTerm]);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
@@ -44,6 +51,7 @@ export const CatalogHeader = () => {
               placeholder="Search store by title, publisher or tag"
               selenium-id="searchComponentInput"
               onChange={handleInputChange}
+              value={inputValue}
             />
             <span className="search__icon icon-magnifying-glass" />
             {/**/}

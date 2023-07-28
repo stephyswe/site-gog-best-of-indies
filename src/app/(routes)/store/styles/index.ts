@@ -31,3 +31,7 @@ import "./style30.css";
 import "./style31.css";
 import "./style32.css";
 import "./style33.css";
+
+// more
+import "../styles-more/style-catalog-filter.css";
+import "../styles-more/style-catalog-filter-item.css";
