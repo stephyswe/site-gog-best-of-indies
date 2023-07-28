@@ -1,12 +1,23 @@
+import { debounce } from "lodash";
+import { useEffect, useState } from "react";
+
 import { useProductLengthState } from "@/store/useProductLengthState";
 
 export const CatalogHeader = () => {
   const productLength = useProductLengthState();
-  const setSearchTerm = useProductLengthState(state => state.setSearchTerm);
+  const setSearchTerm = useProductLengthState((state) => state.setSearchTerm);
+  const [inputValue, setInputValue] = useState("");
+
+  const debouncedSearchTerm = debounce((value) => setSearchTerm(value), 300);
+
+  useEffect(() => {
+    debouncedSearchTerm(inputValue);
+    return debouncedSearchTerm.cancel; // Clean up function to cancel any pending debounced function
+  }, [inputValue, debouncedSearchTerm]);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(event.target.value);
-  }
+    setInputValue(event.target.value);
+  };
 
   return (
     <div
