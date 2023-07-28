@@ -44,14 +44,18 @@ const CatalogDisplay = () => (
 );
 
 const StoreProductGrid = () => {
-  // keep all the state in the store
   const [allGames, setAllGames] = useState(updatedDataProductTiles);
+  const searchTerm = useProductLengthState((state) => state.searchTerm);
   const productLength = useProductLengthState();
 
   useEffect(() => {
-    productLength.setAllGamesLength(allGames.length);
+    const filteredData = updatedDataProductTiles.filter((game) =>
+      game.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setAllGames(filteredData);
+    productLength.setAllGamesLength(filteredData.length);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [allGames]);
+  }, [searchTerm]);
 
   return (
     <div

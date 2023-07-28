@@ -2,6 +2,12 @@ import { useProductLengthState } from "@/store/useProductLengthState";
 
 export const CatalogHeader = () => {
   const productLength = useProductLengthState();
+  const setSearchTerm = useProductLengthState(state => state.setSearchTerm);
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(event.target.value);
+  }
+
   return (
     <div
       _ngcontent-gogcom-store-c79=""
@@ -26,6 +32,7 @@ export const CatalogHeader = () => {
               className="search__input ng-untouched ng-pristine ng-valid"
               placeholder="Search store by title, publisher or tag"
               selenium-id="searchComponentInput"
+              onChange={handleInputChange}
             />
             <span className="search__icon icon-magnifying-glass" />
             {/**/}
