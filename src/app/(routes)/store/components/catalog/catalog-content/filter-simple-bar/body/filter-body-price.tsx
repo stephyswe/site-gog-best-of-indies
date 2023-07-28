@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
+import Draggable from "react-draggable";
 
 import { cn } from "@/lib/utils";
 
@@ -57,14 +58,14 @@ const FilterBodyPriceRange = () => {
             />
           </div>
           <RangeItem
-            transform="-100%"
+            initialValue={-100}
             value={0.0}
             className="upper"
             setActive={setActive}
             isActive={isActive}
           />
           <RangeItem
-            transform="0%"
+            initialValue={0}
             value={2933.0}
             className="lower"
             setActive={setActive}
@@ -76,36 +77,53 @@ const FilterBodyPriceRange = () => {
   );
 };
 
-const RangeItem = ({
-  transform,
-  value,
-  className,
-  setActive,
-  isActive,
-}: any) => {
+const RangeItem = ({ className, setActive, isActive, initialValue }: any) => {
+  const [x, setX] = useState(initialValue);
   const checkActive = className === isActive;
+  const parentRef = useRef(null);
+
+  const handleDrag = (e: any, data: any) => {
+    const parentWidth = parentRef.current.offsetWidth;
+    const percent = Math.max(0, Math.min(100, (data.x / parentWidth) * 100));
+    const value = (percent / 100) * 2933.0;
+    setX(value);
+  };
+
+  const handleStop = () => {
+    setActive("");
+  };
+
   return (
     <div
+      ref={parentRef}
       className="noUi-origin"
       style={{
-        transform: `translate(${transform}, 0px)`,
+        transform: `translate(${x}%, 0px)`,
         zIndex: 5,
       }}
     >
-      <div
-        className={`noUi-handle noUi-handle-${className} ${checkActive ? "noUi-active" : ""}`}
-        data-handle={0}
-        tabIndex={0}
-        role="slider"
-        aria-orientation="horizontal"
-        aria-valuemin={0.0}
-        aria-valuemax={2933.0}
-        aria-valuenow={value}
-        onMouseDown={() => setActive(className)}
-        onMouseUp={() => setActive("")}
+      <Draggable
+        axis="x"
+        bounds="parent"
+        onDrag={handleDrag}
+        onStop={handleStop}
       >
-        <div className="noUi-touch-area" />
-      </div>
+        <div
+          className={`noUi-handle noUi-handle-${className} ${
+            checkActive ? "noUi-active" : ""
+          }`}
+          data-handle={0}
+          tabIndex={0}
+          role="slider"
+          aria-orientation="horizontal"
+          aria-valuemin={0.0}
+          aria-valuemax={2933.0}
+          aria-valuenow={x}
+          onMouseDown={() => setActive(className)}
+        >
+          <div className="noUi-touch-area" />
+        </div>
+      </Draggable>
     </div>
   );
 };
