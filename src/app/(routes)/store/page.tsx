@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 
-import { Catalog } from "./Catalog";
+import { Catalog } from "./components/catalog/catalog";
 import { ProductTileExpanded } from "./components/expanded/product-tile-expanded";
 
 export default function StorePage() {

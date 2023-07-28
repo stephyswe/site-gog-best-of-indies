@@ -47,7 +47,7 @@ export const Input = ({ title }: any) => (
   </label>
 );
 
-export const InputAlt = () => (
+export const InputAlt = ({ title }: any) => (
   <label
     className="checkbox__label ng-star-inserted"
     htmlFor="releasestatuses-new-arrival"
@@ -61,7 +61,7 @@ export const InputAlt = () => (
     />
     {/**/}
     <span className="ng-star-inserted">
-      New arrivals{/**/}
+      {title}{/**/}
       {/**/}
       {/**/}
       {/**/}

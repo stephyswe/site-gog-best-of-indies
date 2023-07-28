@@ -10,12 +10,11 @@ const filterData = [
       {
         title: "Hide DLCs and extras",
         selId: "hideAllDLCCheckbox",
-        type: "checkbox",
       },
     ],
   },
   {
-    title: "Price Range",
+    title: "Price range",
     type: "price",
     content: [
       {
@@ -24,7 +23,6 @@ const filterData = [
         selBtnId: "...",
         selLabelId: "...",
         idInput: "...",
-        type: "price",
       },
     ],
   },
@@ -34,11 +32,23 @@ const filterData = [
     content: [
       {
         name: "releasestatuses-new-arrival",
-        title: "HNew arrivals",
+        title: "New arrivals",
         selBtnId: "filterReleasestatusesExcludenew-arrival",
         selLabelId: "filterReleasestatusesCheckboxnew-arrival",
         idInput: "releasestatuses-new-arrival",
-        type: "checkbox-alt",
+      },
+    ],
+  },
+  {
+    title: "Genres",
+    type: "checkbox-alt",
+    content: [
+      {
+        name: "genres-action",
+        title: "Action",
+        selBtnId: "filterReleasestatusesExcludenew-arrival",
+        selLabelId: "filterReleasestatusesCheckboxnew-arrival",
+        idInput: "releasestatuses-new-arrival",
       },
     ],
   },

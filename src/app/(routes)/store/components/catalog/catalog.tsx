@@ -1,5 +1,5 @@
-import { CatalogHeader } from "./components/catalog/catalog-header";
-import { CatalogContent } from "./components/catalog/content/catalog-content";
+import { CatalogContent } from "./catalog-content/catalog-content";
+import { CatalogHeader } from "./catalog-header";
 
 export const Catalog = () => (
   <div _nghost-gogcom-store-c79="true" className="ng-star-inserted">

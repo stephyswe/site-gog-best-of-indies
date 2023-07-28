@@ -1,8 +1,11 @@
+import { cn } from "@/lib/utils";
 import { useProductLengthState } from "@/store/useProductLengthState";
 
 export const CatalogFilterList = () => {
   // get searchTerm from useProductLengthState
   const searchTerm = useProductLengthState((state) => state.searchTerm);
+
+  const searchTermHasValue = searchTerm !== "";
 
   return (
     <div
@@ -12,7 +15,10 @@ export const CatalogFilterList = () => {
     >
       <div className="filter-clearing-list__scrollbar">
         <div
-          className=" filter-clearing-list__wrapper has-margin"
+          className={cn(
+            "filter-clearing-list__wrapper",
+            searchTermHasValue ? "has-margin" : ""
+          )}
           selenium-id="filterClearingList"
           style={{ display: "flex" }}
         >
