@@ -1,4 +1,6 @@
-import gameData from "./steam_data.json";
+import gameData from "./combine.json";
+
+//import gameData from './games/24420.json';
 
 export const dataProductTiles = [
   {
@@ -30,18 +32,14 @@ export const dataProductTiles = [
   },
 ];
 
-export const updatedDataProductTiles = dataProductTiles.map((product) => {
-  // check if the product id matches the gameData id
-  if (product.id === gameData.id) {
-    // if it does, overwrite the product data with the gameData
-    return {
-      ...product,
-      title: gameData.title,
-      thumbnail: gameData.thumbnail,
-      // replace other properties as required
-    };
-  }
+export let gamesAdded = 0;
 
-  // if the product id doesn't match, return the product unmodified
-  return product;
+export const updatedDataProductTiles = gameData.map((game) => {
+  // Since dataProductTiles is a single item array,
+  // you can access the first item directly.
+  const defaultProduct = dataProductTiles[0];
+
+  gamesAdded++; // Increase the count for each game added
+
+  return { ...defaultProduct, ...game };
 });

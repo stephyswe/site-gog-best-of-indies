@@ -1,5 +1,8 @@
+import { useEffect, useState } from "react";
+
 import { updatedDataProductTiles } from "@/data/temp-data";
 import useProductExpandState from "@/store/useProductExpandState";
+import { useProductLengthState } from "@/store/useProductLengthState";
 
 import { ProductItemPrice } from "../../expanded/partials/item-price";
 import { FilterSimpleBar } from "./filter/filter";
@@ -40,22 +43,33 @@ const CatalogDisplay = () => (
   </div>
 );
 
-const StoreProductGrid = () => (
-  <div
-    _ngcontent-gogcom-store-c78=""
-    selenium-id="catalogProductsGrid"
-    className="ng-star-inserted"
-  >
+const StoreProductGrid = () => {
+  // keep all the state in the store
+  const [allGames, setAllGames] = useState(updatedDataProductTiles);
+  const productLength = useProductLengthState();
+
+  useEffect(() => {
+    productLength.setAllGamesLength(allGames.length);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [allGames]);
+
+  return (
     <div
-      className="paginated-products-grid grid"
-      selenium-id="paginatedProductsGrid"
+      _ngcontent-gogcom-store-c78=""
+      selenium-id="catalogProductsGrid"
+      className="ng-star-inserted"
     >
-      {updatedDataProductTiles.map((item) => (
-        <ProductTile key={item.title} {...item} />
-      ))}
+      <div
+        className="paginated-products-grid grid"
+        selenium-id="paginatedProductsGrid"
+      >
+        {allGames.map((item) => (
+          <ProductTile key={item.title} {...item} />
+        ))}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const ProductTitleImage = ({ thumbnail }: any) => (
   <div className="product-tile__image-wrapper">

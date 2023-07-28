@@ -19,7 +19,11 @@ const ProductItemAddToCart = () => (
 
 export const PriceDiscount = ({ price }: any) => {
   const { before, current } = price;
+  if (!before) return null;
   const priceDropPercentage = Math.round(((before - current) / before) * 100);
+
+  if (priceDropPercentage === 0) return null;
+
   return (
     <div
       _ngcontent-gogcom-store-c39=""
@@ -30,6 +34,18 @@ export const PriceDiscount = ({ price }: any) => {
     >
       -{priceDropPercentage}%
     </div>
+  );
+};
+
+const ProductPriceBefore = ({ price }: any) => {
+  if (!price.before) return null;
+  return (
+    <span
+      _ngcontent-gogcom-store-c38=""
+      className="base-value ng-star-inserted"
+    >
+      {price.currency}&nbsp;{price.before}
+    </span>
   );
 };
 
@@ -48,12 +64,7 @@ export const ProductItemPrice = ({ price, addToCart, className }: any) => (
       className="ng-star-inserted"
       style={{}}
     >
-      <span
-        _ngcontent-gogcom-store-c38=""
-        className="base-value ng-star-inserted"
-      >
-        {price.currency}&nbsp;{price.before}
-      </span>
+      <ProductPriceBefore price={price} />
       <span _ngcontent-gogcom-store-c38="" className="final-value">
         {price.currency}&nbsp;{price.current}
       </span>
