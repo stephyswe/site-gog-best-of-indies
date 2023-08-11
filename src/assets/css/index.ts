@@ -1,3 +1,5 @@
+//import './globals.css';
+
 import "@/assets/css/custom-section-flashdeal.css";
 import "@/assets/css/custom-section.css";
 import "@/assets/css/footer.css";

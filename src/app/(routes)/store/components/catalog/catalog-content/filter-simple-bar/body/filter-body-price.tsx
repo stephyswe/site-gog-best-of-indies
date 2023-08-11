@@ -58,7 +58,7 @@ const FilterBodyPriceRange = () => {
             />
           </div>
           <RangeItem
-            initialValue={-100}
+            initialValue={-202}
             value={0.0}
             className="upper"
             setActive={setActive}
@@ -80,13 +80,14 @@ const FilterBodyPriceRange = () => {
 const RangeItem = ({ className, setActive, isActive, initialValue }: any) => {
   const [x, setX] = useState(initialValue);
   const checkActive = className === isActive;
-  const parentRef = useRef(null);
+  const parentRef = useRef<HTMLDivElement | null>(null);
 
   const handleDrag = (e: any, data: any) => {
-    const parentWidth = parentRef.current.offsetWidth;
-    const percent = Math.max(0, Math.min(100, (data.x / parentWidth) * 100));
-    const value = (percent / 100) * 2933.0;
-    setX(value);
+    if (parentRef.current) {
+      const parentWidth = parentRef.current.offsetWidth;
+      const percent = Math.max(Math.min((data.x / parentWidth) * 100, 100), 0); // Converts x position to percentage
+      setX(percent);
+    }
   };
 
   const handleStop = () => {
