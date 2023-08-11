@@ -1,7 +1,10 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Draggable from "react-draggable";
+import Rcslider from 'rc-slider';
+import 'rc-slider/assets/index.css';
 
 import { cn } from "@/lib/utils";
+import { getMinMaxPrices, newPrices } from "@/data/temp-data";
 
 export const PriceContainer = ({ children }: any) => (
   <div className="price-filter__content filter-options ng-tns-c64-1">
@@ -9,26 +12,61 @@ export const PriceContainer = ({ children }: any) => (
   </div>
 );
 
-export const PriceBodyData = () => (
-  <>
-    <div>
-      <div className="range-slider">
-        <FilterBodyPriceRange />
-        <FilterBodyPriceRangeSliders />
+interface Props {
+  minMax: {
+    min: number,
+    max: number
+  },
+  onValuesChanged: (values: number[]) => void
+}
+
+
+export const PriceBodyData = () => {
+  
+  // SET value getMinMaxPrices into state
+  useEffect(() => {
+    const prices = newPrices();
+
+  }, [])
+  const [minMax, setMinMax] = useState(getMinMaxPrices())
+  const [values, setValues] =  useState([minMax.min, minMax.max]);
+
+  const adjustToCustomStep = (value: number): number => {
+    if (value <= 25) return Math.round(value);
+    if (value > 25) return Math.round(value / 5) * 5; // snap to nearest 5
+    return Math.round(value / 10) * 10; // snap to nearest 10 for anything above 60
+  }
+
+  const handleValuesChange = (values: any) => {
+    const adjustedValues = values.map(adjustToCustomStep);
+    setValues(adjustedValues);
+  }
+
+
+  return (
+
+    <>
+      <div>
+        <div className="range-slider">
+          {/*  <FilterBodyPriceRange /> */}
+          <Rcslider range allowCross={false} defaultValue={[minMax.min, minMax.max]} onChange={handleValuesChange} min={0} max={minMax.max} />
+
+
+          <FilterBodyPriceRangeSliders values={values} />
+        </div>
       </div>
-    </div>
-    <label
-      className="price-filter__additional-option checkbox__label checkbox__label--price-filter"
-      selenium-id="filterPriceRangeShowOnlyFreeGamesCheckbox"
-    >
-      <input
-        type="checkbox"
-        className="checkbox__input ng-untouched ng-pristine ng-valid"
-      />
-      Show only free games{/**/}
-    </label>
-  </>
-);
+      <label
+        className="price-filter__additional-option checkbox__label checkbox__label--price-filter"
+        selenium-id="filterPriceRangeShowOnlyFreeGamesCheckbox"
+      >
+        <input
+          type="checkbox"
+          className="checkbox__input ng-untouched ng-pristine ng-valid" />
+        Show only free games{/**/}
+      </label>
+    </>
+  );
+};
 
 const FilterBodyPriceRange = () => {
   const [isActive, setActive] = useState("");
@@ -129,15 +167,15 @@ const RangeItem = ({ className, setActive, isActive, initialValue }: any) => {
   );
 };
 
-const FilterBodyPriceRangeSliders = () => (
+const FilterBodyPriceRangeSliders = ({values}: any) => (
   <div className="range-slider__inputs">
     <label className="range-slider__label">
       <input
         type="text"
         className="range-slider__input ng-untouched ng-pristine ng-valid"
-        min={0}
-        max={2933}
+        value={values[0]}
         selenium-id="priceRangeFrom"
+        readOnly
       />
     </label>
     <span className="range-slider__separator">-</span>
@@ -145,9 +183,9 @@ const FilterBodyPriceRangeSliders = () => (
       <input
         type="text"
         className="range-slider__input ng-untouched ng-pristine ng-valid"
-        min={0}
-        max={2933}
+        value={values[1]}
         selenium-id="priceRangeTo"
+        readOnly
       />
     </label>
   </div>
