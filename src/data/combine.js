@@ -41,7 +41,8 @@ const processFile = async (file) => {
           id: jsonData.steam_appid,
           thumbnail: jsonData.header_image,
           price: price,
-          genres: jsonData.genres
+          genres: jsonData.genres,
+          categories: jsonData.categories
         });
       }
     } catch (err) {

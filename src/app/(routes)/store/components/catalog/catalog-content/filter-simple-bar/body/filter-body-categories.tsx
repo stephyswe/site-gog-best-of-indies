@@ -1,8 +1,9 @@
-import { getAllGenres } from "@/data/temp-data";
+import { getAllCategories } from "@/data/temp-data";
+import { useProductCategoriesState } from "@/store/useProductCategories";
 import { useProductGenreState } from "@/store/useProductGenre";
 
-interface Genre {
-  id: string;
+interface Categories {
+  id: number;
   description: string;
 }
 
@@ -13,7 +14,7 @@ interface FilterGenreItem {
   selExcludeId: string;
 }
 
-const FilterGenreItem = ({ onClick, onChecked, onClickExclude, title, id, selId, selExcludeId }: any) => {
+const FilterCategoriesItem = ({ onClick, onChecked, onClickExclude, title, id, selId, selExcludeId }: any) => {
   return (
     <label
       className="checkbox__label ng-star-inserted"
@@ -61,7 +62,7 @@ const dataFilterGenres: FilterGenreItem[] = [
 ];
 
 // A function to convert the genre description into the desired format:
-const transformGenreToFilter = (genre: Genre): FilterGenreItem => ({
+const transformGenreToFilter = (genre: Categories): FilterGenreItem => ({
   title: genre.description,
   id: `genres-${genre.description.toLowerCase()}`,
   selId: `filterGenresCheckbox${genre.description.toLowerCase()}`,
@@ -69,21 +70,21 @@ const transformGenreToFilter = (genre: Genre): FilterGenreItem => ({
 })
 
 // Now, let's create a new array:
-const updatedDataFilterGenres: FilterGenreItem[] = getAllGenres().map(genre => {
+const updatedDataFilterGenres: FilterGenreItem[] = getAllCategories().map(genre => {
   const existing = dataFilterGenres.find(item => item.title === genre.description);
   return existing ? existing : transformGenreToFilter(genre);
 });
 
 
-export const FilterBodyGenres = () => {
-  const { setGenreIds, genreIds } = useProductGenreState();
-  const onClickItem = (title: string) => {  
-    if (genreIds.includes(title)) {
+export const FilterBodyCategories = () => {
+  const { setCateIds, cateIds } = useProductCategoriesState();
+  const onClickItem = (title: string) => {
+    if (cateIds.includes(title)) {
       // Remove the genre if it's already in the list
-      setGenreIds(prevIds => prevIds.filter(id => id !== title));
+      setCateIds(prevIds => prevIds.filter(id => id !== title));
     } else {
       // Otherwise, add the clicked genre to the list
-      setGenreIds(prevIds => [...prevIds, title]);
+      setCateIds(prevIds => [...prevIds, title]);
     }
   };
   
@@ -107,7 +108,7 @@ export const FilterBodyGenres = () => {
             style={{}}
           >
             {updatedDataFilterGenres.map(item => (
-              <FilterGenreItem key={item.title} {...item} onClick={onClickItem} onClickExclude={onClickExcludeItem} onChecked={genreIds.includes(item.title)} />
+              <FilterCategoriesItem key={item.title} {...item} onClick={onClickItem} onClickExclude={onClickExcludeItem} onChecked={cateIds.includes(item.title)} />
             ))}
             {/**/}
           </div>

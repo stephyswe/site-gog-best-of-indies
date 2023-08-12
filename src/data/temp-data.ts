@@ -49,6 +49,10 @@ export type Game = {
     id: string;
     description: string;
   }>;
+  categories: Array<{
+    id: string;
+    description: string;
+  }>;
 }
 
 export function currencyData(data: any) {
@@ -184,6 +188,27 @@ export function getAllGenres(): Genre[] {
   // Convert the map values (unique genres) back to an array
   const allGenres = Array.from(uniqueGenresMap.values());
   return allGenres;
+}
+
+type Category = {
+  id: number;
+  description: string;
+};
+
+export function getAllCategories(): Category[] {
+  // Use a Map instead of a Set to store both the ID and the associated category object
+  const uniqueCategoriesMap = new Map<number, Category>();
+
+  gameData.flatMap(game => game.categories || []).forEach(category => {
+    // If the category's ID isn't in the map, add it
+    if (!uniqueCategoriesMap.has(category.id)) {
+        uniqueCategoriesMap.set(category.id, category);
+    }
+  });
+
+  // Convert the map values (unique categories) back to an array
+  const allCategories = Array.from(uniqueCategoriesMap.values());
+  return allCategories;
 }
 
 

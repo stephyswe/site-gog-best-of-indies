@@ -1,3 +1,4 @@
+import { FilterBodyCategories } from "./body/filter-body-categories";
 import { FilterBodyGenres } from "./body/filter-body-genres";
 import { FilterBodyTags } from "./body/filter-body-tags";
 import { FilterItem, FilterItemData } from "./filter-item";
@@ -105,6 +106,7 @@ export const FilterSimpleBar = () => (
                     <FilterItemData key={item.title} {...item} />
                   ))}
                   <FilterItem title="Genres" Content={<FilterBodyGenres />} />
+                  <FilterItem title="Categories" Content={<FilterBodyCategories />} />
                   <FilterItem title="Tags" Content={<FilterBodyTags />} />
 
                   <filter className="filters__item ng-star-inserted">

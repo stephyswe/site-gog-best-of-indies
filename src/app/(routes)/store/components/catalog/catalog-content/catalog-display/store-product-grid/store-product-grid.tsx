@@ -6,6 +6,7 @@ import { ProductTile } from "./product-tile/product-tile";
 import { useProductMinMaxState } from "@/store/useProductMinMax";
 import { useProductSortState } from "@/store/useProductSortState";
 import { useProductGenreState } from "@/store/useProductGenre";
+import { useProductCategoriesState } from "@/store/useProductCategories";
 
 // Define the possible sort ids
 type SortId = 'priceDesc' | 'priceAsc'; // Add other sortIds as needed
@@ -29,6 +30,9 @@ const StoreProductGridComponent = ({data}: {
   const sortId = useProductSortState((state) => state.sortId)
   const values = useProductMinMaxState((state) => state.values);
   const genreIds = useProductGenreState((state) => state.genreIds);
+  const cateIds = useProductCategoriesState((state) => state.cateIds)
+
+
 
   useEffect(() => {
     setIsLoading(true);
@@ -52,6 +56,15 @@ const StoreProductGridComponent = ({data}: {
       );
     }
 
+    // Categories filtering logic
+    if (cateIds && cateIds.length > 0) {
+      
+      filteredGames = filteredGames.filter(game =>
+        game.categories?.some && game.categories.some(cat => cateIds.includes(cat.description))
+      );
+    }
+
+
     // Sorting logic
     if (sortFunctions.hasOwnProperty(sortId)) {
       const currentSortFunction = sortFunctions[sortId as SortId];
@@ -67,7 +80,7 @@ const StoreProductGridComponent = ({data}: {
       setIsLoading(false);
     }, 2000);
 
-}, [searchTerm, values, data, setAllGamesLength, sortId, genreIds]);
+}, [searchTerm, values, data, setAllGamesLength, sortId, genreIds, cateIds]);
 
 
   return (
@@ -80,7 +93,7 @@ const StoreProductGridComponent = ({data}: {
         className={`paginated-products-grid grid ${isLoading ? "is-loading" : ""}`}
         selenium-id="paginatedProductsGrid"
       >
-         {allGames.slice(0,5).map((item) => (
+         {allGames.map((item) => (
           <ProductTile key={item.title} {...item} />
         ))} 
       </div> 

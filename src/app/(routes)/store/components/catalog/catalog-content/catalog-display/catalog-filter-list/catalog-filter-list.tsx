@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { useProductCategoriesState } from "@/store/useProductCategories";
 import { useProductGenreState } from "@/store/useProductGenre";
 import { useProductLengthState } from "@/store/useProductLengthState";
 import { useProductMinMaxState } from "@/store/useProductMinMax";
@@ -16,6 +17,7 @@ const arraysEqual = (a: any, b: any) => {
 
 export const CatalogFilterList = () => {
   // get searchTerm from useProductLengthState
+  const {cateIds, setCateIds} = useProductCategoriesState();
   const {genreIds, setGenreIds} = useProductGenreState();
   const {setSearchTerm, searchTerm} = useProductLengthState();
   const {values, setValues, minMax} = useProductMinMaxState();
@@ -25,7 +27,7 @@ export const CatalogFilterList = () => {
   const priceHasValue = !arraysEqual(values, [0, minMax?.max])
   const checkBothValue = searchTermHasValue && priceHasValue;
 
-  const hasMargin = searchTermHasValue || priceHasValue || genreIds.length > 0
+  const hasMargin = searchTermHasValue || priceHasValue || genreIds.length > 0 || cateIds.length > 0
 
   const onSearchTerm = () => {
     setSearchTerm("");
@@ -38,6 +40,11 @@ export const CatalogFilterList = () => {
   const onGenre = (item: any) => {
     // remove from genreIds
     setGenreIds(prevIds => prevIds.filter(id => id !== item));
+  }
+
+  const onCate = (item: any) => {
+    // remove from genreIds
+    setCateIds(prevIds => prevIds.filter(id => id !== item));
   }
 
 
@@ -62,6 +69,9 @@ export const CatalogFilterList = () => {
           <CatalogFilterItemSearchTerm hasValue={priceHasValue} value={stringFromValues} title="Price range" onClick={onPrice} />
           {genreIds.map(item => (
             <CatalogFilterItemSearchTerm key={item} hasValue={true} value={item} title="Genres" onClick={() => onGenre(item)} />
+          ))}
+          {cateIds.map(item => (
+            <CatalogFilterItemSearchTerm key={item} hasValue={true} value={item} title="Categories" onClick={() => onCate(item)} />
           ))}
           {/**/}
         </div>
