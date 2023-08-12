@@ -1,24 +1,29 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
-import { updatedDataProductTiles } from "@/data/temp-data";
+import { Game, updatedDataProductTiles } from "@/data/temp-data";
 import { useProductLengthState } from "@/store/useProductLengthState";
-
 import { ProductTile } from "./product-tile/product-tile";
 import { useProductMinMaxState } from "@/store/useProductMinMax";
 
-export const StoreProductGrid = () => {
-  const [nextGames, setNextGames] = useState(updatedDataProductTiles); // state to hold the next set of games
+
+
+const StoreProductGridComponent = ({data}: {
+  data: Game[]
+}) => {
+  //console.log('render StoreProductGrid')
+  const [nextGames, setNextGames] = useState(data); 
   const [isLoading, setIsLoading] = useState(false);
-  const [fullData] = useState(updatedDataProductTiles); // state to hold the full data
-  const [allGames, setAllGames] = useState(updatedDataProductTiles); // state to hold the filtered data
-   const {setSearchTerm, setAllGamesLength, searchTerm} = useProductLengthState();
+  const [fullData] = useState(data);
+  const [allGames, setAllGames] = useState(data); // modified to show only 5 items
+  const {setSearchTerm, setAllGamesLength, searchTerm} = useProductLengthState();
 
   // getMinMax too
   const values = useProductMinMaxState(state => state.values)
 
 
   useEffect(() => {
-    setIsLoading(true); // Set loading state when searchTerm changes
+    console.log('run effect')
+    setIsLoading(true);
   
     const newGames = searchTerm
       ? fullData.filter((game) =>
@@ -31,13 +36,12 @@ export const StoreProductGrid = () => {
     setTimeout(() => {
       setAllGames(nextGames);
       setAllGamesLength(nextGames.length);
-      setIsLoading(false); // Clear loading state after processing is done
-    }, 2000); // Fake load of 2 seconds
-  
+      setIsLoading(false);
+    }, 2000); 
   }, [searchTerm]);
 
   useEffect(() => {
-    setIsLoading(true); // Set loading state when values change
+    setIsLoading(true);
 
     const newGames = fullData.filter(game => {
       let currentPrice = parseFloat(game.price.current);
@@ -48,12 +52,11 @@ export const StoreProductGrid = () => {
 
     setTimeout(() => {
       setAllGames(nextGames);
-      setIsLoading(false); // Clear loading state after processing is done
-    }, 2000); // Fake load of 2 seconds
-
+      setIsLoading(false);
+    }, 2000);
   }, [values]);
 
-  console.log('searchTerm', searchTerm)
+  console.log('allGames', allGames)
 
   return (
     <div
@@ -61,14 +64,17 @@ export const StoreProductGrid = () => {
       selenium-id="catalogProductsGrid"
       className="ng-star-inserted"
     >
-      <div
+       <div
         className={`paginated-products-grid grid ${isLoading ? "is-loading" : ""}`}
         selenium-id="paginatedProductsGrid"
       >
-        {allGames.map((item) => (
+         {allGames.map((item) => (
           <ProductTile key={item.title} {...item} />
-        ))}
-      </div>
+        ))} 
+      </div> 
     </div>
   );
 };
+
+// Wrapping the StoreProductGridComponent with React.memo
+export const StoreProductGrid = React.memo(StoreProductGridComponent);

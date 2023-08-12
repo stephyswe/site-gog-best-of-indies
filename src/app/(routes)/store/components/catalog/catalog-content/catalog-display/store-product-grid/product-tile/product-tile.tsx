@@ -6,11 +6,12 @@ import { ProductTileTitle } from "./product-tile-title/product-tile-title";
 import { ProductTitleImage } from "./product-title-image/product-title-image";
 
 export const ProductTile = ({ id, title, price, href, thumbnail }: any) => {
-  const productExpand = useProductExpandState();
+  console.log('render ProductTile')
+  //const productExpand = useProductExpandState();
 
   const onMouseEnter = () => {
     // activate product expand
-    productExpand.onOpen(id);
+    //productExpand.onOpen(id);
   };
 
   return (

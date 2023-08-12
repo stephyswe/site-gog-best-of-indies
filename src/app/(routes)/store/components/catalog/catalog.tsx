@@ -1,7 +1,7 @@
 import { CatalogContent } from "./catalog-content/catalog-content";
 import { CatalogHeader } from "./catalog-header";
 
-export const Catalog = () => (
+export const Catalog = ({data}: any) => (
   <div _nghost-gogcom-store-c79="true" className="ng-star-inserted">
     <div
       _ngcontent-gogcom-store-c79=""
@@ -13,7 +13,7 @@ export const Catalog = () => (
         data-sid="57add9e5-b0bf-4b32-9028-65820c9f1992"
       >
         <CatalogHeader />
-        <CatalogContent />
+        <CatalogContent data={data} />
       </div>
     </div>
   </div>

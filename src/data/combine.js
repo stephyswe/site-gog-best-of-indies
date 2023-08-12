@@ -14,7 +14,6 @@ fs.readdir(directory, (err, files) => {
     if (path.extname(file) === ".json") {
       let filePath = path.join(directory, file);
 
-      console.log("Reading file:", filePath);
 
       fs.readFile(filePath, { encoding: "utf-8" }, (err, data) => {
         if (err) {
@@ -63,8 +62,6 @@ function handleFormat(initial) {
 
 // Wait for a while to allow async read to complete
 setTimeout(() => {
-  //console.log(gameNames);
-
   // Write to combine.json
   fs.writeFile("./combine.json", JSON.stringify(gameNames, null, 2), (err) => {
     if (err) {

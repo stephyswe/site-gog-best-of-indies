@@ -4,8 +4,7 @@ import Rcslider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 
 import { cn } from "@/lib/utils";
-import { getMinMaxPrices, newPrices } from "@/data/temp-data";
-import { useProductLengthState } from "@/store/useProductLengthState";
+import { getMinMaxPrices } from "@/data/temp-data";
 import { useProductMinMaxState } from "@/store/useProductMinMax";
 
 export const PriceContainer = ({ children }: any) => (
@@ -14,43 +13,29 @@ export const PriceContainer = ({ children }: any) => (
   </div>
 );
 
-interface Props {
-  minMax: {
-    min: number,
-    max: number
-  },
-  onValuesChanged: (values: number[]) => void
-}
 
 
 export const PriceBodyData = () => {
-  const { setMinMax, minMax } = useProductMinMaxState();
-
- useEffect(() => {
-    const minMaxValues = getMinMaxPrices();
-    setMinMax(minMaxValues);  // Update minMax in Zustand state
-  }, []); 
-
- // If minMax is null, use default values (e.g., [0, 0]), otherwise use minMax values
- const defaultValues = minMax ? [minMax.min, minMax.max] : [0, 0];
-  
-  // SET value getMinMaxPrices into state
-  useEffect(() => {
-    const prices = newPrices();
-
-  }, []) 
-
-  // Update values whenever minMax changes
-  useEffect(() => {
-    setValues(defaultValues as [number, number]);
-  }, []);
-
-  const { values, setValues } = useProductMinMaxState();
+  const { setMinMax, minMax, values, setValues } = useProductMinMaxState();
+  const defaultValues = minMax ? [minMax.min, minMax.max] : [0, 0];
+  const [localValues, setLocalValues] = useState([0, 0]);
+  // If minMax is null, use default values (e.g., [0, 0]), otherwise use minMax values
 
   const adjustToCustomStep = (value: number): number => {
+    // If the value is close to minMax.max (within a threshold of 1 for example), set it to minMax.max
+    if (minMax && Math.abs(value - minMax.max) <= 1) {
+      return minMax.max;
+    }
+  
     if (value <= 25) return Math.round(value);
     if (value > 25) return Math.round(value / 5) * 5; // snap to nearest 5
-    return Math.round(value / 10) * 10; // snap to nearest 10 for anything above 60
+    return Math.round(value / 10) * 10; // snap to nearest 10 for larger values
+  }
+ 
+
+  const handleSlide = (values: any) => {
+    const adjustedValues = values.map(adjustToCustomStep);
+    setLocalValues(adjustedValues);
   }
 
   const handleValuesChange = (values: any) => {
@@ -58,14 +43,23 @@ export const PriceBodyData = () => {
     setValues(adjustedValues);
   }
 
-  return (
+  useEffect(() => {
+    const minMaxValues = getMinMaxPrices();
+    setMinMax(minMaxValues);  // Update minMax in Zustand state
 
+    if (minMaxValues) {
+      setLocalValues([minMaxValues.min, minMaxValues.max]);
+      setValues(defaultValues as [number, number]);
+    }
+  }, []);
+
+  return (
     <>
       <div>
         <div className="range-slider">
           {/*  <FilterBodyPriceRange /> */}
-          {minMax ? <Rcslider range allowCross={false} defaultValue={defaultValues} onChange={handleValuesChange} min={0} max={minMax?.max} />: null}
-          {minMax ? <FilterBodyPriceRangeSliders values={values} /> : null}
+          {minMax ? <Rcslider range allowCross={false} value={localValues} defaultValue={defaultValues} onChange={handleSlide} onAfterChange={handleValuesChange} min={0} max={minMax?.max} /> : null}
+          {minMax ? <FilterBodyPriceRangeSliders localValues={localValues} values={values} /> : null}
         </div>
       </div>
       <label
@@ -81,6 +75,37 @@ export const PriceBodyData = () => {
   );
 };
 
+
+const FilterBodyPriceRangeSliders = ({ values, localValues }: any) => {
+  const { setValues, minMax } = useProductMinMaxState()
+
+  useEffect(() => {
+    if (minMax) setValues([minMax?.min, minMax?.max])
+  }, [])
+  return (
+    <div className="range-slider__inputs">
+      <label className="range-slider__label">
+        <input
+          type="text"
+          className="range-slider__input ng-untouched ng-pristine ng-valid"
+          value={localValues[0]}
+          selenium-id="priceRangeFrom"
+          readOnly />
+      </label>
+      <span className="range-slider__separator">-</span>
+      <label className="range-slider__label">
+        <input
+          type="text"
+          className="range-slider__input ng-untouched ng-pristine ng-valid"
+          value={localValues[1]}
+          selenium-id="priceRangeTo"
+          readOnly />
+      </label>
+    </div>
+  );
+};
+
+// old
 const FilterBodyPriceRange = () => {
   const [isActive, setActive] = useState("");
 
@@ -128,6 +153,8 @@ const FilterBodyPriceRange = () => {
   );
 };
 
+
+
 const RangeItem = ({ className, setActive, isActive, initialValue }: any) => {
   const [x, setX] = useState(initialValue);
   const checkActive = className === isActive;
@@ -161,9 +188,8 @@ const RangeItem = ({ className, setActive, isActive, initialValue }: any) => {
         onStop={handleStop}
       >
         <div
-          className={`noUi-handle noUi-handle-${className} ${
-            checkActive ? "noUi-active" : ""
-          }`}
+          className={`noUi-handle noUi-handle-${className} ${checkActive ? "noUi-active" : ""
+            }`}
           data-handle={0}
           tabIndex={0}
           role="slider"
@@ -179,27 +205,3 @@ const RangeItem = ({ className, setActive, isActive, initialValue }: any) => {
     </div>
   );
 };
-
-const FilterBodyPriceRangeSliders = ({values}: any) => (
-  <div className="range-slider__inputs">
-    <label className="range-slider__label">
-      <input
-        type="text"
-        className="range-slider__input ng-untouched ng-pristine ng-valid"
-        value={values[0]}
-        selenium-id="priceRangeFrom"
-        readOnly
-      />
-    </label>
-    <span className="range-slider__separator">-</span>
-    <label className="range-slider__label">
-      <input
-        type="text"
-        className="range-slider__input ng-untouched ng-pristine ng-valid"
-        value={values[1]}
-        selenium-id="priceRangeTo"
-        readOnly
-      />
-    </label>
-  </div>
-);

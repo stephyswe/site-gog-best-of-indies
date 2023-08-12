@@ -102,7 +102,7 @@ export const FilterSimpleBar = () => (
                   </div>
 
                   {/* loop data */}
-                  {filterData.map((item: any) => (
+                   {filterData.map((item: any) => (
                     <FilterItemData key={item.title} {...item} />
                   ))}
                   <FilterItem title="Genres" Content={<FilterBodyGenres />} />

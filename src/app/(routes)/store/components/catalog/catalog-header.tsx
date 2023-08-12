@@ -4,7 +4,6 @@ import { useCallback, useEffect, useState } from "react";
 import { useProductLengthState } from "@/store/useProductLengthState";
 
 export const CatalogHeader = () => {
-  console.log('render CatalogHeader')
   const {setSearchTerm, allGamesLength, searchTerm} = useProductLengthState();
   const [inputValue, setInputValue] = useState("");
   const debouncedSearchTerm = useCallback(

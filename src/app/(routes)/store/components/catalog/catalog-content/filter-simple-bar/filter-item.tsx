@@ -80,7 +80,6 @@ export const FilterItemData: React.FC<FilterItemDataProps> = ({
   type,
   content,
 }) => {
-  console.log('render FilterItemData')
   const [isOpen, setOpen] = useState(false);
   const onToggle = () => setOpen(!isOpen);
   const Component = componentMapping[type];

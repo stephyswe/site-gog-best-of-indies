@@ -1,11 +1,36 @@
 import { cn } from "@/lib/utils";
 import { useProductLengthState } from "@/store/useProductLengthState";
+import { useProductMinMaxState } from "@/store/useProductMinMax";
+
+const arraysEqual = (a: any, b: any) => {
+  if (a === b) return true;
+  if (a == null || b == null) return false;
+  if (a.length !== b.length) return false;
+
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] !== b[i]) return false;
+  }
+  return true;
+};
 
 export const CatalogFilterList = () => {
+  console.log('render CatalogFilterList')
   // get searchTerm from useProductLengthState
-  const searchTerm = useProductLengthState((state) => state.searchTerm);
+  const {setSearchTerm, searchTerm} = useProductLengthState();
+  const {values, setValues, minMax} = useProductMinMaxState();
+  const stringFromValues = `EUR ${values[0].toFixed(2)} - ${values[1].toFixed(2)}`
 
   const searchTermHasValue = searchTerm !== "";
+  const priceHasValue = !arraysEqual(values, [0, minMax?.max])
+  const checkBothValue = searchTermHasValue && priceHasValue;
+
+  const onSearchTerm = () => {
+    setSearchTerm("");
+  }
+
+  const onPrice = () => {
+    if (minMax) setValues([minMax?.min, minMax.max])
+  }
 
   return (
     <div
@@ -23,7 +48,9 @@ export const CatalogFilterList = () => {
           style={{ display: "flex" }}
         >
           {/* first is searchTerm */}
-          <CatalogFilterItemSearchTerm searchTerm={searchTerm} />
+          {/* <CatalogFilterItemSearchTerm empty={checkBothValue} onClick={onSearchTerm} value={searchTerm} title="Results for" /> */}
+          <CatalogFilterItemSearchTerm hasValue={searchTermHasValue} value={searchTerm} title="Results for" onClick={onSearchTerm} />
+          <CatalogFilterItemSearchTerm hasValue={priceHasValue} value={stringFromValues} title="Price range" onClick={onPrice} />
           {/**/}
         </div>
       </div>
@@ -31,13 +58,9 @@ export const CatalogFilterList = () => {
   );
 };
 
-const CatalogFilterItemSearchTerm = ({ searchTerm }: any) => {
-  const {setSearchTerm} = useProductLengthState();
-  const onClick = () => {
-    // set searchTerm to null
-    setSearchTerm("");
-  };
-  if (!searchTerm) return null;
+const CatalogFilterItemSearchTerm = ({ hasValue, onClick, value, title }: any) => {
+
+  if (!hasValue) return null;
 
   return (
     <div className="ng-star-inserted">
@@ -51,14 +74,14 @@ const CatalogFilterItemSearchTerm = ({ searchTerm }: any) => {
             className="filter-clearing-item__label"
             selenium-id="filterClearingItemLabel"
           >
-            Results for
+            {title}
           </span>
           <span
             className="filter-clearing-item__name ng-star-inserted"
             selenium-id="filterClearingItemName"
           >
             {" "}
-            {searchTerm}
+            {value}
           </span>
         </span>
         <span

@@ -36,7 +36,7 @@ export const dataProductTiles = [
 
 export let gamesAdded = 0;
 
-type Game = {
+export type Game = {
   title: string,
   id: number,
   thumbnail: string,
@@ -137,6 +137,7 @@ export const newPrices = () => {
 const newData = newPrices();
 
 export const updatedDataProductTiles = newData.map((game: Game) => {
+
   // Since dataProductTiles is a single item array,
   // you can access the first item directly.
   const defaultProduct = dataProductTiles[0];
@@ -145,3 +146,19 @@ export const updatedDataProductTiles = newData.map((game: Game) => {
 
   return { ...defaultProduct, ...game };
 });
+
+const generateUpdatedDataProductTiles = (): Game[] => {
+  const newData = newPrices();
+
+  return newData.map((game: Game) => {
+      // Since dataProductTiles is a single item array,
+      // you can access the first item directly.
+      const defaultProduct = dataProductTiles[0];
+
+      gamesAdded++; // Increase the count for each game added
+
+      return { ...defaultProduct, ...game };
+  });
+};
+
+export const getData = generateUpdatedDataProductTiles();

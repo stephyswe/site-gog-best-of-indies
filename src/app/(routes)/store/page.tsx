@@ -4,6 +4,7 @@ import { useEffect } from "react";
 
 import { Catalog } from "./components/catalog/catalog";
 import { ProductTileExpanded } from "./components/expanded/product-tile-expanded";
+import { getData } from "@/data/temp-data";
 
 export default function StorePage() {
   useEffect(() => {
@@ -17,7 +18,8 @@ export default function StorePage() {
   }, []);
 
   // handle with useProductExpandState
-
+  const data = getData;
+  if (!data) return null;
   return (
     <>
       <div ng-version="15.1.2" ng-server-context="ssr" className="app-root">
@@ -25,7 +27,7 @@ export default function StorePage() {
           <div className="app__container">
             <div app-page="true">
               <div custom-colors=""></div>
-              <Catalog />
+              <Catalog data={data} />
             </div>
           </div>
           <ProductTileExpanded />
