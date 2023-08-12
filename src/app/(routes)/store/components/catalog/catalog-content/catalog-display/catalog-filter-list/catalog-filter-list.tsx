@@ -24,6 +24,8 @@ export const CatalogFilterList = () => {
   const priceHasValue = !arraysEqual(values, [0, minMax?.max])
   const checkBothValue = searchTermHasValue && priceHasValue;
 
+  const hasMargin = searchTermHasValue || priceHasValue
+
   const onSearchTerm = () => {
     setSearchTerm("");
   }
@@ -42,7 +44,7 @@ export const CatalogFilterList = () => {
         <div
           className={cn(
             "filter-clearing-list__wrapper",
-            searchTermHasValue ? "has-margin" : ""
+            hasMargin ? "has-margin" : ""
           )}
           selenium-id="filterClearingList"
           style={{ display: "flex" }}
@@ -92,32 +94,3 @@ const CatalogFilterItemSearchTerm = ({ hasValue, onClick, value, title }: any) =
     </div>
   );
 };
-
-const CatalogFilterItem = () => (
-  <div className="ng-star-inserted">
-    <div
-      className="filter-clearing-item__wrapper"
-      selenium-id="filterClearingItem"
-    >
-      <span className="filter-clearing-item__text">
-        <span
-          className="filter-clearing-item__label"
-          selenium-id="filterClearingItemLabel"
-        >
-          Results for
-        </span>
-        <span
-          className="filter-clearing-item__name ng-star-inserted"
-          selenium-id="filterClearingItemName"
-        >
-          {" "}
-          bald
-        </span>
-      </span>
-      <span
-        className="filter-clearing-item__icon icon-cross-circle"
-        selenium-id="filterClearingItemIcon"
-      />
-    </div>
-  </div>
-);
