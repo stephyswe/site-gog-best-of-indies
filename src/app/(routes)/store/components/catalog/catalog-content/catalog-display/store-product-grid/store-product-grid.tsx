@@ -58,10 +58,12 @@ const StoreProductGridComponent = ({data}: {
 
     // Categories filtering logic
     if (cateIds && cateIds.length > 0) {
-      
-      filteredGames = filteredGames.filter(game =>
-        game.categories?.some && game.categories.some(cat => cateIds.includes(cat.description))
-      );
+      filteredGames = filteredGames.filter(game => {
+          // Check if all cateIds are present in the game's categories
+          return cateIds.every(cateId => 
+              game.categories?.some(cat => cat.description === cateId)
+          );
+      });
     }
 
 

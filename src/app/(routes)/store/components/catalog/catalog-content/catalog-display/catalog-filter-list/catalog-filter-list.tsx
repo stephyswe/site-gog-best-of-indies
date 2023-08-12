@@ -61,7 +61,7 @@ export const CatalogFilterList = () => {
             hasMargin ? "has-margin" : ""
           )}
           selenium-id="filterClearingList"
-          style={{ display: "flex" }}
+          style={{ display: "flex", flexWrap: 'wrap' }}
         >
           {/* first is searchTerm */}
           {/* <CatalogFilterItemSearchTerm empty={checkBothValue} onClick={onSearchTerm} value={searchTerm} title="Results for" /> */}
