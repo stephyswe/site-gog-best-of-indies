@@ -1,17 +1,18 @@
 import { debounce } from "lodash";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import { useProductLengthState } from "@/store/useProductLengthState";
 
 export const CatalogHeader = () => {
-  const productLength = useProductLengthState();
-  const setSearchTerm = useProductLengthState((state) => state.setSearchTerm);
-  const searchTerm = useProductLengthState((state) => state.searchTerm);
+  console.log('render CatalogHeader')
+  const {setSearchTerm, allGamesLength, searchTerm} = useProductLengthState();
   const [inputValue, setInputValue] = useState("");
+  const debouncedSearchTerm = useCallback(
+    debounce((value) => setSearchTerm(value), 300),
+    [setSearchTerm]
+  );
 
-  const debouncedSearchTerm = debounce((value) => setSearchTerm(value), 300);
-
-  useEffect(() => {
+   useEffect(() => {
     debouncedSearchTerm(inputValue);
     return debouncedSearchTerm.cancel; // Clean up function to cancel any pending debounced function
   }, [inputValue, debouncedSearchTerm]);
@@ -61,7 +62,7 @@ export const CatalogHeader = () => {
         <div _ngcontent-gogcom-store-c53="" className="catalog__page-header">
           <h1 className="page-header" selenium-id="pageHeader">
             {" "}
-            Showing {productLength.allGamesLength} games{/**/} {/**/}
+            Showing {allGamesLength} games{/**/} {/**/}
             {/**/}
             {/**/}
             {/**/}

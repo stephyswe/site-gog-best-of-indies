@@ -32,10 +32,10 @@ export const CatalogFilterList = () => {
 };
 
 const CatalogFilterItemSearchTerm = ({ searchTerm }: any) => {
-  const product = useProductLengthState();
+  const {setSearchTerm} = useProductLengthState();
   const onClick = () => {
     // set searchTerm to null
-    product.setSearchTerm("");
+    setSearchTerm("");
   };
   if (!searchTerm) return null;
 

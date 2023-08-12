@@ -5,6 +5,8 @@ import 'rc-slider/assets/index.css';
 
 import { cn } from "@/lib/utils";
 import { getMinMaxPrices, newPrices } from "@/data/temp-data";
+import { useProductLengthState } from "@/store/useProductLengthState";
+import { useProductMinMaxState } from "@/store/useProductMinMax";
 
 export const PriceContainer = ({ children }: any) => (
   <div className="price-filter__content filter-options ng-tns-c64-1">
@@ -22,14 +24,28 @@ interface Props {
 
 
 export const PriceBodyData = () => {
+  const { setMinMax, minMax } = useProductMinMaxState();
+
+ useEffect(() => {
+    const minMaxValues = getMinMaxPrices();
+    setMinMax(minMaxValues);  // Update minMax in Zustand state
+  }, []); 
+
+ // If minMax is null, use default values (e.g., [0, 0]), otherwise use minMax values
+ const defaultValues = minMax ? [minMax.min, minMax.max] : [0, 0];
   
   // SET value getMinMaxPrices into state
   useEffect(() => {
     const prices = newPrices();
 
-  }, [])
-  const [minMax, setMinMax] = useState(getMinMaxPrices())
-  const [values, setValues] =  useState([minMax.min, minMax.max]);
+  }, []) 
+
+  // Update values whenever minMax changes
+  useEffect(() => {
+    setValues(defaultValues as [number, number]);
+  }, []);
+
+  const { values, setValues } = useProductMinMaxState();
 
   const adjustToCustomStep = (value: number): number => {
     if (value <= 25) return Math.round(value);
@@ -42,17 +58,14 @@ export const PriceBodyData = () => {
     setValues(adjustedValues);
   }
 
-
   return (
 
     <>
       <div>
         <div className="range-slider">
           {/*  <FilterBodyPriceRange /> */}
-          <Rcslider range allowCross={false} defaultValue={[minMax.min, minMax.max]} onChange={handleValuesChange} min={0} max={minMax.max} />
-
-
-          <FilterBodyPriceRangeSliders values={values} />
+          {minMax ? <Rcslider range allowCross={false} defaultValue={defaultValues} onChange={handleValuesChange} min={0} max={minMax?.max} />: null}
+          {minMax ? <FilterBodyPriceRangeSliders values={values} /> : null}
         </div>
       </div>
       <label
@@ -62,7 +75,7 @@ export const PriceBodyData = () => {
         <input
           type="checkbox"
           className="checkbox__input ng-untouched ng-pristine ng-valid" />
-        Show only free games{/**/}
+        Show only free games
       </label>
     </>
   );

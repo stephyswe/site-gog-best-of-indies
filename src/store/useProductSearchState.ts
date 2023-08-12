@@ -7,7 +7,7 @@ interface State {
   setSearchTerm: (term: string) => void;
 }
 
-export const useProductLengthState = create<State>((set) => ({
+export const useProductSearchState = create<State>((set) => ({
   allGamesLength: 0,
   setAllGamesLength: (length: number) => set({ allGamesLength: length }),
   searchTerm: "",
