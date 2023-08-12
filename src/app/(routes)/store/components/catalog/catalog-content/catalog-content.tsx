@@ -31,7 +31,6 @@ const Filters = () => (
 );
 
 const CatalogDisplay = ({data}: any) => {
-  console.log('render CatalogDisplay')
   return (
     <div
       _ngcontent-gogcom-store-c78=""

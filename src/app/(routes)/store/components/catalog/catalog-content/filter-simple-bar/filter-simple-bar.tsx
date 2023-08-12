@@ -39,7 +39,7 @@ const filterData = [
       },
     ],
   },
-  {
+  /* {
     title: "Genres",
     type: "checkbox-alt",
     content: [
@@ -51,7 +51,7 @@ const filterData = [
         idInput: "releasestatuses-new-arrival",
       },
     ],
-  },
+  }, */
 ];
 
 export const FilterSimpleBar = () => (
@@ -101,7 +101,6 @@ export const FilterSimpleBar = () => (
                     {/**/}
                   </div>
 
-                  {/* loop data */}
                    {filterData.map((item: any) => (
                     <FilterItemData key={item.title} {...item} />
                   ))}

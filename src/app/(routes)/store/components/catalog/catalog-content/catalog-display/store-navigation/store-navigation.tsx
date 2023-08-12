@@ -87,7 +87,6 @@ const SortBy = () => {
   }
 
   const onClickItem = (id: any, title: any) => {
-    console.log('click', id)
     setSortTitle(title);
     setSortId(id);
     setIsOpen(false)
@@ -272,7 +271,6 @@ const SortFilter = () => (
 )
 
 export const StoreNavigation = () => {
-  console.log('render StoreNavigation')
   return (
     <div
       _ngcontent-gogcom-store-c78=""

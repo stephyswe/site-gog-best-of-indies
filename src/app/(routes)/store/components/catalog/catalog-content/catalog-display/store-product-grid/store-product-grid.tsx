@@ -5,6 +5,7 @@ import { useProductLengthState } from "@/store/useProductLengthState";
 import { ProductTile } from "./product-tile/product-tile";
 import { useProductMinMaxState } from "@/store/useProductMinMax";
 import { useProductSortState } from "@/store/useProductSortState";
+import { useProductGenreState } from "@/store/useProductGenre";
 
 // Define the possible sort ids
 type SortId = 'priceDesc' | 'priceAsc'; // Add other sortIds as needed
@@ -27,6 +28,7 @@ const StoreProductGridComponent = ({data}: {
   const { setAllGamesLength, searchTerm } = useProductLengthState();
   const sortId = useProductSortState((state) => state.sortId)
   const values = useProductMinMaxState((state) => state.values);
+  const genreIds = useProductGenreState((state) => state.genreIds);
 
   useEffect(() => {
     setIsLoading(true);
@@ -37,17 +39,26 @@ const StoreProductGridComponent = ({data}: {
         )
       : data;
 
+    // Price filter
     filteredGames = filteredGames.filter((game) => {
       let currentPrice = parseFloat(game.price.current);
       return currentPrice >= values[0] && currentPrice <= values[1];
     });
 
+    // Genre filtering logic
+    if (genreIds && genreIds.length > 0) {
+      filteredGames = filteredGames.filter(game =>
+        game.genres?.some && game.genres.some(genre => genreIds.includes(genre.description))
+      );
+    }
+
     // Sorting logic
     if (sortFunctions.hasOwnProperty(sortId)) {
       const currentSortFunction = sortFunctions[sortId as SortId];
-      filteredGames.sort(currentSortFunction);  // <--- Sorting using the function!
+      filteredGames.sort(currentSortFunction);  
     } else {
       // handle the case where sortId is not a valid key
+      // (This section might be redundant as there is a similar condition above. Consider merging them.)
     }
 
     setTimeout(() => {
@@ -56,7 +67,8 @@ const StoreProductGridComponent = ({data}: {
       setIsLoading(false);
     }, 2000);
 
-  }, [searchTerm, values, data, setAllGamesLength, sortId]);
+}, [searchTerm, values, data, setAllGamesLength, sortId, genreIds]);
+
 
   return (
     <div

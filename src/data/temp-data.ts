@@ -45,6 +45,10 @@ export type Game = {
     current: string,
     before: string | null
   }
+  genres: Array<{
+    id: string;
+    description: string;
+  }>;
 }
 
 export function currencyData(data: any) {
@@ -160,5 +164,28 @@ const generateUpdatedDataProductTiles = (): Game[] => {
       return { ...defaultProduct, ...game };
   });
 };
+
+type Genre = {
+  id: string;
+  description: string;
+};
+
+export function getAllGenres(): Genre[] {
+  // Use a Map instead of a Set to store both the ID and the associated genre object
+  const uniqueGenresMap = new Map<string, Genre>();
+
+  gameData.flatMap(game => game.genres || []).forEach(genre => {
+    // If the genre's ID isn't in the map, add it
+    if (!uniqueGenresMap.has(genre.id)) {
+        uniqueGenresMap.set(genre.id, genre);
+    }
+});
+
+  // Convert the map values (unique genres) back to an array
+  const allGenres = Array.from(uniqueGenresMap.values());
+  return allGenres;
+}
+
+
 
 export const getData = generateUpdatedDataProductTiles();
