@@ -10,53 +10,32 @@ import { useProductMinMaxState } from "@/store/useProductMinMax";
 const StoreProductGridComponent = ({data}: {
   data: Game[]
 }) => {
-  //console.log('render StoreProductGrid')
-  const [nextGames, setNextGames] = useState(data); 
+  const [allGames, setAllGames] = useState(data);
   const [isLoading, setIsLoading] = useState(false);
-  const [fullData] = useState(data);
-  const [allGames, setAllGames] = useState(data); // modified to show only 5 items
-  const {setSearchTerm, setAllGamesLength, searchTerm} = useProductLengthState();
-
-  // getMinMax too
-  const values = useProductMinMaxState(state => state.values)
-
+  const { setSearchTerm, setAllGamesLength, searchTerm } = useProductLengthState();
+  const values = useProductMinMaxState((state) => state.values);
 
   useEffect(() => {
-    console.log('run effect')
     setIsLoading(true);
-  
-    const newGames = searchTerm
-      ? fullData.filter((game) =>
+
+    let filteredGames = searchTerm
+      ? data.filter((game) =>
           game.title.toLowerCase().includes(searchTerm.toLowerCase())
         )
-      : fullData;
+      : data;
 
-    setNextGames(newGames);
-
-    setTimeout(() => {
-      setAllGames(nextGames);
-      setAllGamesLength(nextGames.length);
-      setIsLoading(false);
-    }, 2000); 
-  }, [searchTerm]);
-
-  useEffect(() => {
-    setIsLoading(true);
-
-    const newGames = fullData.filter(game => {
+    filteredGames = filteredGames.filter((game) => {
       let currentPrice = parseFloat(game.price.current);
       return currentPrice >= values[0] && currentPrice <= values[1];
     });
 
-    setNextGames(newGames);
-
     setTimeout(() => {
-      setAllGames(nextGames);
+      setAllGames(filteredGames);
+      setAllGamesLength(filteredGames.length);
       setIsLoading(false);
     }, 2000);
-  }, [values]);
 
-  console.log('allGames', allGames)
+  }, [searchTerm, values, data, setAllGamesLength]);
 
   return (
     <div
@@ -68,7 +47,7 @@ const StoreProductGridComponent = ({data}: {
         className={`paginated-products-grid grid ${isLoading ? "is-loading" : ""}`}
         selenium-id="paginatedProductsGrid"
       >
-         {allGames.map((item) => (
+         {allGames.slice(0,5).map((item) => (
           <ProductTile key={item.title} {...item} />
         ))} 
       </div> 
