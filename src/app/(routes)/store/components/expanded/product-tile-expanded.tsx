@@ -8,10 +8,24 @@ import { ProductItemPrice } from "./partials/item-price";
 import { ProductItemRating } from "./partials/item-rating";
 import { ProductTitle } from "./partials/item-title";
 import { ProductExpandedSlider } from "./product-expanded-slider";
+import { useProductExpandPosState } from "@/store/useProductExpandPosState";
+import { useEffect, useState } from "react";
+
+import './somecss.css';
 
 export const ProductTileExpanded = () => {
+  const { expandedPosition } = useProductExpandPosState();
   const productExpanded = useProductExpandState();
-  if (!productExpanded.isOpen) return <div></div>;
+  const [isFadingOut, setIsFadingOut] = useState(false);
+  const [visible, setVisible] = useState(productExpanded.isOpen);
+
+useEffect(() => {
+  setVisible(productExpanded.isOpen);
+}, [productExpanded.isOpen]);
+
+
+  if (!productExpanded.isOpen) return <div></div>;  
+
   const id = productExpanded.idOpen;
   const product = updatedDataProductTiles.find((product) => product.id === id);
 
@@ -22,19 +36,23 @@ export const ProductTileExpanded = () => {
     expanded: { os, language, rating, tags, features },
   } = product!;
 
-  return null;
-
   return (
     <div>
       <div
         _nghost-gogcom-store-c47=""
-        className="ng-tns-c47-15 ng-trigger ng-trigger-mount ng-star-inserted ng-animating"
+        className={`ng-tns-c47-15 ng-trigger ng-trigger-mount ng-star-inserted ng-animating fade-transition  ${visible ? 'visible' : ''}`}
         selenium-id="productTileExtended"
         style={{
           width: 432,
           minHeight: "391.885px",
-          top: "129.206px",
-          left: "590.164px",
+          top: expandedPosition.top - 140,
+          left: expandedPosition.left - 100,
+        }}
+        onMouseLeave={() => {
+          setVisible(false);
+          setTimeout(() => {
+            productExpanded.onClose(id!.toString());
+          }, 500);
         }}
       >
         <a

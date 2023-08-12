@@ -1654,6 +1654,29 @@ body.dark-theme {
   --c-button-secondary-disabled-content: rgba(255, 255, 255, 0.85);
 }
 
+/* new style */
+body.light-theme {
+  --c-background: #0c1b2c;
+  --c-text-primary: #f9e3cd;
+  --c-text-secondary: #f9e3cd;
+  --c-text-tertiary: #f9e3cd;
+  --c-accent: #60F1FF;
+  --c-accent-contrast: #0c1b2c;
+  --c-accent-supportive: #1D3853;
+  --c-button-accent-content: #4DB3AF;
+  --gradient-button-accent-body: #60F1FF;
+  --gradient-button-accent-border: #c2fffd;
+  --c-button-accent-pressed-body: #60F1FF;
+  --c-button-accent-pressed-border: #1D3853;
+  --c-button-primary-content: #4DB3AF;
+  --c-checkbox-tick-checked: #4DB3AF;
+  --c-ui-hover: #276866;
+  --c-ui-primary: #1D3853;
+  --c-ui-primary--active-lighten: #64afad;
+  --c-ui-primary--hover-lighten: #1D3853;
+  --c-ui-tertiary: #276866;
+}
+
 @keyframes moveRight {
   50% {
     transform: translate(10px);
