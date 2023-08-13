@@ -107,8 +107,8 @@ export const FilterBodyCategories = () => {
             className="ng-star-inserted"
             style={{}}
           >
-            {updatedDataFilterGenres.map(item => (
-              <FilterCategoriesItem key={item.title} {...item} onClick={onClickItem} onClickExclude={onClickExcludeItem} onChecked={cateIds.includes(item.title)} />
+            {updatedDataFilterGenres.map((item, index) => (
+              <FilterCategoriesItem key={index} {...item} onClick={onClickItem} onClickExclude={onClickExcludeItem} onChecked={cateIds.includes(item.title)} />
             ))}
             {/**/}
           </div>

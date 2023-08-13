@@ -48,18 +48,18 @@ useEffect(() => {
           top: expandedPosition.top - 140,
           left: expandedPosition.left - 100,
         }}
-        onMouseLeave={() => {
+        /* onMouseLeave={() => {
           setVisible(false);
           setTimeout(() => {
             productExpanded.onClose(id!.toString());
           }, 500);
-        }}
+        }} */
       >
         <a
           _ngcontent-gogcom-store-c47=""
           //customcolors=""
           className="ng-tns-c47-15"
-          href={href}
+          //href={href}
         >
           <ProductExpandedSlider />
           <div
