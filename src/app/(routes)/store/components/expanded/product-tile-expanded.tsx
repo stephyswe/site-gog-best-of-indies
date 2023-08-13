@@ -63,7 +63,7 @@ export const ProductTileExpanded = () => {
           _ngcontent-gogcom-store-c47=""
           //customcolors=""
           className="ng-tns-c47-15"
-        //href={href}
+          href={href}
         >
           <ProductExpandedSlider data={screenshots} />
           <div

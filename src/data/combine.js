@@ -46,12 +46,17 @@ const processFile = async (file) => {
           screenshots: jsonData.screenshots,
           short_description: jsonData.short_description,
           platforms: jsonData.platforms,
+          href: `https://store.steampowered.com/app/${jsonData.steam_appid}/${handleName(jsonData.name)}/`
         });
       }
     } catch (err) {
       console.error('Error reading or processing file:', err);
     }
   }
+};
+
+const handleName = (name) => {
+  return name.replace(/ /g, "_");
 };
 
 const main = async () => {
