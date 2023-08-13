@@ -1,4 +1,4 @@
-import { getData, updatedDataProductTiles } from "@/data/temp-data";
+import { getData } from "@/data/temp-data";
 import useProductExpandState from "@/store/useProductExpandState";
 
 import { ProductItemFeatures } from "./partials/item-features";
@@ -16,7 +16,6 @@ import './somecss.css';
 export const ProductTileExpanded = () => {
   const { expandedPosition } = useProductExpandPosState();
   const productExpanded = useProductExpandState();
-  const [isFadingOut, setIsFadingOut] = useState(false);
   const [visible, setVisible] = useState(productExpanded.isOpen);
 
   useEffect(() => {
@@ -31,6 +30,7 @@ export const ProductTileExpanded = () => {
 
   const {
     screenshots,
+    short_description,
     title,
     href,
     price,
@@ -84,6 +84,9 @@ export const ProductTileExpanded = () => {
                     <ProductItemLanguage language={language} />
                   </div>
                   <ProductItemRating rating={rating} />
+                </div>
+                <div _ngcontent-gogcom-store-c47="" className="ng-tns-c47-1" _nghost-gogcom-store-c42="">
+                  {short_description}
                 </div>
                 <div
                   _ngcontent-gogcom-store-c47=""

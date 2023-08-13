@@ -64,7 +64,8 @@ export type Game = {
       controller: string[];
     }
   },
-  screenshots: any;
+  screenshots: any,
+  short_description: string,
 }
 
 type GameData = {
@@ -89,6 +90,7 @@ type GameData = {
     path_thumbnail: string;
     path_full: string;
   }[];
+  short_description: string;
 }[];
 
 export function currencyData(data: any) {

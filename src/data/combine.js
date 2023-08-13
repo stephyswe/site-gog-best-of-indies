@@ -43,7 +43,8 @@ const processFile = async (file) => {
           price: price,
           genres: jsonData.genres,
           categories: jsonData.categories,
-          screenshots: jsonData.screenshots
+          screenshots: jsonData.screenshots,
+          short_description: jsonData.short_description,
         });
       }
     } catch (err) {
