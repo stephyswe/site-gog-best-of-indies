@@ -12,6 +12,15 @@ import './swiper.css';
 // import required modules
 import { Pagination, Navigation } from 'swiper/modules';
 
+const dataSlideItemsNew = [
+  {
+    path_thumbnail: "https://images.gog-statics.com/79e3c5992b28ebc88c7979bfea2d18504f239c5da022f9549ac5dc0ea12dadfd_product_tile_extended_432x243.jpg, https://images.gog-statics.com/79e3c5992b28ebc88c7979bfea2d18504f239c5da022f9549ac5dc0ea12dadfd_product_tile_extended_432x243_2x.jpg 2x",
+  },
+  {
+    path_thumbnail: "https://images.gog-statics.com/79e3c5992b28ebc88c7979bfea2d18504f239c5da022f9549ac5dc0ea12dadfd_product_tile_extended_432x243.jpg, https://images.gog-statics.com/79e3c5992b28ebc88c7979bfea2d18504f239c5da022f9549ac5dc0ea12dadfd_product_tile_extended_432x243_2x.jpg 2x",
+  },
+]
+
 const dataSlideItems = [
   {
     image: {
@@ -67,7 +76,7 @@ const dataSlideItems = [
   }
 ]
 
-export const SlideItemSource = ({ data, blur, selId }: any) => (
+export const SlideItemSource = ({ data }: any) => (
   <div
     _ngcontent-gogcom-store-c31=""
     className="picture-slider__image-placeholder ng-star-inserted"
@@ -75,21 +84,15 @@ export const SlideItemSource = ({ data, blur, selId }: any) => (
   >
     <picture
       _ngcontent-gogcom-store-c30=""
-      className={`${blur ? "picture-slider--blur" : "picture-slider"}`}
+      className="picture-slider"
     >
-      {data.srcSet.map((item: any) => {
-        return (
-          <source
-            key={item.srcSet}
-            _ngcontent-gogcom-store-c30=""
-            srcSet={item.srcSet}
-            type={item.type}
-            className="ng-star-inserted" />
-        );
-      })}
-      {/**/}
+      <source
+        _ngcontent-gogcom-store-c30=""
+        srcSet={data.path_thumbnail}
+        type="image/jpeg"
+        className="ng-star-inserted" />
       <img
-        selenium-id={selId ? "" : null}
+        /*  selenium-id={selId ? "" : null} */
         _ngcontent-gogcom-store-c30=""
         className="ng-star-inserted" />
       {/**/}
@@ -98,7 +101,8 @@ export const SlideItemSource = ({ data, blur, selId }: any) => (
 );
 
 
-const SlideItem = ({ image }: any) => (
+
+const SlideItem = ({ data }: any) => (
   <div
     data-swiper-slide-index={0}
     className="swiper-slide swiper-slide-active ng-star-inserted"
@@ -111,8 +115,8 @@ const SlideItem = ({ image }: any) => (
       _ngcontent-gogcom-store-c31=""
       className="picture-slider__image-wrapper ng-star-inserted"
     >
-      <SlideItemSource data={image.one} blur />
-      <SlideItemSource data={image.two} selId="SliderItem" />
+      {/* <SlideItemSource data={image.one} blur /> */}
+      <SlideItemSource data={data} selId="SliderItem" />
       {/**/}
     </div>
     {/**/}
@@ -173,10 +177,10 @@ const Container: React.FC<ContainerProps> = ({ children }) => {
 }
 
 // Using the Container component inside ProductExpandedSlider
-export const ProductExpandedSlider = () => {
+export const ProductExpandedSlider = ({ data }: any) => {
   return (
     <Container>
-      <SwiperDemo />
+      <SwiperDemo data={data} />
     </Container>
   );
 };
@@ -235,7 +239,7 @@ const SliderComponent = () => (
   </>
 )
 
-export const SwiperDemo = () => {
+export const SwiperDemo = ({ data }: any) => {
   return (
     <>
       <Swiper
@@ -249,9 +253,9 @@ export const SwiperDemo = () => {
         modules={[Navigation]}
         className="swiper-component-0d6866b3-3cdb-4b4e-8fc1-461c633d7bed swiper-pagination-padding"
       >
-        {dataSlideItems.map((item, index) => (
+        {data.map((item: any, index: number) => (
           <SwiperSlide key={index}>
-            <SlideItemSource data={item.image.two} />
+            <SlideItemSource data={item} />
           </SwiperSlide>
         ))}
       </Swiper>

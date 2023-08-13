@@ -42,7 +42,8 @@ const processFile = async (file) => {
           thumbnail: jsonData.header_image,
           price: price,
           genres: jsonData.genres,
-          categories: jsonData.categories
+          categories: jsonData.categories,
+          screenshots: jsonData.screenshots
         });
       }
     } catch (err) {

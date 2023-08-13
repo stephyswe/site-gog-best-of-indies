@@ -53,7 +53,43 @@ export type Game = {
     id: string;
     description: string;
   }>;
+  href: string
+  expanded: {
+    os: string,
+    language: string,
+    rating: string,
+    tags: [],
+    features: {
+      player: string[];
+      controller: string[];
+    }
+  },
+  screenshots: any;
 }
+
+type GameData = {
+  title: string;
+  id: number;
+  thumbnail: string;
+  price: {
+    currency: string;
+    current: string;
+    before: string | null;
+  };
+  genres: {
+    id: string;
+    description: string;
+  }[];
+  categories: {
+    id: number;
+    description: string;
+  }[];
+  screenshots: {
+    id: number;
+    path_thumbnail: string;
+    path_full: string;
+  }[];
+}[];
 
 export function currencyData(data: any) {
   const { current, currency } = data;
@@ -159,13 +195,13 @@ const generateUpdatedDataProductTiles = (): Game[] => {
   const newData = newPrices();
 
   return newData.map((game: Game) => {
-      // Since dataProductTiles is a single item array,
-      // you can access the first item directly.
-      const defaultProduct = dataProductTiles[0];
+    // Since dataProductTiles is a single item array,
+    // you can access the first item directly.
+    const defaultProduct = dataProductTiles[0];
 
-      gamesAdded++; // Increase the count for each game added
+    gamesAdded++; // Increase the count for each game added
 
-      return { ...defaultProduct, ...game };
+    return { ...defaultProduct, ...game };
   });
 };
 
@@ -181,9 +217,9 @@ export function getAllGenres(): Genre[] {
   gameData.flatMap(game => game.genres || []).forEach(genre => {
     // If the genre's ID isn't in the map, add it
     if (!uniqueGenresMap.has(genre.id)) {
-        uniqueGenresMap.set(genre.id, genre);
+      uniqueGenresMap.set(genre.id, genre);
     }
-});
+  });
 
   // Convert the map values (unique genres) back to an array
   const allGenres = Array.from(uniqueGenresMap.values());
@@ -202,7 +238,7 @@ export function getAllCategories(): Category[] {
   gameData.flatMap(game => game.categories || []).forEach(category => {
     // If the category's ID isn't in the map, add it
     if (!uniqueCategoriesMap.has(category.id)) {
-        uniqueCategoriesMap.set(category.id, category);
+      uniqueCategoriesMap.set(category.id, category);
     }
   });
 

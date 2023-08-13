@@ -1,4 +1,4 @@
-import { updatedDataProductTiles } from "@/data/temp-data";
+import { getData, updatedDataProductTiles } from "@/data/temp-data";
 import useProductExpandState from "@/store/useProductExpandState";
 
 import { ProductItemFeatures } from "./partials/item-features";
@@ -19,22 +19,24 @@ export const ProductTileExpanded = () => {
   const [isFadingOut, setIsFadingOut] = useState(false);
   const [visible, setVisible] = useState(productExpanded.isOpen);
 
-useEffect(() => {
-  setVisible(productExpanded.isOpen);
-}, [productExpanded.isOpen]);
+  useEffect(() => {
+    setVisible(productExpanded.isOpen);
+  }, [productExpanded.isOpen]);
 
 
-  if (!productExpanded.isOpen) return <div></div>;  
+  if (!productExpanded.isOpen) return <div></div>;
 
   const id = productExpanded.idOpen;
-  const product = updatedDataProductTiles.find((product) => product.id === id);
+  const product = getData.find((product) => product.id === id);
 
   const {
+    screenshots,
     title,
     href,
     price,
     expanded: { os, language, rating, tags, features },
   } = product!;
+
 
   return (
     <div>
@@ -48,20 +50,20 @@ useEffect(() => {
           top: expandedPosition.top - 140,
           left: expandedPosition.left - 100,
         }}
-        /* onMouseLeave={() => {
+        onMouseLeave={() => {
           setVisible(false);
           setTimeout(() => {
             productExpanded.onClose(id!.toString());
           }, 500);
-        }} */
+        }}
       >
         <a
           _ngcontent-gogcom-store-c47=""
           //customcolors=""
           className="ng-tns-c47-15"
-          //href={href}
+        //href={href}
         >
-          <ProductExpandedSlider />
+          <ProductExpandedSlider data={screenshots} />
           <div
             _ngcontent-gogcom-store-c47=""
             className="product-tile-extended__content-wrapper ng-tns-c47-15"
