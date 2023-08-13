@@ -31,7 +31,7 @@ export default function RootLayout({
         <StoreSvg />
         <Navbar />
         {children}
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </>
   );
