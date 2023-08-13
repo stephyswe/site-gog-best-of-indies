@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import { GameOverhead, GameSvg } from "@/app/layout-svg";
 import { Footer } from "@/ui/footer/Footer";
-import { Navbar } from "@/ui/navbar/Navbar";
+import { Navbar } from "@/ui/navbar/";
 
 // default css
 import "../../../assets/css";
