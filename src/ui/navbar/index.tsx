@@ -24,9 +24,9 @@ export const Navbar = () => {
         )}
       >
         <div className="menu__container">
-          <Logo />
+          {/* <Logo />
           <MenuMain />
-          <MenuTray />
+          <MenuTray /> */}
         </div>
         <MenuFonts />
       </nav>
