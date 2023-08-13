@@ -10,7 +10,7 @@ import { SubMenuItemBrowse } from "../sections/menu-browse";
 import { MenuList } from "./sub-list";
 import { SubMenuItem } from "./sub-list/sub-menu-item";
 
-export const NavItem: React.FC<DataAllItem> = ({ title, items, subItems }) => {
+export const NavItem: React.FC<any> = ({ title, items, subItems }) => {
   const store = useMenuState();
   const isActive = store.idOpen === title;
 
