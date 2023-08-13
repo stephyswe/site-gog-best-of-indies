@@ -1,4 +1,14 @@
-const dataMenu = [
+export type DataMenuItem = {
+  title: string;
+  color?: string;
+  isFeatured?: boolean;
+  type?: string;
+};
+
+export type DataMenu = DataMenuItem[];
+
+
+const dataMenu: DataMenu = [
   {
     title: "Good Old Games",
     color: "rgb(0, 123, 88)",
@@ -30,7 +40,12 @@ const dataMenu = [
   },
 ];
 
-const dataAboutItems = [
+export type DataAboutItems = {
+  title: string;
+  type: string;
+}
+
+const dataAboutItems: DataAboutItems[] = [
   {
     title: "GOG.com",
     type: "submenu",
@@ -49,7 +64,9 @@ const dataAboutItems = [
   },
 ];
 
-const dataSubMenu = [
+type DataSubMenu = string[]
+
+const dataSubMenu: DataSubMenu = [
   "RPG",
   "Action",
   "Adventure",
@@ -61,7 +78,18 @@ const dataSubMenu = [
   "Citybuilders",
 ];
 
-export const dataAll = [
+export type DataAllItem = {
+  title: string;
+  items: DataMenu;
+  subItems: DataSubMenu;
+} | {
+  title: string;
+  items: DataAboutItems[];
+};
+
+type DataAllArray = DataAllItem[];
+
+export const dataAll: DataAllArray = [
   {
     title: "Store",
     items: dataMenu,
