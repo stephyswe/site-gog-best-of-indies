@@ -66,6 +66,7 @@ export type Game = {
   },
   screenshots: any,
   short_description: string,
+  platforms: any,
 }
 
 type GameData = {

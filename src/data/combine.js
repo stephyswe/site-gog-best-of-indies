@@ -45,6 +45,7 @@ const processFile = async (file) => {
           categories: jsonData.categories,
           screenshots: jsonData.screenshots,
           short_description: jsonData.short_description,
+          platforms: jsonData.platforms,
         });
       }
     } catch (err) {

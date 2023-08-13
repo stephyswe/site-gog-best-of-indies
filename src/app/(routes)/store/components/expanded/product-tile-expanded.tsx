@@ -31,11 +31,13 @@ export const ProductTileExpanded = () => {
   const {
     screenshots,
     short_description,
+    platforms,
     title,
     href,
     price,
     expanded: { os, language, rating, tags, features },
   } = product!;
+
 
 
   return (
@@ -80,7 +82,7 @@ export const ProductTileExpanded = () => {
                     _ngcontent-gogcom-store-c47=""
                     className="product-tile-extended__row-segment ng-tns-c47-15"
                   >
-                    <ProductItemOS os={os} />
+                    <ProductItemOS os={os} platforms={platforms} />
                     <ProductItemLanguage language={language} />
                   </div>
                   <ProductItemRating rating={rating} />
