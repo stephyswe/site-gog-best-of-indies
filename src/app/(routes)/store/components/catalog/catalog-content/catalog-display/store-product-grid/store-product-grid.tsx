@@ -95,7 +95,7 @@ const StoreProductGridComponent = ({data}: {
         className={`paginated-products-grid grid ${isLoading ? "is-loading" : ""}`}
         selenium-id="paginatedProductsGrid"
       >
-         {allGames.slice(0,5).map((item) => (
+         {allGames.map((item) => (
           <ProductTile key={item.title} {...item} />
         ))} 
       </div> 
