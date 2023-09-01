@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import Rcslider from 'rc-slider';
 import 'rc-slider/assets/index.css';
+import qs from "query-string";
+import { useRouter } from "next/navigation";
 
 import { getMinMaxPrices } from "@/data/temp-data";
 import { useProductMinMaxState } from "@/store/useProductMinMax";
@@ -15,6 +17,7 @@ const intoNumber = (localValues: any) => localValues.map((value: any) => parseFl
 const intoString = (numbers: number[]) => numbers.map(value => value.toFixed(2));
 
 export const PriceBodyData = () => {
+  const router = useRouter();
   const { setMinMax, minMax, values, setValues } = useProductMinMaxState();
   const defaultValues = minMax ? [minMax.min, minMax.max] : [0, 0];
   const [sliderValue, setSliderValue] = useState<number[]>(defaultValues);
@@ -35,14 +38,34 @@ export const PriceBodyData = () => {
     const processedValues = Array.isArray(values) ? values : [values];
     const adjustedValues = processedValues.map(adjustToCustomStep);
 
+
+
     setSliderValue(adjustedValues);
     const stringValues = intoString(adjustedValues)
     setLocalValues(stringValues as [string, string]);
 };
 
+const addToQueryString = (values: string[]) => {
+  const query = {priceRange: `${values[0]},${values[1]}`}
+  let url = qs.stringifyUrl(
+    {
+      url: decodeUrl(window.location.href),
+      query,
+    },
+    { skipNull: true },
+  );
+
+  url = encodeUrl(url);
+  router.push(url);
+  router.refresh()
+}
+
   const handleValuesChange = (values: any) => {
     const adjustedValues = values.map(adjustToCustomStep);
-    setValues(adjustedValues);
+    //setValues(adjustedValues);
+    console.log('adj', adjustedValues)
+    //TODO: add to query-string
+    addToQueryString(adjustedValues)
   }
 
   useEffect(() => {
@@ -101,6 +124,15 @@ export const PriceBodyData = () => {
     </>
   );
 };
+
+
+export function encodeUrl(url: string): string {
+  return url.replace("%2C", ',');
+}
+
+export function decodeUrl(url: string): string {
+  return url.replace(",", '%2C');
+}
 
 const FilterBodyPriceRangeSliders = ({ values, localValues, onKeyDown, onChange }: any) => {
   return (

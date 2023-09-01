@@ -3,6 +3,7 @@ import { useProductCategoriesState } from "@/store/useProductCategories";
 import { useProductGenreState } from "@/store/useProductGenre";
 import { useProductLengthState } from "@/store/useProductLengthState";
 import { useProductMinMaxState } from "@/store/useProductMinMax";
+import { useSearchParams } from "next/navigation";
 
 const arraysEqual = (a: any, b: any) => {
   if (a === b) return true;
@@ -21,10 +22,17 @@ export const CatalogFilterList = () => {
   const {genreIds, setGenreIds} = useProductGenreState();
   const {setSearchTerm, searchTerm} = useProductLengthState();
   const {values, setValues, minMax} = useProductMinMaxState();
-  const stringFromValues = `EUR ${values[0].toFixed(2)} - ${values[1].toFixed(2)}`
+
+  const searchParams = useSearchParams();
+  const paramsPriceRange = searchParams.get('priceRange');
+  // slice paramsPriceRange by ","
+  const priceValues = paramsPriceRange?.split(",").map(Number);
+
+  // price range text
+  const stringFromValues = priceValues && `EUR ${priceValues[0].toFixed(2)} - ${priceValues[1].toFixed(2)}`
 
   const searchTermHasValue = searchTerm !== "";
-  const priceHasValue = !arraysEqual(values, [0, minMax?.max])
+  const priceHasValue = !arraysEqual(priceValues, [0, minMax?.max])
   const checkBothValue = searchTermHasValue && priceHasValue;
 
   const hasMargin = searchTermHasValue || priceHasValue || genreIds.length > 0 || cateIds.length > 0

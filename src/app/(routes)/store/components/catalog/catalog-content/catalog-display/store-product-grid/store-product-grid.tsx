@@ -7,6 +7,7 @@ import { useProductMinMaxState } from "@/store/useProductMinMax";
 import { useProductSortState } from "@/store/useProductSortState";
 import { useProductGenreState } from "@/store/useProductGenre";
 import { useProductCategoriesState } from "@/store/useProductCategories";
+import { useSearchParams } from "next/navigation";
 
 // Define the possible sort ids
 type SortId = 'priceDesc' | 'priceAsc'; // Add other sortIds as needed
@@ -32,7 +33,11 @@ const StoreProductGridComponent = ({data}: {
   const genreIds = useProductGenreState((state) => state.genreIds);
   const cateIds = useProductCategoriesState((state) => state.cateIds)
 
-
+  //TODO: change values to searchParams
+  const searchParams = useSearchParams();
+  const paramsPriceRange = searchParams.get('priceRange');
+  // slice paramsPriceRange by ","
+  const priceValues = paramsPriceRange?.split(",").map(Number);
 
   useEffect(() => {
     setIsLoading(true);
@@ -44,10 +49,12 @@ const StoreProductGridComponent = ({data}: {
       : data;
 
     // Price filter
-    filteredGames = filteredGames.filter((game) => {
-      let currentPrice = parseFloat(game.price.current);
-      return currentPrice >= values[0] && currentPrice <= values[1];
-    });
+    if (priceValues) {
+      filteredGames = filteredGames.filter((game) => {
+        let currentPrice = parseFloat(game.price.current);
+        return currentPrice >= priceValues[0] && currentPrice <= priceValues[1];
+      });
+    }
 
     // Genre filtering logic
     if (genreIds && genreIds.length > 0) {
@@ -76,13 +83,15 @@ const StoreProductGridComponent = ({data}: {
       // (This section might be redundant as there is a similar condition above. Consider merging them.)
     }
 
+    console.log('run')
+
     setTimeout(() => {
       setAllGames(filteredGames);
       setAllGamesLength(filteredGames.length);
       setIsLoading(false);
     }, 2000);
 
-}, [searchTerm, values, data, setAllGamesLength, sortId, genreIds, cateIds]);
+}, [searchTerm, paramsPriceRange, data, setAllGamesLength, sortId, genreIds, cateIds]);
 
 
   return (
